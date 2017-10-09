@@ -1,0 +1,54 @@
+{
+  "candies": [
+    {
+      "name": "jquery",
+      "version": "1.10.0-20170726",
+      "lastUpdateTimestamp": 1501669704000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "2.0.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/jquery/1.10.0-20170726",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "socket.io",
+      "version": "1.4.5-20170726",
+      "lastUpdateTimestamp": 1506526686000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "2.0.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/socket.io/1.4.5-20170726",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "node",
+      "version": "7.5.0-20170726",
+      "lastUpdateTimestamp": 1501572704000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "2.0.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/node/7.5.0-20170726",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "fabricjs",
+      "version": "1.5.0-1.1.0-20160525",
+      "lastUpdateTimestamp": 1464179426000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.1.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/fabricjs/1.5.0-1.1.0-20160525",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "jsweet-core",
+      "version": "1.1.0-20160525",
+      "lastUpdateTimestamp": 1464171636000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.1.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/jsweet-core/1.1.0-20160525",
+      "jsFilesPaths": []
+    }
+  ]
+}
