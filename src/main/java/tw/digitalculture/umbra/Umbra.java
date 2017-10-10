@@ -2,9 +2,10 @@ package tw.digitalculture.umbra;
 
 import static def.dom.Globals.document;
 import static def.jquery.Globals.$;
+import static def.socket_io_client.Globals.io;
 import def.js.JSON;
-
-import def.socket_io.socketio.*;
+import def.socket_io_client.socketioclient.Socket;
+import jsweet.lang.Function;
 
 import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.config.Config.UMBRA;
@@ -15,7 +16,7 @@ import tw.digitalculture.config.Config.UMBRA;
  */
 public final class Umbra {
 
-    private Socket socket;
+    private Socket socket = io("?role=umbra");
 
     public Umbra() {
         setup();
@@ -27,9 +28,6 @@ public final class Umbra {
     }
 
     public void socket() {
-//        Socket socket = Socket.Conn();
-//        JSON.parse("{role:'umbra'}")
-//        );
 
         $("#search").keyup((event) -> {
             if (event.keyCode == 13) {
@@ -49,18 +47,26 @@ public final class Umbra {
                 $("#query").attr("disabled", "true");
                 $("#search").attr("disabled", "true");
                 $("#message").text("處理中...");
-//                socket.emit("query", JSON.parse("{client: socket.id, text: text}"
+                socket.emit("query",
+                        JSON.parse("{\"client\":\"" + socket.id + "\","
+                                + "\"text\":\"" + text + "\"}"));
             }
             return null;
         });
-        //    socket.on('message', function (data) {
-        //        if (data.user === socket.id) {
-        //            $('#query').attr('disabled', false);
-        //            $("#search").attr('disabled', false);
-        //            $('#message').text(data.message);
-        //            $("#search").val(null);
-        //        }
-        //    });
+
+        Function updateUIf = new Function("user", "message") {
+            public Object call(String user, String message) {
+                if (socket.id.equals(user)) {
+                    $("#query").attr("disabled", "false");
+                    $("#search").attr("disabled", "false");
+                    $("#message").text(message);
+                    $("#search").val("");
+                }
+                return super.call(user, message);
+            }
+        };
+        socket.on("message", updateUIf);
+
     }
 
     public void setup() {

@@ -1,0 +1,88 @@
+{
+  "candies": [
+    {
+      "name": "jquery",
+      "version": "1.10.0-20170726",
+      "lastUpdateTimestamp": 1501669704000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "2.0.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/jquery/1.10.0-20170726",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "jsweet-core",
+      "version": "6-SNAPSHOT",
+      "lastUpdateTimestamp": 1496040138000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "2.0.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/jsweet-core/6-SNAPSHOT",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "socket.io-client",
+      "version": "1.4.4-SNAPSHOT",
+      "lastUpdateTimestamp": 1467310778000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.2.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT",
+      "jsFilesPaths": [
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/support/browserify.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/lib/manager.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/lib/on.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/lib/url.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/lib/index.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/lib/socket.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/test/url.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/test/support/env.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/test/support/server.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/test/index.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/test/socket.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/test/connection.js",
+        "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/socket.io.js"
+      ]
+    },
+    {
+      "name": "jsweet-core",
+      "version": "1.2.0-SNAPSHOT",
+      "lastUpdateTimestamp": 1481998544000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.2.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/jsweet-core/1.2.0-SNAPSHOT",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "fabricjs",
+      "version": "1.5.0-SNAPSHOT",
+      "lastUpdateTimestamp": 1467314794000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.2.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/fabricjs/1.5.0-SNAPSHOT",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "socket.io",
+      "version": "1.4.4-SNAPSHOT",
+      "lastUpdateTimestamp": 1465759158000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.2.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/socket.io/1.4.4-SNAPSHOT",
+      "jsFilesPaths": []
+    },
+    {
+      "name": "node",
+      "version": "6.0.0-SNAPSHOT",
+      "lastUpdateTimestamp": 1465747492000,
+      "modelVersion": "unknown",
+      "transpilerVersion": "1.2.0",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsDirPath": "META-INF/resources/webjars/node/6.0.0-SNAPSHOT",
+      "jsFilesPaths": []
+    }
+  ]
+}

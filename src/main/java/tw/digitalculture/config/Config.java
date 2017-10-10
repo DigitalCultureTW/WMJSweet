@@ -9,7 +9,7 @@ public class Config {
         public static String SUBTITLE = "共築臺中印象的角落";
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
-        public static String LOGO_PATH = "element/logo_2.png";
+        public static String LOGO_PATH = "/element/logo_2.png";
         public static String VERSION = "0.53a-beta";
     }
 
@@ -52,7 +52,12 @@ public class Config {
             return (row > 2) ? 1 : ((row == 1) ? 0.70 : 0.95);
         }
 
-        public static class Record_Display {
+        public class Record_Display {
+
+            public String query_str;
+            public String img_path;
+            public String content;
+            public boolean used;
 
             public Record_Display(String str, String img, String txt) {
                 query_str = str;
@@ -60,10 +65,6 @@ public class Config {
                 content = txt;
                 used = false;
             }
-            public static String query_str;
-            public static String img_path;
-            public static String content;
-            public static boolean used;
         }
     }
 }

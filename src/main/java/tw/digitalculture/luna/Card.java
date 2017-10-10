@@ -1,12 +1,11 @@
 package tw.digitalculture.luna;
 
-import static def.dom.Globals.document;
-import static def.dom.Globals.window;
-import static def.jquery.Globals.$;
 import def.dom.HTMLElement;
-import def.dom.Image;
-import def.fabricjs.fabric.IImage;
-import def.fabricjs.fabric.IImageOptions;
+import static def.dom.Globals.document;
+import def.dom.HTMLImageElement;
+import static def.jquery.Globals.$;
+import static def.node.Globals.setTimeout;
+
 import java.util.function.Consumer;
 import tw.digitalculture.config.Config;
 import tw.digitalculture.config.Config.LUNA;
@@ -16,8 +15,8 @@ import static tw.digitalculture.luna.Luna.SIDE;
 public class Card {
 
     public String id;
-    public HTMLElement front_face;
-    public String back_img;
+    private HTMLElement front_face;
+    private HTMLImageElement front_img;
     public Boolean locked;
     public Boolean is_logo;
     public HTMLElement card;
@@ -33,47 +32,43 @@ public class Card {
                 .css("border", Config.LUNA.CARD.BORDER_WIDTH + "px "
                         + Config.LUNA.CARD.BORDER_STYLE
                         + " " + Config.LUNA.CARD.BORDER_COLOR[0]);
-//        create_face(PROJECT.LOGO_PATH, this::set_front_face);
+        create_face(PROJECT.LOGO_PATH, (face) -> {
+            this.front_face = face;
+            $(face).addClass("face flip in front");
+            $(card).append(face);
+        });
     }
 
-    private void set_front_face(HTMLElement face) {
-        this.front_face = face;
-
+    private void create_face(String path, Consumer<HTMLElement> callback) {
+        HTMLElement card_face = document.createElement("div");
+        $(card_face).css("width", SIDE).css("height", SIDE)
+                .css("background-color", LUNA.CARD.COLOR);
+        front_img = (HTMLImageElement) document.createElement("img");
+        front_img.crossOrigin = "anonymous";
+        front_img.src = path;
+        front_img.onload = (e) -> {
+            $(front_img).css("width", "100%").css("height", "100%");
+            $(card_face).append(front_img);
+            callback.accept(card_face);
+            return null;
+        };
     }
 
-//    private void create_face(String path, Consumer<HTMLElement> callback) {
-//        IImage img = new def.fabricjs.fabric.IImage() {
-//        };
-//        img.crossOrigin = "anonymous";
-//        img.$set("src", path);
-//        img.setSrc(path, (img_loaded) -> {
-//            
-//        }, IImageOptions);
-//
-//        HTMLElement card_face = document.createElement("div");
-//        $(card_face).css("width", SIDE).css("height", SIDE)
-//                .css("background-color", LUNA.CARD.COLOR);
-//        img.$set("onload", this::loaded);
-//
-//        void loaded
-//        
-//        
-//            () {
-//            int width = img.$get("width");
-//            int height = img.$get("height");
-//            double max = (width > height)
-//                    ? width * SIDE / height
-//                    : height * SIDE / width;
-//            Image img_trans = LoadingImage.scale();
-//
-//            callback(card_face);
-//
-//        });
-//    }
-
-//public void flip(String back) {
-//        set_front_img(back_img);
-//        back_img = back;
-//    }
-
+    public void flip(String img, int color_index) {
+        create_face(img, (back_face) -> {
+            $(back_face).addClass("face flip out");
+            $(front_face).toggleClass("in out");
+            setTimeout((o1) -> {
+                $(card).append(back_face);
+                $(back_face).toggleClass("in").toggleClass("out");
+                $(card).find(".front").remove();
+                $(back_face).toggleClass("front");
+                setTimeout((o2) -> {
+                    $(card).css("border", LUNA.CARD.BORDER_WIDTH + "px "
+                            + LUNA.CARD.BORDER_STYLE + " "
+                            + LUNA.CARD.BORDER_COLOR[color_index]);
+                }, 175);
+            }, 225);
+        });
+    }
 }
