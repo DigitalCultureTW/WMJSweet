@@ -1,5 +1,8 @@
 package tw.digitalculture.config;
 
+import def.dom.Globals;
+import def.dom.HTMLImageElement;
+
 public class Config {
 
     public static class PROJECT {
@@ -18,6 +21,8 @@ public class Config {
         public static String URL = "http://wm.localstudies.tw";
         public static String FONT = "DFKai-sb";
         public static String TITLE_COLOR = "Silver";
+
+        public static String QRCODE_IMG;
     }
 
     public static class LUNA {

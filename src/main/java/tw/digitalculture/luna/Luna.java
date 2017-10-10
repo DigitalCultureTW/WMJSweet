@@ -6,19 +6,19 @@ import static def.jquery.Globals.$;
 import def.dom.HTMLElement;
 import def.node.Globals;
 import static def.node.Globals.setTimeout;
-import static def.qrcode_generator.Globals.qrcode_generator;
-import def.qrcode_generator.QRCode;
+//import static def.qrcode_generator.Globals.qrcode_generator;
+//import def.qrcode_generator.QRCode;
 import static def.socket_io_client.Globals.io;
 import def.socket_io_client.socketioclient.Socket;
 
 import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.config.Config.LUNA;
+import tw.digitalculture.config.Config.UMBRA;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import tw.digitalculture.config.Config.UMBRA;
 
 /**
  *
@@ -31,7 +31,7 @@ public final class Luna {
     public static int is_logo;
     public static double SIDE;
     static String qr_code;
-    static QRCode QR;
+//    static QRCode QR;
 
     public static void main(String[] args) {
 
@@ -45,14 +45,14 @@ public final class Luna {
         Luna.cards = new HashMap<>();
         System.out.println(PROJECT.TITLE_ENGLISH);
         Luna.is_logo = LUNA.COLUMN * LUNA.ROW;
-        QR = qrcode_generator(2, "H");
+//        QR = qrcode_generator(2, "H");
         //Level L – up to 7% damage
         //Level M – up to 15% damage
         //Level Q – up to 25% damage
         //Level H – up to 30% damage
-        QR.addData(UMBRA.URL);
-        QR.make();
-        qr_code = QR.createImageTag(SIDE * 0.7, 5);
+//        QR.addData(UMBRA.URL);
+//        QR.make();
+//        qr_code = QR.createImageTag(SIDE * 0.7, 5);
         setup();
         init_cards();
         Globals.setInterval(this::trigger_data, LUNA.SHOW_INTERVAL);
@@ -99,10 +99,10 @@ public final class Luna {
             col = (int) (LUNA.COLUMN * Math.random());
             flip_card = cards.get(row + "_" + col);
 //            console.log(row, col, cards.length, cards[row].length, flip_card.is_logo, is_logo);
-        } while (flip_card.locked
-                || (is_logo > LUNA.MIN_LOGO() && content != LUNA.QRCODE && !flip_card.is_logo));
+        } while (flip_card.locked || (is_logo > LUNA.MIN_LOGO()
+                && !LUNA.QRCODE.equals(content) && !flip_card.is_logo));
         //當卡片不是logo，並且版面上的logo多於LUNA.MIN_LOGO
-        if (img_path == PROJECT.LOGO_PATH || content == LUNA.QRCODE) {
+        if (PROJECT.LOGO_PATH.equals(img_path) || LUNA.QRCODE.equals(content)) {
             if (!flip_card.is_logo) {
                 is_logo++;
                 flip_card.is_logo = true;
@@ -116,29 +116,17 @@ public final class Luna {
         flip_card.locked = true;
         is_locked++;
         if (LUNA.QRCODE.equals(content)) {
-//            HTMLImageElement code = new HTMLImageElement();
-//            code.src = qr_code;
-//            code.onload = (e) -> {};
-//                HTMLCanvasElement canvas_adj
-//                        = (HTMLCanvasElement) document.createElement("canvas");
-//                CanvasRenderingContext2D ctx
-//                        = (CanvasRenderingContext2D) canvas_adj.getContext("2d");
-//                ctx.fillStyle = LUNA.CARD.COLOR;
-//                ctx.fillRect(0, 0, SIDE, SIDE);
-//                ctx.drawImage(code, 10, 10);
-//                return null;
-//                flip_card.flip(canvas_adj.toDataURL("image/png"), 1);
-            flip_card.flip(qr_code, 1);
+        flip_card.flip(UMBRA.QRCODE_IMG, 1);
         }
-//        else {
-//            draw_text(SIDE, ((query_str) ? "[" + query_str + "] " : "")
-//                    + content,
-//                    LUNA.CARD.COLOR, (txt) =  > {
-//                flip_card.set_next(txt);
-//                flip(flip_card, SIDE, LUNA.CARD.COLOR, LUNA.CARD.BORDER_WIDTH,
-//                        LUNA.CARD.BORDER_STYLE, LUNA.CARD.BORDER_COLOR[1]);
-//            });
-//        }
+        else {
+            draw_text(SIDE, ((query_str) ? "[" + query_str + "] " : "")
+                    + content,
+                    LUNA.CARD.COLOR, (txt) =  > {
+                flip_card.set_next(txt);
+                flip(flip_card, SIDE, LUNA.CARD.COLOR, LUNA.CARD.BORDER_WIDTH,
+                        LUNA.CARD.BORDER_STYLE, LUNA.CARD.BORDER_COLOR[1]);
+            });
+        }
         setTimeout((o1) -> {
             flip_card.flip(img_path, 0);
             setTimeout((o2) -> {

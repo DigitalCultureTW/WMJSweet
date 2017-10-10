@@ -1,13 +1,16 @@
 package tw.digitalculture.luna;
 
+import def.dom.CanvasRenderingContext2D;
 import def.dom.HTMLElement;
 import static def.dom.Globals.document;
+import def.dom.HTMLCanvasElement;
 import def.dom.HTMLImageElement;
 import static def.jquery.Globals.$;
 import static def.node.Globals.setTimeout;
+import java.util.List;
 
 import java.util.function.Consumer;
-import tw.digitalculture.config.Config;
+import java.util.function.Function;
 import tw.digitalculture.config.Config.LUNA;
 import tw.digitalculture.config.Config.PROJECT;
 import static tw.digitalculture.luna.Luna.SIDE;
@@ -29,9 +32,9 @@ public class Card {
         $(card).addClass("card viewport-flip left");
         $(card).attr("id", this.id);
         $(card).css("width", SIDE).css("height", SIDE)
-                .css("border", Config.LUNA.CARD.BORDER_WIDTH + "px "
-                        + Config.LUNA.CARD.BORDER_STYLE
-                        + " " + Config.LUNA.CARD.BORDER_COLOR[0]);
+                .css("border", LUNA.CARD.BORDER_WIDTH + "px "
+                        + LUNA.CARD.BORDER_STYLE
+                        + " " + LUNA.CARD.BORDER_COLOR[0]);
         create_face(PROJECT.LOGO_PATH, (face) -> {
             this.front_face = face;
             $(face).addClass("face flip in front");
@@ -57,12 +60,13 @@ public class Card {
     public void flip(String img, int color_index) {
         create_face(img, (back_face) -> {
             $(back_face).addClass("face flip out");
-            $(front_face).toggleClass("in out");
+            $(front_face).toggleClass("out").toggleClass("in");
             setTimeout((o1) -> {
                 $(card).append(back_face);
                 $(back_face).toggleClass("in").toggleClass("out");
                 $(card).find(".front").remove();
                 $(back_face).toggleClass("front");
+                front_face = back_face;
                 setTimeout((o2) -> {
                     $(card).css("border", LUNA.CARD.BORDER_WIDTH + "px "
                             + LUNA.CARD.BORDER_STYLE + " "
@@ -70,5 +74,39 @@ public class Card {
                 }, 175);
             }, 225);
         });
+    }
+
+    public void draw_text(String text, Consumer<String> callback) {
+        HTMLCanvasElement canvas = (HTMLCanvasElement) document.createElement("canvas");
+        CanvasRenderingContext2D ctx = (CanvasRenderingContext2D) canvas.getContext("2d");
+        ctx.canvas.width = SIDE;
+        ctx.canvas.height = SIDE;
+        ctx.fillStyle = LUNA.CARD.COLOR;
+        ctx.fillRect(0, 0, SIDE, SIDE);
+        int font_size = (int) (SIDE / 10);
+        ctx.font = font_size + "px 標楷體";
+        ctx.fillStyle = "white";
+        double margin = font_size * 0.8;
+        double y = margin + font_size;
+        char[] textArray = text.toCharArray();
+        String substr = "";
+        int substr_width = 0;
+        for (int i = 0; i < textArray.length; i++) {
+            substr += textArray[i];
+            substr_width = ctx.measureText(substr).width;
+            if (substr_width > SIDE - margin * 3 || i == text.length() - 1) {
+                ctx.fillText(substr, margin, y);
+                substr = "";
+                y += font_size * 1.2;
+                if (y > SIDE - margin) {
+                    break;
+                }
+            }
+        }
+        Image img = new Image();
+        img.src = canvas.toDataURL("image/png");
+        img.onload = function() {
+            callback(img.src);
+        };
     }
 }

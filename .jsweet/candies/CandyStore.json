@@ -6,7 +6,7 @@
       "lastUpdateTimestamp": 1467310778000,
       "modelVersion": "unknown",
       "transpilerVersion": "1.2.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\WMJSweet\\webapp",
       "jsDirPath": "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT",
       "jsFilesPaths": [
         "META-INF/resources/webjars/socket.io-client/1.4.4-SNAPSHOT/support/browserify.js",
@@ -30,7 +30,7 @@
       "lastUpdateTimestamp": 1481998544000,
       "modelVersion": "unknown",
       "transpilerVersion": "1.2.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\WMJSweet\\webapp",
       "jsDirPath": "META-INF/resources/webjars/jsweet-core/1.2.0-SNAPSHOT",
       "jsFilesPaths": []
     },
@@ -40,7 +40,7 @@
       "lastUpdateTimestamp": 1465759158000,
       "modelVersion": "unknown",
       "transpilerVersion": "1.2.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\WMJSweet\\webapp",
       "jsDirPath": "META-INF/resources/webjars/socket.io/1.4.4-SNAPSHOT",
       "jsFilesPaths": []
     },
@@ -50,7 +50,7 @@
       "lastUpdateTimestamp": 1465747492000,
       "modelVersion": "unknown",
       "transpilerVersion": "1.2.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\WMJSweet\\webapp",
       "jsDirPath": "META-INF/resources/webjars/node/6.0.0-SNAPSHOT",
       "jsFilesPaths": []
     },
@@ -60,7 +60,7 @@
       "lastUpdateTimestamp": 1496040138000,
       "modelVersion": "unknown",
       "transpilerVersion": "2.0.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\WMJSweet\\webapp",
       "jsDirPath": "META-INF/resources/webjars/jsweet-core/6-SNAPSHOT",
       "jsFilesPaths": []
     },
@@ -70,7 +70,7 @@
       "lastUpdateTimestamp": 1468681526000,
       "modelVersion": "unknown",
       "transpilerVersion": "1.2.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\MWJSweet2\\webapp",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\WMJSweet\\webapp",
       "jsDirPath": "META-INF/resources/webjars/jquery/1.10.0-SNAPSHOT",
       "jsFilesPaths": [
         "META-INF/resources/webjars/jquery/1.10.0-SNAPSHOT/jquery.js",
