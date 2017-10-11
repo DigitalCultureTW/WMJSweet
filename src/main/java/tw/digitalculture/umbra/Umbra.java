@@ -3,9 +3,9 @@ package tw.digitalculture.umbra;
 import static def.dom.Globals.document;
 import static def.jquery.Globals.$;
 import static def.socket_io_client.Globals.io;
-import def.js.JSON;
+import static jsweet.util.Lang.function;
 import def.socket_io_client.socketioclient.Socket;
-import jsweet.lang.Function;
+import def.js.JSON;
 
 import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.config.Config.UMBRA;
@@ -16,18 +16,22 @@ import tw.digitalculture.config.Config.UMBRA;
  */
 public final class Umbra {
 
-    private Socket socket = io("?role=umbra");
+    private Socket socket;
 
-    public Umbra() {
-        setup();
-        socket();
-        $("#logo").on("load", (arg0, arg1) -> {
-            resizeImage();
+    public static void main(String[] args) {
+        $(document).ready(() -> {
+            Umbra umbra = new Umbra();
             return null;
         });
     }
 
+    public Umbra() {
+        setup();
+        socket();
+    }
+
     public void socket() {
+        socket = io("?role=umbra");
 
         $("#search").keyup((event) -> {
             if (event.keyCode == 13) {
@@ -47,25 +51,22 @@ public final class Umbra {
                 $("#query").attr("disabled", "true");
                 $("#search").attr("disabled", "true");
                 $("#message").text("處理中...");
-                socket.emit("query",
-                        JSON.parse("{\"client\":\"" + socket.id + "\","
-                                + "\"text\":\"" + text + "\"}"));
+                socket.emit("query", JSON.parse(
+                        "{\"client\": \"" + socket.id + "\","
+                        + "\"text\": \"" + text + "\"}"));
             }
             return null;
         });
 
-        Function updateUIf = new Function("user", "message") {
-            public Object call(String user, String message) {
-                if (socket.id.equals(user)) {
-                    $("#query").attr("disabled", "false");
-                    $("#search").attr("disabled", "false");
-                    $("#message").text(message);
-                    $("#search").val("");
-                }
-                return super.call(user, message);
+        socket.on("message", function((JSON data) -> {
+            if (socket.id.equals(data.$get("user"))) {
+                $("#query").removeAttr("disabled");
+                $("#search").removeAttr("disabled");
+                $("#message").text((String) data.$get("message"));
+                $("#search").val("");
             }
-        };
-        socket.on("message", updateUIf);
+            return null;
+        }));
 
     }
 
@@ -75,20 +76,14 @@ public final class Umbra {
         $("h2").text(PROJECT.SUBTITLE);
         $("h3").text("Ver." + PROJECT.VERSION);
 
-        String color = "\"color\":" + "\"" + UMBRA.TITLE_COLOR + "\"";
-        String font = "\"font-family\":" + "\"" + UMBRA.FONT + "\"";
+        $("h1").css("color", UMBRA.TITLE_COLOR).css("font-family", UMBRA.FONT);
+        $("h2").css("color", UMBRA.TITLE_COLOR).css("font-family", UMBRA.FONT);
+        $("h3").css("color", UMBRA.TITLE_COLOR);
+        $(".myButton").css("font-family", UMBRA.FONT);
 
-        $("h1").css(JSON.parse("{" + color + "," + font + "}"));
-        $("h2").css(JSON.parse("{" + color + "," + font + "}"));
-        $("h3").css(JSON.parse("{" + color + "}"));
-        $(".myButton").css(JSON.parse("{" + font + "}"));
         $("#logo").attr("src", PROJECT.LOGO_PATH);
-    }
-
-    public static void main(String[] args) {
-        $(document).ready(() -> {
-            Umbra umbra = new Umbra();
-            umbra.setup();
+        $("#logo").on("load", (arg0, arg1) -> {
+            resizeImage();
             return null;
         });
     }

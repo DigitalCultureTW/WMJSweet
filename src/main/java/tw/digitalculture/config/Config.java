@@ -1,8 +1,5 @@
 package tw.digitalculture.config;
 
-import def.dom.Globals;
-import def.dom.HTMLImageElement;
-
 public class Config {
 
     public static class PROJECT {
@@ -13,7 +10,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.53a-beta";
+        public static String VERSION = "0.5.3a-beta-JSWEET";
     }
 
     public static class UMBRA {
@@ -56,20 +53,26 @@ public class Config {
         public static double MOD(int row) {
             return (row > 2) ? 1 : ((row == 1) ? 0.70 : 0.95);
         }
+    }
 
-        public class Record_Display {
+    public static class DATA {
 
-            public String query_str;
-            public String img_path;
-            public String content;
-            public boolean used;
+        public static String[] FILETYPES = {"jpg", "png", "JPG", "PNG"};
 
-            public Record_Display(String str, String img, String txt) {
-                query_str = str;
-                img_path = img;
-                content = txt;
-                used = false;
-            }
+        public static int LIMIT() {
+            return (int) (LUNA.ROW * LUNA.COLUMN) / 2;
+        }
+
+        public static class TWDC {
+
+            public static String URL = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc";
+        }
+
+        public static class IDEASQL {
+
+            public static String URL = "http://designav.io/api/image/search/";
+            public static String MULTI_URL = "http://designav.io/api/image/search_multi/";
+            public static String WB_URL = "http://designav.io/api/image/wordbreak/";
         }
     }
 }
