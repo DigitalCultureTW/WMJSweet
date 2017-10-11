@@ -56,6 +56,7 @@ public final class Card {
         front_img.src = path;
         front_img.onload = (e) -> {
             $(front_img).css("width", "100%").css("height", "100%");
+            $(front_img).css("image-orientation", "from-image");
             $(front_img).addClass("img");
             $(card_face).append(front_img);
             callback.accept(card_face);

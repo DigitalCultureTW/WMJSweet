@@ -9,6 +9,10 @@ app.use(express.static('node_modules'));
 app.get('/:page?', function (req, res) {
     var path = require("path");
     switch (req.params.page) {
+        case 'favicon.ico':
+//            res.writeHead(200, {'Content-Type': 'image/x-icon'});
+            res.sendFile(path.join(__dirname + '/favicon.ico'));
+            break;
         case 'luna':
             res.sendFile(path.join(__dirname + '/webapp/lunaroot/luna.html'));
             break;
