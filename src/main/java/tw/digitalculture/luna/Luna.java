@@ -2,18 +2,20 @@ package tw.digitalculture.luna;
 
 import static def.dom.Globals.document;
 import static def.dom.Globals.window;
-import static def.jquery.Globals.$;
-import def.dom.HTMLElement;
-import def.node.Globals;
 import static def.node.Globals.setTimeout;
-//import static def.qrcode_generator.Globals.qrcode_generator;
-//import def.qrcode_generator.QRCode;
+import static def.node.Globals.setInterval;
+import static def.jquery.Globals.$;
 import static def.socket_io_client.Globals.io;
 import def.socket_io_client.socketioclient.Socket;
+import def.dom.HTMLElement;
+import def.js.JSON;
+import static jsweet.util.Lang.function;
 
-import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.config.Config.LUNA;
+import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.config.Config.UMBRA;
+import tw.digitalculture.model.Record_Display;
+import tw.digitalculture.model.Record_Query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,12 +28,11 @@ import java.util.Map;
  */
 public final class Luna {
 
-    Socket socket = io("?role=luna");
-    public static Map<String, Card> cards;
-    public static int is_logo;
+    Socket socket;
     public static double SIDE;
+    static Map<String, Card> cards;
+    static int is_logo;
     static String qr_code;
-//    static QRCode QR;
 
     public static void main(String[] args) {
 
@@ -42,37 +43,32 @@ public final class Luna {
     }
 
     public Luna() {
-        Luna.cards = new HashMap<>();
         System.out.println(PROJECT.TITLE_ENGLISH);
         Luna.is_logo = LUNA.COLUMN * LUNA.ROW;
-//        QR = qrcode_generator(2, "H");
-        //Level L – up to 7% damage
-        //Level M – up to 15% damage
-        //Level Q – up to 25% damage
-        //Level H – up to 30% damage
-//        QR.addData(UMBRA.URL);
-//        QR.make();
-//        qr_code = QR.createImageTag(SIDE * 0.7, 5);
         setup();
         init_cards();
-        Globals.setInterval(this::trigger_data, LUNA.SHOW_INTERVAL);
+        setup_socket();
+        setInterval(this::trigger_data, LUNA.SHOW_INTERVAL);
     }
 
-    public static Map<String, LUNA.Record_Display> data_pool = new HashMap<>();
-    public static int is_locked = 0;
-    public static List<String> deleted_keys = new ArrayList<>();
+    static Map<String, Record_Display> data_pool = new HashMap<>();
+    static int is_locked = 0;
+    static List<String> deleted_keys = new ArrayList<>();
 
     public void trigger_data(Object arg) {
-        if (data_pool.size() - deleted_keys.size() > 0 && is_locked < LUNA.COLUMN * LUNA.ROW) {
-            String key = null;
+        if (data_pool.size() - deleted_keys.size() > 0
+                && is_locked < LUNA.COLUMN * LUNA.ROW) {
+            String key = "";
             do {
-                key = data_pool.keySet().toArray(new String[0])[(int) (Math.random() * data_pool.size()) - 1];
+                int index = (int) ((Math.random() * data_pool.size()) - 1);
+                key = (String) data_pool.keySet().toArray()[index];
+//                System.out.println(key + ":" + data_pool.get(key).used);
                 if (data_pool.get(key).used) {
                     data_pool.remove(key);
-                    key = null;
+                    key = "";
                 }
-            } while (key == null);
-            LUNA.Record_Display rec = data_pool.get(key);
+            } while (key.isEmpty());
+            Record_Display rec = data_pool.get(key);
             rec.used = true;
             deleted_keys.add(key);
             deal_card(rec.query_str, rec.img_path, rec.content);
@@ -85,23 +81,60 @@ public final class Luna {
                         + data_pool.size());
                 deleted_keys = new ArrayList<>();
             }
-            deal_card("", PROJECT.LOGO_PATH, LUNA.QRCODE);
+            deal_card();
         }
     }
 
-    Card flip_card;
+    private void setup_socket() {
+        socket = io("?role=luna");
+
+        socket.on("fire", function((JSON data) -> onFire(data)));
+
+        socket.on("result", function((JSON data) -> onResult(data)));
+    }
+
+    public void onFire(JSON data) {
+        System.out.println("from " + data.$get("user"));
+        deal_card();
+    }
+
+    public void onResult(JSON data) {
+        def.js.Array<Record_Query> record_set = data.$get("record_set");
+        int replaced = 0;
+        for (int i = 0; i < record_set.length; i++) {
+            Record_Display record = new Record_Display(data.$get("query_str"),
+                    record_set.$get(i).img_url, record_set.$get(i).content);
+//            System.out.println(record.query_str + "," + record.img_path + "," + record.content);
+            if (data_pool.containsKey(record.query_str + record.img_path)) {
+                replaced++;
+            }
+            if (i == 0) {
+                deal_card(record.query_str, record.img_path, record.content);
+            } else {
+                data_pool.put(record.query_str + record.img_path, record);
+            }
+        }
+        System.out.println("data_pool size = " + data_pool.size() + "(" + replaced + ")");
+    }
+
+    public void deal_card() {
+        deal_card("", PROJECT.LOGO_PATH, LUNA.QRCODE);
+    }
 
     public void deal_card(String query_str, String img_path, String content) {
 
+        Card c = null;
         int row, col;
         do {
             row = (int) (LUNA.ROW * Math.random());
             col = (int) (LUNA.COLUMN * Math.random());
-            flip_card = cards.get(row + "_" + col);
-//            console.log(row, col, cards.length, cards[row].length, flip_card.is_logo, is_logo);
-        } while (flip_card.locked || (is_logo > LUNA.MIN_LOGO()
-                && !LUNA.QRCODE.equals(content) && !flip_card.is_logo));
+            c = cards.get(row + "_" + col);
+//            System.out.println(row + "," + col + "," + cards.size() + "," + c.is_logo + "," + is_logo);
+        } while (c.locked || (is_logo > LUNA.MIN_LOGO()
+                && !LUNA.QRCODE.equals(content) && !c.is_logo));
         //當卡片不是logo，並且版面上的logo多於LUNA.MIN_LOGO
+        final Card flip_card = c;
+
         if (PROJECT.LOGO_PATH.equals(img_path) || LUNA.QRCODE.equals(content)) {
             if (!flip_card.is_logo) {
                 is_logo++;
@@ -116,16 +149,13 @@ public final class Luna {
         flip_card.locked = true;
         is_locked++;
         if (LUNA.QRCODE.equals(content)) {
-        flip_card.flip(UMBRA.QRCODE_IMG, 1);
-        }
-        else {
-            draw_text(SIDE, ((query_str) ? "[" + query_str + "] " : "")
-                    + content,
-                    LUNA.CARD.COLOR, (txt) =  > {
-                flip_card.set_next(txt);
-                flip(flip_card, SIDE, LUNA.CARD.COLOR, LUNA.CARD.BORDER_WIDTH,
-                        LUNA.CARD.BORDER_STYLE, LUNA.CARD.BORDER_COLOR[1]);
-            });
+            flip_card.flip(UMBRA.QRCODE_IMG, 1);
+        } else {
+            flip_card.draw_text(
+                    ((!query_str.isEmpty()) ? "[" + query_str + "] " : "") + content,
+                    (img) -> {
+                        flip_card.flip(img, 1);
+                    });
         }
         setTimeout((o1) -> {
             flip_card.flip(img_path, 0);
@@ -137,6 +167,7 @@ public final class Luna {
     }
 
     public void init_cards() {
+        cards = new HashMap<>();
         for (int row = 0; row < LUNA.ROW; row++) {
             HTMLElement row_div = document.createElement("div");
             $(row_div).addClass("row");
@@ -172,6 +203,7 @@ public final class Luna {
         $(".box.top").css("height", top_height)
                 .css("font-size", font_size_top + "px");
         $(".box.bottom").css("height", bottom_height)
-                .css("font-size", font_size_bottom);
+                .css("font-size", font_size_bottom + "px");
     }
+
 }

@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title</title>
         <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="stylesheet" href="css/umbra_style.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/umbra_style.css"/>
         <script src="jquery/dist/jquery.min.js"></script>
         <script src="socket.io-client/dist/socket.io.js"></script>
-        <!--<script src="config.js"></script>-->
         <script src="config/Config.js"></script>
         <script src="umbra/Umbra.js"></script>
     </head>
     <body>
+        <script>
+            $(() => {
+                var PROJECT = tw.digitalculture.config.Config.PROJECT;
+                var UMBRA = tw.digitalculture.config.Config.UMBRA;
+                $("title").text(PROJECT.TITLE_MAIN + " | " + PROJECT.TITLE_ENGLISH);
+                $("h1").text(PROJECT.TITLE_MAIN);
+                $("h2").text(PROJECT.SUBTITLE);
+                $("h3").text("Ver." + PROJECT.VERSION);
+                $("h1").css("color", UMBRA.TITLE_COLOR).css("font-family", UMBRA.FONT);
+                $("h2").css("color", UMBRA.TITLE_COLOR).css("font-family", UMBRA.FONT);
+                $("h3").css("color", UMBRA.TITLE_COLOR);
+                $(".myButton").css("font-family", UMBRA.FONT);
+            });
+        </script>
         <div style="display: flex; justify-content: center;">
             <table style="border:0; width:auto; table-layout:auto;">
                 <tbody>
