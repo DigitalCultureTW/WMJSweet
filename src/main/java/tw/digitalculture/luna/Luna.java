@@ -13,7 +13,6 @@ import static jsweet.util.Lang.function;
 
 import tw.digitalculture.config.Config.LUNA;
 import tw.digitalculture.config.Config.PROJECT;
-import tw.digitalculture.config.Config.UMBRA;
 import tw.digitalculture.model.Record_Display;
 import tw.digitalculture.model.Record_Query;
 
@@ -129,7 +128,7 @@ public final class Luna {
             row = (int) (LUNA.ROW * Math.random());
             col = (int) (LUNA.COLUMN * Math.random());
             c = cards.get(row + "_" + col);
-//            System.out.println(row + "," + col + "," + cards.size() + "," + c.is_logo + "," + is_logo);
+            //System.out.println(row + "," + col + "," + cards.size() + "," + c.is_logo + "," + is_logo);
         } while (c.locked || (is_logo > LUNA.MIN_LOGO()
                 && !LUNA.QRCODE.equals(content) && !c.is_logo));
         //當卡片不是logo，並且版面上的logo多於LUNA.MIN_LOGO
@@ -149,13 +148,10 @@ public final class Luna {
         flip_card.locked = true;
         is_locked++;
         if (LUNA.QRCODE.equals(content)) {
-            flip_card.flip(UMBRA.QRCODE_IMG, 1);
+            flip_card.flip(LUNA.QRCODE, 1);
         } else {
-            flip_card.draw_text(
-                    ((!query_str.isEmpty()) ? "[" + query_str + "] " : "") + content,
-                    (img) -> {
-                        flip_card.flip(img, 1);
-                    });
+            String text = ((!query_str.isEmpty()) ? "[" + query_str + "] " : "") + content;
+            flip_card.flip(flip_card.draw_text(text), 1);
         }
         setTimeout((o1) -> {
             flip_card.flip(img_path, 0);

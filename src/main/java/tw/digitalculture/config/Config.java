@@ -10,7 +10,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.5.3a-beta-JSWEET";
+        public static String VERSION = "0.6.0-beta-jswt";
     }
 
     public static class UMBRA {
@@ -33,6 +33,7 @@ public class Config {
             public static String BORDER_STYLE = "inset";
             public static String[] BORDER_COLOR = {"Silver", "White"};
             public static String COLOR = "#121212";
+            public static String FONT = "DFKai-sb";
         }
 
         public static int FLIP_TIME_OUT = 5000; //ms
@@ -40,6 +41,7 @@ public class Config {
         public static int SHOW_INTERVAL = 2500; //ms
         public static int SHOW_STAY = 1500; //ms
         public static String QRCODE = "@QR_CODE_TOKEN";
+        public static String TEXT = "@TEXT_TOKEN";
 
         public static int MIN_LOGO() {
             return ((LUNA.ROW * LUNA.COLUMN) / 8);

@@ -11,6 +11,7 @@ import static def.node.Globals.setTimeout;
 import java.util.function.Consumer;
 import tw.digitalculture.config.Config.LUNA;
 import tw.digitalculture.config.Config.PROJECT;
+import tw.digitalculture.config.Config.UMBRA;
 import static tw.digitalculture.luna.Luna.SIDE;
 
 public final class Card {
@@ -46,22 +47,42 @@ public final class Card {
         return c;
     }
 
+    public static String DEG(int ori) {
+        switch (ori) {
+            case 3:
+                return "180";
+            case 6:
+                return "90";
+            case 8:
+                return "-90";
+            default:
+                return "0";
+        }
+    }
+
     private void create_face(String path, Consumer<HTMLElement> callback) {
         HTMLElement card_face = document.createElement("div");
         $(card_face).css("width", SIDE).css("height", SIDE)
                 .css("background-color", LUNA.CARD.COLOR);
         $(card_face).addClass("face");
-        front_img = (HTMLImageElement) document.createElement("img");
-        front_img.crossOrigin = "anonymous";
-        front_img.src = path;
-        front_img.onload = (e) -> {
-            $(front_img).css("width", "100%").css("height", "100%");
-            $(front_img).css("image-orientation", "from-image");
-            $(front_img).addClass("img");
-            $(card_face).append(front_img);
-            callback.accept(card_face);
-            return null;
-        };
+
+        ExifReader.getOrientation(path, (Integer ori) -> {
+            front_img = (HTMLImageElement) document.createElement("img");
+            front_img.crossOrigin = "anonymous";
+            front_img.src = (LUNA.QRCODE.equals(path)) ? UMBRA.QRCODE_IMG
+                    : (path.startsWith(LUNA.TEXT))
+                    ? path.substring(LUNA.TEXT.length()) : path;
+            front_img.onload = (e) -> {
+                $(front_img).css("width", "100%").css("height", "100%");
+//            $(front_img).css("image-orientation", "from-image");
+                $(front_img).css("transform", "rotate(" + DEG(ori) + "deg)");
+                $(front_img).addClass("img");
+                $(card_face).append(front_img);
+                callback.accept(card_face);
+                return null;
+            };
+        });
+
     }
 
     public void flip(String img, int color_index) {
@@ -83,24 +104,24 @@ public final class Card {
         });
     }
 
-    public void draw_text(String text, Consumer<String> callback) {
+    int font_size = (int) (SIDE / 10);
+
+    public String draw_text(String text) {
         HTMLCanvasElement canvas = (HTMLCanvasElement) document.createElement("canvas");
         CanvasRenderingContext2D ctx = (CanvasRenderingContext2D) canvas.getContext("2d");
         ctx.canvas.width = SIDE;
         ctx.canvas.height = SIDE;
         ctx.fillStyle = LUNA.CARD.COLOR;
         ctx.fillRect(0, 0, SIDE, SIDE);
-        int font_size = (int) (SIDE / 10);
-        ctx.font = font_size + "px 標楷體";
+        ctx.font = font_size + "px " + LUNA.CARD.FONT;
         ctx.fillStyle = "white";
         double margin = font_size * 0.8;
         double y = margin + font_size;
         char[] textArray = text.toCharArray();
         String substr = "";
-        int substr_width = 0;
         for (int i = 0; i < textArray.length; i++) {
             substr += textArray[i];
-            substr_width = (int) ctx.measureText(substr).width;
+            int substr_width = (int) ctx.measureText(substr).width;
             if (substr_width > SIDE - margin * 3 || i == text.length() - 1) {
                 ctx.fillText(substr, margin, y);
                 substr = "";
@@ -110,11 +131,6 @@ public final class Card {
                 }
             }
         }
-        HTMLImageElement img = (HTMLImageElement) document.createElement("img");
-        img.src = canvas.toDataURL("image/png");
-        img.onload = (e) -> {
-            callback.accept(img.src);
-            return null;
-        };
+        return LUNA.TEXT + canvas.toDataURL("image/png");
     }
 }
