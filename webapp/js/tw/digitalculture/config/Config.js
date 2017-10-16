@@ -77,7 +77,7 @@ var tw;
                     CARD.BORDER_WIDTH = 10;
                     CARD.BORDER_STYLE = "inset";
                     CARD.COLOR = "#121212";
-                    CARD.FONT = "cwTeXKai";
+                    CARD.FONT = "DFKai-sb";
                     LUNA.CARD = CARD;
                     CARD["__class"] = "tw.digitalculture.config.Config.LUNA.CARD";
                 })(LUNA = Config.LUNA || (Config.LUNA = {}));
