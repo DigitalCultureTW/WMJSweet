@@ -26,7 +26,7 @@ public class Record {
         });
         this.description = $(metadata).find("dc\\:description").filter((i, o) -> {
             return (!o.toString().startsWith("http://"));
-        }).text().replaceAll("\n", ";");
+        }).text();//.replaceAll("\n", ";");
         this.link = decodeURIComponent($(metadata).find("dc\\:description").filter((i, o) -> {
             return (o.toString().startsWith("http://"));
         }).text());
@@ -39,7 +39,8 @@ public class Record {
         String result = "";
         if (this.subjects.size() > 0) {
             for (int index = 0; index < this.subjects.size(); index++) {
-                if (this.subjects.get(index).contains(keyword)) {
+                if (this.subjects.get(index).contains(keyword) 
+                        && this.subjects.get(index).length() > result.length()) {
                     result = this.subjects.get(index);
                 }
             }

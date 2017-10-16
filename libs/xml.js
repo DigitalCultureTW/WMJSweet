@@ -38,7 +38,7 @@
             }).get();
             this.description = $(metadata).find("dc\\:description").filter(function () {
                 return (!$(this).text().startsWith("http://"));
-            }).text().replace(/\n/g, '; ');
+            }).text();//.replace(/\n/g, '; ');
             this.link = decodeURIComponent($(metadata).find("dc\\:description").filter(function () {
                 return ($(this).text().startsWith("http://"));
             }).text());

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>tw.digitalculture</groupId>
     <artifactId>WindowOfOurMemories</artifactId>
-    <version>0.6.0-beta-jswt</version>
+    <version>0.6.1-beta-jswt</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,7 +68,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <tsOut>target/ts</tsOut>
-                    <outDir>target/js</outDir>
+                    <outDir>webapp/js</outDir>
                     <candiesJsOut>target/js</candiesJsOut>
                     <targetVersion>ES5</targetVersion>
                     <encoding>UTF-8</encoding>

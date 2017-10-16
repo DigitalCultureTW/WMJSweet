@@ -53,7 +53,8 @@ var DATA = {
         return parseInt((LUNA.ROW * LUNA.COLUMN) / 2);
     },
     TWDC: {
-        URL: "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc"
+        URL_BASE: "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc",
+        URL_TOKEN: "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&&resumptionToken="
     },
     IDEASQL: {
         URL: "http://designav.io/api/image/search/",

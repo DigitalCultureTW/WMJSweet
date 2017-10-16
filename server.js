@@ -4,17 +4,20 @@ var express = require('express');
 var app = express();
 app.use(express.static('webapp/lunaroot'));
 app.use(express.static('webapp/umbraroot'));
-app.use(express.static('target/js/tw/digitalculture'));
+app.use(express.static('webapp/admin'));
+app.use(express.static('webapp/js/tw/digitalculture'));
 app.use(express.static('node_modules'));
 app.get('/:page?', function (req, res) {
     var path = require("path");
     switch (req.params.page) {
         case 'favicon.ico':
-//            res.writeHead(200, {'Content-Type': 'image/x-icon'});
             res.sendFile(path.join(__dirname + '/favicon.ico'));
             break;
         case 'luna':
             res.sendFile(path.join(__dirname + '/webapp/lunaroot/luna.html'));
+            break;
+        case 'admin':
+            res.sendFile(path.join(__dirname + '/webapp/admin/admin.html'));
             break;
         case undefined:
             res.sendFile(path.join(__dirname + '/webapp/umbraroot/umbra.html'));
