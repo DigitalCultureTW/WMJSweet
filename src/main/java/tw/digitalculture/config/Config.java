@@ -35,8 +35,8 @@ public class Config {
             public static String BORDER_STYLE = "inset";
             public static String[] BORDER_COLOR = {"Silver", "White"};
             public static String COLOR = "#121212";
-//            public static String FONT = "DFKai-sb";
-            public static String FONT = "cwTeXKai";
+            public static String FONT = "DFKai-sb";
+//            public static String FONT = "cwTeXKai";
         }
 
         public static int FLIP_TIME_OUT = 5000; //ms
