@@ -15,8 +15,9 @@ public class Config {
 
     public static class UMBRA {
 
-        public static String URL = "http://wm.localstudies.tw";
-        public static String FONT = "DFKai-sb";
+        public static String URL = "http://wm.localstudies.info";
+//        public static String FONT = "DFKai-sb";
+        public static String FONT = "cwTeXKai";
         public static String TITLE_COLOR = "Silver";
 
         public static String QRCODE_IMG;
@@ -25,7 +26,8 @@ public class Config {
     public static class LUNA {
 
         public static int COLUMN = 8, ROW = 4;
-        public static String FONT = "Microsoft JhengHei";
+//        public static String FONT = "Microsoft JhengHei";
+        public static String FONT = "cwTeXHei";
 
         public static class CARD {
 
@@ -33,7 +35,8 @@ public class Config {
             public static String BORDER_STYLE = "inset";
             public static String[] BORDER_COLOR = {"Silver", "White"};
             public static String COLOR = "#121212";
-            public static String FONT = "DFKai-sb";
+//            public static String FONT = "DFKai-sb";
+            public static String FONT = "cwTeXKai";
         }
 
         public static int FLIP_TIME_OUT = 5000; //ms

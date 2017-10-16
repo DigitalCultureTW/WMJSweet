@@ -11,7 +11,8 @@ var PROJECT = {
 
 var LUNA = {
     COLUMN: 8, ROW: 4,
-    FONT: 'Microsoft JhengHei',
+//    FONT: 'Microsoft JhengHei',
+    FONT: 'cwTeXHei',
     CARD: {
         BORDER_WIDTH: 10,
         BORDER_STYLE: 'inset',
@@ -42,8 +43,9 @@ var LUNA = {
 };
 
 var UMBRA = {
-    URL: 'http://wm.localstudies.tw',
-    FONT: "DFKai-sb",
+    URL: 'http://wm.localstudies.info',
+//    FONT: "DFKai-sb",
+    FONT: 'cwTeXKai',
     TITLE_COLOR: 'Silver'
 };
 
