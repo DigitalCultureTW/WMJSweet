@@ -101,11 +101,11 @@ var tw;
                     ctx.canvas.height = tw.digitalculture.luna.Luna.SIDE;
                     ctx.fillStyle = tw.digitalculture.config.Config.LUNA.CARD.COLOR;
                     ctx.fillRect(0, 0, tw.digitalculture.luna.Luna.SIDE, tw.digitalculture.luna.Luna.SIDE);
-                    ctx.font = this.font_size + "px " + tw.digitalculture.config.Config.LUNA.CARD.FONT;
-                    ctx.fillStyle = "white";
+                    ctx.font = tw.digitalculture.config.Config.LUNA.CARD.FONT_WEIGHT + " " + this.font_size + "px " + tw.digitalculture.config.Config.LUNA.CARD.FONT;
+                    ctx.fillStyle = tw.digitalculture.config.Config.LUNA.CARD.FONT_COLOR;
                     var margin = this.font_size * 0.8;
                     var y = margin + this.font_size;
-                    var textArray = (text).split('');
+                    var textArray = (eval("Array.from(text);"));
                     var substr = "";
                     for (var i = 0; i < textArray.length; i++) {
                         substr += textArray[i];

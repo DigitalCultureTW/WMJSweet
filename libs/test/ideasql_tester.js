@@ -55,6 +55,7 @@ function test3(text, limit) {
 }
 
 var n = 100;
+test3("母后", n);
 //test3("台中", n);
 //test3("后里", n);
 //test3("豐原", n);

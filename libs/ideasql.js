@@ -52,7 +52,7 @@
             });
         };
 
-        methods.IsValidImageUrl = function(url, callback) {
+        methods.IsValidImageUrl = function (url, callback) {
             request.get(url, (error, response, body) => {
                 callback(!error && response.statusCode === 200);
             });

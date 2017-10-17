@@ -17,10 +17,12 @@
                     result.record_set.push(r);
                 });
 
-//                var quota = limit - result.record_set.length;
-                var quota = limit;
+                var quota = limit - result.record_set.length;
+//                var quota = limit;
                 if (quota > 0) {
-                    ideasql.query(result.query_str, quota, (ideasql_result) => {
+                    var query_str = (result.query_str === '台中') ?
+                            '台中 臺中' : result.query_str;
+                    ideasql.query(query_str, quota, (ideasql_result) => {
                         console.log("ideasql_result = " + ideasql_result.length);
                         ideasql_result.forEach(function (r) {
                             result.record_set.push(r);

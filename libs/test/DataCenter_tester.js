@@ -3,7 +3,8 @@ var DC = require('../DataCenter.js');
 
 var data = {
     client: 'me',
-    text: '台中'
+//    text: '母后'
+    text: '台中 臺中'
 };
 
 

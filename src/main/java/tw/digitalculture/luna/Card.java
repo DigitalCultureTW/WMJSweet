@@ -6,7 +6,10 @@ import def.dom.HTMLElement;
 import def.dom.HTMLCanvasElement;
 import def.dom.HTMLImageElement;
 import static def.jquery.Globals.$;
+import def.js.Array;
 import static def.node.Globals.setTimeout;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.function.Consumer;
 import tw.digitalculture.config.Config.LUNA;
@@ -113,11 +116,12 @@ public final class Card {
         ctx.canvas.height = SIDE;
         ctx.fillStyle = LUNA.CARD.COLOR;
         ctx.fillRect(0, 0, SIDE, SIDE);
-        ctx.font = font_size + "px " + LUNA.CARD.FONT;
-        ctx.fillStyle = "white";
+        ctx.font = LUNA.CARD.FONT_WEIGHT + " "
+                + font_size + "px " + LUNA.CARD.FONT;
+        ctx.fillStyle = LUNA.CARD.FONT_COLOR;
         double margin = font_size * 0.8;
         double y = margin + font_size;
-        char[] textArray = text.toCharArray();
+        char[] textArray = def.js.Globals.eval("Array.from(text);");
         String substr = "";
         for (int i = 0; i < textArray.length; i++) {
             substr += textArray[i];

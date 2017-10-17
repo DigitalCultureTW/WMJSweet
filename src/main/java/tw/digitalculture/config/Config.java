@@ -10,24 +10,21 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.6.1-beta-jswt";
+        public static String VERSION = "0.6.2-beta-jswt";
     }
 
     public static class UMBRA {
 
         public static String URL = "http://wm.localstudies.info";
-//        public static String FONT = "DFKai-sb";
-        public static String FONT = "cwTeXKai";
+        public static String FONT = "'DFKai-sb', 'BiauKai'";
         public static String TITLE_COLOR = "Silver";
-
         public static String QRCODE_IMG;
     }
 
     public static class LUNA {
 
         public static int COLUMN = 8, ROW = 4;
-//        public static String FONT = "Microsoft JhengHei";
-        public static String FONT = "cwTeXHei";
+        public static String FONT = "Arial, 'Microsoft JhengHei', 'Heiti TC'";
 
         public static class CARD {
 
@@ -35,8 +32,12 @@ public class Config {
             public static String BORDER_STYLE = "inset";
             public static String[] BORDER_COLOR = {"Silver", "White"};
             public static String COLOR = "#121212";
-            public static String FONT = "DFKai-sb";
-//            public static String FONT = "cwTeXKai";
+            public static String FONT = "'Times New Roman', DFKai-sb, BiauKai";
+//            public static String FONT = "source-han-serif-tc-n7";
+//            public static String FONT = "source-han-sans-traditional";
+            public static String FONT_WEIGHT = "normal";
+            public static String FONT_COLOR = "white";
+
         }
 
         public static int FLIP_TIME_OUT = 5000; //ms
