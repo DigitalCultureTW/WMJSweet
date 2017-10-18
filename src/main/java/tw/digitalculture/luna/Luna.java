@@ -129,9 +129,10 @@ public final class Luna {
             col = (int) (LUNA.COLUMN * Math.random());
             c = cards.get(row + "_" + col);
             //System.out.println(row + "," + col + "," + cards.size() + "," + c.is_logo + "," + is_logo);
-        } while (c.locked || (is_logo > LUNA.MIN_LOGO()
-                && !LUNA.QRCODE.equals(content) && !c.is_logo));
-        //當卡片不是logo，並且版面上的logo多於LUNA.MIN_LOGO
+        } while (c.locked || (!LUNA.QRCODE.equals(content) && !c.is_logo 
+                && is_logo > LUNA.MIN_LOGO()));
+//  當內容時不是QRCode、選到卡片也不是logo，並且版面上的logo仍多於LUNA.MIN_LOGO
+//  當logo還很多時，讓有內容的卡片不要輕易取代掉其它有內容的卡片
         final Card flip_card = c;
 
         if (PROJECT.LOGO_PATH.equals(img_path) || LUNA.QRCODE.equals(content)) {
@@ -158,7 +159,8 @@ public final class Luna {
             setTimeout((o2) -> {
                 flip_card.locked = false;
                 is_locked--;
-            }, (PROJECT.LOGO_PATH.equals(img_path)) ? 0 : LUNA.SHOW_STAY);
+            }, PROJECT.LOGO_PATH.equals(img_path)
+                    ? LUNA.SHOW_STAY / 3 : LUNA.SHOW_STAY);
         }, LUNA.FLIP_TIME_OUT);
     }
 

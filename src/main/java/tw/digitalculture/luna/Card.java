@@ -6,10 +6,7 @@ import def.dom.HTMLElement;
 import def.dom.HTMLCanvasElement;
 import def.dom.HTMLImageElement;
 import static def.jquery.Globals.$;
-import def.js.Array;
 import static def.node.Globals.setTimeout;
-import java.util.ArrayList;
-import java.util.List;
 
 import java.util.function.Consumer;
 import tw.digitalculture.config.Config.LUNA;
@@ -69,12 +66,15 @@ public final class Card {
                 .css("background-color", LUNA.CARD.COLOR);
         $(card_face).addClass("face");
 
-        ExifReader.getOrientation(path, (Integer ori) -> {
+        ExifReader.getOrientation(path, (Integer ori, String img_source) -> {
+//            if (!img_source.startsWith(LUNA.TEXT)) {
+//                System.out.println(ori + ":" + img_source);
+//            }
             front_img = (HTMLImageElement) document.createElement("img");
             front_img.crossOrigin = "anonymous";
             front_img.src = (LUNA.QRCODE.equals(path)) ? UMBRA.QRCODE_IMG
                     : (path.startsWith(LUNA.TEXT))
-                    ? path.substring(LUNA.TEXT.length()) : path;
+                    ? path.substring(LUNA.TEXT.length()) : img_source;// path;
             front_img.onload = (e) -> {
                 $(front_img).css("width", "100%").css("height", "100%");
 //            $(front_img).css("image-orientation", "from-image");

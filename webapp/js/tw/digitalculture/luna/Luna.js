@@ -100,12 +100,12 @@ var tw;
                         row = ((tw.digitalculture.config.Config.LUNA.ROW * Math.random()) | 0);
                         col = ((tw.digitalculture.config.Config.LUNA.COLUMN * Math.random()) | 0);
                         c = (function (m, k) { return m[k] === undefined ? null : m[k]; })(Luna.cards, row + "_" + col);
-                    } while ((c.locked || (Luna.is_logo > tw.digitalculture.config.Config.LUNA.MIN_LOGO() && !(function (o1, o2) { if (o1 && o1.equals) {
+                    } while ((c.locked || (!(function (o1, o2) { if (o1 && o1.equals) {
                         return o1.equals(o2);
                     }
                     else {
                         return o1 === o2;
-                    } })(tw.digitalculture.config.Config.LUNA.QRCODE, content) && !c.is_logo)));
+                    } })(tw.digitalculture.config.Config.LUNA.QRCODE, content) && !c.is_logo && Luna.is_logo > tw.digitalculture.config.Config.LUNA.MIN_LOGO())));
                     var flip_card = c;
                     if ((function (o1, o2) { if (o1 && o1.equals) {
                         return o1.equals(o2);
@@ -149,12 +149,12 @@ var tw;
                             setTimeout(function (o2) {
                                 flip_card.locked = false;
                                 Luna.is_locked--;
-                            }, ((function (o1, o2) { if (o1 && o1.equals) {
+                            }, /* equals */ (function (o1, o2) { if (o1 && o1.equals) {
                                 return o1.equals(o2);
                             }
                             else {
                                 return o1 === o2;
-                            } })(tw.digitalculture.config.Config.PROJECT.LOGO_PATH, img_path)) ? 0 : tw.digitalculture.config.Config.LUNA.SHOW_STAY);
+                            } })(tw.digitalculture.config.Config.PROJECT.LOGO_PATH, img_path) ? (tw.digitalculture.config.Config.LUNA.SHOW_STAY / 3 | 0) : tw.digitalculture.config.Config.LUNA.SHOW_STAY);
                         };
                     })(flip_card), tw.digitalculture.config.Config.LUNA.FLIP_TIME_OUT);
                 };

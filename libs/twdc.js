@@ -45,16 +45,24 @@
             for (var i = 0; i < dataset.length; i++) {
                 var result = dataset[i].contains(query_str);
                 if (result.length > 0) {
-                    n--;
                     records.push(new Record_Query(
                             dataset[i].link,
                             result
                             ));
                 }
-//                if (n === 0)
-//                    break;
             }
-            callback(records);
+            if (records.length > n) {
+                var records2 = [];
+                do {
+                    var selected = Math.floor(Math.random() * records.length);
+                    if (records[selected]) {
+                        records2.push(records[selected]);
+                        records[selected] = null;
+                    }
+                } while (records2.length < n);
+                callback(records2);
+            } else
+                callback(records);
         };
         console.log("Preloading data from TWDC...");
         methods.refresh(cf.TWDC.URL_BASE, callback);

@@ -24,7 +24,8 @@ public class Config {
     public static class LUNA {
 
         public static int COLUMN = 8, ROW = 4;
-        public static String FONT = "Arial, 'Microsoft JhengHei', 'Heiti TC'";
+//        public static String FONT = "Arial, 'Microsoft JhengHei', 'Heiti TC'";
+        public static String FONT = "'Yu Gothic', SimHei";
 
         public static class CARD {
 
@@ -32,7 +33,8 @@ public class Config {
             public static String BORDER_STYLE = "inset";
             public static String[] BORDER_COLOR = {"Silver", "White"};
             public static String COLOR = "#121212";
-            public static String FONT = "'Times New Roman', DFKai-sb, BiauKai";
+//            public static String FONT = "'Times New Roman', DFKai-sb, BiauKai";
+            public static String FONT = "Meiryo, '微軟正黑體', 'Microsoft JhengHei'";
 //            public static String FONT = "source-han-serif-tc-n7";
 //            public static String FONT = "source-han-sans-traditional";
             public static String FONT_WEIGHT = "normal";
@@ -41,8 +43,8 @@ public class Config {
         }
 
         public static int FLIP_TIME_OUT = 5000; //ms
-        public static int SYSTEM_LOGO_TIME_OUT = 7000; //ms
-        public static int SHOW_INTERVAL = 2500; //ms
+//        public static int SYSTEM_LOGO_TIME_OUT = 7000; //ms
+        public static int SHOW_INTERVAL = 3000; //ms
         public static int SHOW_STAY = 1500; //ms
         public static String QRCODE = "@QR_CODE_TOKEN";
         public static String TEXT = "@TEXT_TOKEN";

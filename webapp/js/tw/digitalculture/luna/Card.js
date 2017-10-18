@@ -55,7 +55,7 @@ var tw;
                     var card_face = document.createElement("div");
                     $(card_face).css("width", tw.digitalculture.luna.Luna.SIDE).css("height", tw.digitalculture.luna.Luna.SIDE).css("background-color", tw.digitalculture.config.Config.LUNA.CARD.COLOR);
                     $(card_face).addClass("face");
-                    tw.digitalculture.luna.ExifReader.getOrientation(path, function (ori) {
+                    tw.digitalculture.luna.ExifReader.getOrientation(path, function (ori, img_source) {
                         _this.front_img = document.createElement("img");
                         _this.front_img.crossOrigin = "anonymous";
                         _this.front_img.src = ((function (o1, o2) { if (o1 && o1.equals) {
@@ -66,7 +66,7 @@ var tw;
                         } })(tw.digitalculture.config.Config.LUNA.QRCODE, path)) ? tw.digitalculture.config.Config.UMBRA.QRCODE_IMG : ((function (str, searchString, position) {
                             if (position === void 0) { position = 0; }
                             return str.substr(position, searchString.length) === searchString;
-                        })(path, tw.digitalculture.config.Config.LUNA.TEXT)) ? path.substring(tw.digitalculture.config.Config.LUNA.TEXT.length) : path;
+                        })(path, tw.digitalculture.config.Config.LUNA.TEXT)) ? path.substring(tw.digitalculture.config.Config.LUNA.TEXT.length) : img_source;
                         _this.front_img.onload = function (e) {
                             $(_this.front_img).css("width", "100%").css("height", "100%");
                             $(_this.front_img).css("transform", "rotate(" + Card.DEG(ori) + "deg)");
