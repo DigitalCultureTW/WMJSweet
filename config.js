@@ -50,7 +50,7 @@ var UMBRA = {
 };
 
 var DATA = {
-    FILETYPES: ['jpg', 'png', 'JPG', 'PNG'],
+    FILETYPES: ['jpg', 'png'],
     get LIMIT() {
         return parseInt((LUNA.ROW * LUNA.COLUMN) / 2);
     },

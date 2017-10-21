@@ -42,7 +42,7 @@
             this.link = decodeURIComponent($(metadata).find("dc\\:description").filter(function () {
                 return ($(this).text().startsWith("http://"));
             }).text());
-            this.filetype = this.link.split(".").pop();
+            this.filetype = this.link.split(".").pop().toLowerCase();
 
             this.contains = function (keyword) {
                 var result = '';

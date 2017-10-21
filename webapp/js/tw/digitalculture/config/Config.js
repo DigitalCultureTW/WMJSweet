@@ -25,7 +25,7 @@ var tw;
                 PROJECT.TITLE_ENGLISH = "The Window of Our Memories";
                 PROJECT.SUBTITLE = "\u5171\u7bc9\u81fa\u4e2d\u5370\u8c61\u7684\u89d2\u843d";
                 PROJECT.LOGO_PATH = "/element/logo_2.png";
-                PROJECT.VERSION = "0.6.2-beta-jswt";
+                PROJECT.VERSION = "0.7.0-beta-jswt";
                 Config.PROJECT = PROJECT;
                 PROJECT["__class"] = "tw.digitalculture.config.Config.PROJECT";
                 var UMBRA = (function () {
@@ -86,7 +86,7 @@ var tw;
                     function DATA() {
                     }
                     DATA.FILETYPES_$LI$ = function () { if (DATA.FILETYPES == null)
-                        DATA.FILETYPES = ["jpg", "png", "JPG", "PNG"]; return DATA.FILETYPES; };
+                        DATA.FILETYPES = ["jpg", "png"]; return DATA.FILETYPES; };
                     ;
                     DATA.LIMIT = function () {
                         return (((Config.LUNA.ROW * Config.LUNA.COLUMN) | 0) / 2 | 0);
@@ -101,7 +101,8 @@ var tw;
                         }
                         return TWDC;
                     }());
-                    TWDC.URL = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc";
+                    TWDC.URL_BASE = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc";
+                    TWDC.URL_TOKEN = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&&resumptionToken=";
                     DATA.TWDC = TWDC;
                     TWDC["__class"] = "tw.digitalculture.config.Config.DATA.TWDC";
                     var IDEASQL = (function () {

@@ -16,8 +16,6 @@ import def.socket_io_client.socketioclient.Socket;
 import java.util.HashMap;
 import java.util.Map;
 import static jsweet.util.Lang.function;
-import tw.digitalculture.config.Config;
-import tw.digitalculture.config.Config.PROJECT;
 
 /**
  *

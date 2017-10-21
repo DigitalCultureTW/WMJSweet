@@ -45,22 +45,19 @@
             for (var i = 0; i < dataset.length; i++) {
                 var result = dataset[i].contains(query_str);
                 if (result.length > 0) {
-                    records.push(new Record_Query(
-                            dataset[i].link,
-                            result
-                            ));
+                    records.push(new Record_Query(dataset[i].link, result));
                 }
             }
             if (records.length > n) {
-                var records2 = [];
+                var records_selected = [];
                 do {
                     var selected = Math.floor(Math.random() * records.length);
                     if (records[selected]) {
-                        records2.push(records[selected]);
+                        records_selected.push(records[selected]);
                         records[selected] = null;
                     }
-                } while (records2.length < n);
-                callback(records2);
+                } while (records_selected.length < n);
+                callback(records_selected);
             } else
                 callback(records);
         };

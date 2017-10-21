@@ -107,10 +107,9 @@ public final class Luna {
 //        System.out.println("from " + user
 //                + ", uri = " + data.$get("uri"));
         if (data_pool.size() > 0) {
-            deal_card("*" + data.$get("keyword"), data.$get("uri"), data.$get("text"));
-        } else {
-            deal_card();
+            deal_card("*" + data.$get("keyword") + "*", data.$get("uri"), data.$get("text"));
         }
+        deal_card();
     }
 
     public void onResult(JSON data) {
@@ -135,6 +134,7 @@ public final class Luna {
 
     /**
      * Trigger card dealing in the interval of LUNA.SHOW_INTERVAL.
+     * @param arg
      */
     public void trigger_data(Object arg) {
         if (data_pool.size() - deleted_keys.size() > 0
@@ -174,7 +174,7 @@ public final class Luna {
     }
 
     public void deal_card(Record_Display record) {
-        deal_card(record.query_str, record.img_path, record.content);
+        deal_card("[" + record.query_str + "]", record.img_path, record.content);
     }
 
     public void deal_card(String query_str, String img_path, String content) {
@@ -188,8 +188,8 @@ public final class Luna {
             //System.out.println(row + "," + col + "," + cards.size() + "," + c.is_logo + "," + is_logo);
         } while (c.locked || (!LUNA.QRCODE.equals(content) && !c.is_logo
                 && is_logo > LUNA.MIN_LOGO()));
-        //  當內容時不是QRCode、選到卡片也不是logo，並且版面上的logo仍多於LUNA.MIN_LOGO
-        //  當logo還很多時，讓有內容的卡片不要輕易取代掉其它有內容的卡片
+        //  當內容不是QRCode、選到卡片也不是logo，並且版面上的logo仍多於LUNA.MIN_LOGO：
+        //  當logo還很多時，讓有內容的卡片不要輕易取代掉其它有內容的卡片。
         final Card flip_card = c;
 
         if (PROJECT.LOGO_PATH.equals(img_path) || LUNA.QRCODE.equals(content)) {
@@ -208,7 +208,7 @@ public final class Luna {
         if (LUNA.QRCODE.equals(content)) {
             flip_card.flip(LUNA.QRCODE, 1);
         } else {
-            String text = ((!query_str.isEmpty()) ? "[" + query_str + "] " : "") + content;
+            String text = query_str + " " + content;
             flip_card.flip(flip_card.draw_text(text), 1);
         }
         setTimeout((o1) -> {

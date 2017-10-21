@@ -1,8 +1,5 @@
 package tw.digitalculture.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Config {
 
     public static class PROJECT {
@@ -14,8 +11,6 @@ public class Config {
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
         public static String VERSION = "0.7.0-beta-jswt";
-
-//        public static List<String> KEYWORDS = new ArrayList<>();
     }
 
     public static class UMBRA {
@@ -70,7 +65,7 @@ public class Config {
 
     public static class DATA {
 
-        public static String[] FILETYPES = {"jpg", "png", "JPG", "PNG"};
+        public static String[] FILETYPES = {"jpg", "png"};
 
         public static int LIMIT() {
             return (int) (LUNA.ROW * LUNA.COLUMN) / 2;
@@ -78,7 +73,8 @@ public class Config {
 
         public static class TWDC {
 
-            public static String URL = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc";
+            public static String URL_BASE = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&metadataPrefix=oai_dc";
+            public static String URL_TOKEN = "http://data.digitalculture.tw/taichung/oai?verb=ListRecords&&resumptionToken=";
         }
 
         public static class IDEASQL {

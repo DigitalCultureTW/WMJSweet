@@ -74,14 +74,10 @@ var tw;
                     this.socket.on("result", (function (data) { return _this.onResult(data); }));
                 };
                 Luna.prototype.onFire = function (data) {
-                    var user = (data["user"]);
-                    console.info("from " + user + ", uri = " + data["uri"]);
                     if (Object.keys(Luna.data_pool_$LI$()).length > 0) {
-                        this.deal_card$java_lang_String$java_lang_String$java_lang_String("*" + data["keyword"], (data["uri"]), (data["text"]));
+                        this.deal_card$java_lang_String$java_lang_String$java_lang_String("*" + data["keyword"] + "*", (data["uri"]), (data["text"]));
                     }
-                    else {
-                        this.deal_card();
-                    }
+                    this.deal_card();
                 };
                 Luna.prototype.onResult = function (data) {
                     var record_set = (data["record_set"]);
@@ -136,7 +132,7 @@ var tw;
                     this.deal_card$java_lang_String$java_lang_String$java_lang_String("", tw.digitalculture.config.Config.PROJECT.LOGO_PATH, tw.digitalculture.config.Config.LUNA.QRCODE);
                 };
                 Luna.prototype.deal_card$tw_digitalculture_model_Record_Display = function (record) {
-                    this.deal_card$java_lang_String$java_lang_String$java_lang_String(record.query_str, record.img_path, record.content);
+                    this.deal_card$java_lang_String$java_lang_String$java_lang_String("[" + record.query_str + "]", record.img_path, record.content);
                 };
                 Luna.prototype.deal_card$java_lang_String$java_lang_String$java_lang_String = function (query_str, img_path, content) {
                     var c = null;
@@ -186,7 +182,7 @@ var tw;
                         flip_card.flip(tw.digitalculture.config.Config.LUNA.QRCODE, 1);
                     }
                     else {
-                        var text = ((!(query_str.length === 0)) ? "[" + query_str + "] " : "") + content;
+                        var text = query_str + " " + content;
                         flip_card.flip(flip_card.draw_text(text), 1);
                     }
                     setTimeout((function (flip_card) {
