@@ -9,12 +9,13 @@ var tw;
              *
              * @author Jonathan
              * @param {string} id
+             * @param {string} word
              * @class
              */
             var Keyword = (function () {
-                function Keyword(id) {
+                function Keyword(id, word) {
                     var _this = this;
-                    if (((typeof id === 'string') || id === null)) {
+                    if (((typeof id === 'string') || id === null) && ((typeof word === 'string') || word === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         if (this._id === undefined)
                             this._id = null;
@@ -30,27 +31,39 @@ var tw;
                             this.input = null;
                         (function () {
                             _this._id = id;
-                            _this.word = "";
+                            _this.word = word;
                             _this.input = document.createElement("input");
-                            $(_this.input).attr("id", _this._id);
+                            $(_this.input).attr("id", _this._id).val(word);
                             _this.input.placeholder = "\u8acb\u8f38\u5165\u9810\u8a2d\u95dc\u9375\u5b57";
                             $(_this.input).on("change", function (e, o) { return _this.handler(e, o); });
                         })();
                     }
-                    else if (id === undefined) {
+                    else if (((typeof id === 'string') || id === null) && word === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        if (this._id === undefined)
-                            this._id = null;
-                        if (this.word === undefined)
-                            this.word = null;
-                        if (this.input === undefined)
-                            this.input = null;
-                        if (this._id === undefined)
-                            this._id = null;
-                        if (this.word === undefined)
-                            this.word = null;
-                        if (this.input === undefined)
-                            this.input = null;
+                        {
+                            var __args_1 = Array.prototype.slice.call(arguments);
+                            var word_1 = "";
+                            if (this._id === undefined)
+                                this._id = null;
+                            if (this.word === undefined)
+                                this.word = null;
+                            if (this.input === undefined)
+                                this.input = null;
+                            if (this._id === undefined)
+                                this._id = null;
+                            if (this.word === undefined)
+                                this.word = null;
+                            if (this.input === undefined)
+                                this.input = null;
+                            (function () {
+                                _this._id = id;
+                                _this.word = word_1;
+                                _this.input = document.createElement("input");
+                                $(_this.input).attr("id", _this._id).val(word_1);
+                                _this.input.placeholder = "\u8acb\u8f38\u5165\u9810\u8a2d\u95dc\u9375\u5b57";
+                                $(_this.input).on("change", function (e, o) { return _this.handler(e, o); });
+                            })();
+                        }
                     }
                     else
                         throw new Error('invalid overload');

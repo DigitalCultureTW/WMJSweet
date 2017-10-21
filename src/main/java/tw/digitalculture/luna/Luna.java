@@ -103,8 +103,14 @@ public final class Luna {
     }
 
     public void onFire(JSON data) {
-        System.out.println("from " + data.$get("user"));
-        deal_card();
+//        String user = data.$get("user");
+//        System.out.println("from " + user
+//                + ", uri = " + data.$get("uri"));
+        if (data_pool.size() > 0) {
+            deal_card("*" + data.$get("keyword"), data.$get("uri"), data.$get("text"));
+        } else {
+            deal_card();
+        }
     }
 
     public void onResult(JSON data) {

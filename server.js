@@ -31,8 +31,7 @@ var port = process.env.port || process.env.PORT || 1337;
 //var port = process.env.port || process.env.npm_package_config_LOCAL_PORT;
 var io = require('socket.io')(server);
 var cf = require('./config.js');
-var CF = require(__dirname + '/webapp/js/tw/digitalculture/config/Config.js').PROJECT;
-console.log(CF);
+var keyword = "文化局";
 var dc = require('./libs/DataCenter')(cf.DATA.LIMIT, () => {
     io.on('connection', function (client) {
         console.log(client.id + "_" + client.handshake.query.role + "_connection");
@@ -54,10 +53,28 @@ var dc = require('./libs/DataCenter')(cf.DATA.LIMIT, () => {
         client.on('disconnect', function () {
             console.log("disconnect");
         });
+        client.on('keyword', function (data) {
+            if (data.keyword)
+                keyword = data.keyword;
+        });
+        client.on('keyword_query', function () {
+            io.emit('keyword_current', {keyword: keyword});
+        });
     });
 
     setInterval(function () {
-        io.emit('fire', {user: "Server"});
+        var data = {
+            client: 'Server',
+            text: keyword
+        };
+        dc.getResult(data, (result) => {
+            var select = result.record_set[parseInt(result.record_set.length * Math.random())];
+            io.emit('fire', {
+                user: "Server",
+                keyword: keyword,
+                uri: select.img_url,
+                text: select.content});
+        });
     }, cf.LUNA.SYSTEM_LOGO_TIME_OUT);
 
     console.log("Server listening to port: " + port);

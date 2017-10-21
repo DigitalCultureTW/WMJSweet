@@ -10,9 +10,9 @@
 
         methods.getResult = function (data, callback) {
             var result = new Result(data.client, data.text);
-
             twdc.query(result.query_str, (twdc_result) => {
-                console.log("twdc_result = " + twdc_result.length);
+                if (data.client !== 'Server')
+                    console.log("twdc_result = " + twdc_result.length);
                 twdc_result.forEach(function (r) {
                     result.record_set.push(r);
                 });
@@ -23,7 +23,8 @@
                     var query_str = (result.query_str === '台中') ?
                             '台中 臺中' : result.query_str;
                     ideasql.query(query_str, quota, (ideasql_result) => {
-                        console.log("ideasql_result = " + ideasql_result.length);
+                        if (data.client !== 'Server')
+                            console.log("ideasql_result = " + ideasql_result.length);
                         ideasql_result.forEach(function (r) {
                             result.record_set.push(r);
                         });

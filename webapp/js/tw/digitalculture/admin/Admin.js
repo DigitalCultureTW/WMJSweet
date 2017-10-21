@@ -12,14 +12,16 @@ var tw;
              */
             var Admin = (function () {
                 function Admin() {
-                    this.number = 3;
+                    this.number = 1;
                     if (this.keyword_elements === undefined)
                         this.keyword_elements = null;
                     if (this.ideasql_pool_size === undefined)
                         this.ideasql_pool_size = 0;
                     if (this.socket === undefined)
                         this.socket = null;
-                    this.setup_socket();
+                    if (this.current === undefined)
+                        this.current = null;
+                    this.setupSocket();
                     this.setup();
                 }
                 Admin.main = function (args) {
@@ -33,32 +35,42 @@ var tw;
                 /*private*/ Admin.prototype.setup = function () {
                     var _this = this;
                     this.keyword_elements = ({});
+                    this.current = $("#current");
                     for (var i = 0; i < this.number; i++) {
                         var keyword = new tw.digitalculture.admin.Keyword("keyword" + i);
                         /* put */ (this.keyword_elements[keyword._id] = keyword);
                         $("#keyword_panel").append(keyword.getHTMLElement());
                     }
                     ;
-                    $("#submit").on("click", function (e, o) { return _this.handler(e, o); });
+                    $("#submit").on("click", function (e, o) { return _this.submitHandler(e, o); });
+                    $("#update").on("click", function (e, o) { return _this.updateHandler(e, o); }).click();
                 };
-                /*private*/ Admin.prototype.handler = function (e, o) {
+                /*private*/ Admin.prototype.submitHandler = function (e, o) {
                     var _this = this;
-                    var current = ([]);
-                    /* clear */ (tw.digitalculture.config.Config.PROJECT.KEYWORDS_$LI$().length = 0);
-                    $("#current").text("");
-                    /* keySet */ Object.keys(this.keyword_elements).forEach((function (current) {
-                        return function (key) {
-                            var word = (function (m, k) { return m[k] === undefined ? null : m[k]; })(_this.keyword_elements, key).word;
-                            /* add */ (tw.digitalculture.config.Config.PROJECT.KEYWORDS_$LI$().push(word) > 0);
-                            console.info(word + " added.");
-                            /* add */ (current.push(word) > 0);
-                            $("#current").text($("#current").text() + " " + word);
-                        };
-                    })(current));
+                    /* keySet */ Object.keys(this.keyword_elements).forEach(function (key) {
+                        var word = (function (m, k) { return m[k] === undefined ? null : m[k]; })(_this.keyword_elements, key).word;
+                        console.info(word + " added.");
+                        _this.socket.emit("keyword", JSON.parse("{\"keyword\":\"" + word + "\"}"));
+                        _this.socket.emit("keyword_query");
+                    });
                     return null;
                 };
-                /*private*/ Admin.prototype.setup_socket = function () {
+                /*private*/ Admin.prototype.updateHandler = function (e, o) {
+                    this.socket.emit("keyword_query");
+                    return null;
+                };
+                /*private*/ Admin.prototype.updateCurrent = function (word) {
+                    this.current.children().remove();
+                    var div = document.createElement("div");
+                    $(div).text(word);
+                    this.current.append(div);
+                };
+                /*private*/ Admin.prototype.setupSocket = function () {
+                    var _this = this;
                     this.socket = io("?role=admin");
+                    this.socket.on("keyword_current", (function (data) {
+                        _this.updateCurrent(data["keyword"].toString());
+                    }));
                 };
                 return Admin;
             }());

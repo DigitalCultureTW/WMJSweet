@@ -74,8 +74,14 @@ var tw;
                     this.socket.on("result", (function (data) { return _this.onResult(data); }));
                 };
                 Luna.prototype.onFire = function (data) {
-                    console.info("from " + data["user"]);
-                    this.deal_card();
+                    var user = (data["user"]);
+                    console.info("from " + user + ", uri = " + data["uri"]);
+                    if (Object.keys(Luna.data_pool_$LI$()).length > 0) {
+                        this.deal_card$java_lang_String$java_lang_String$java_lang_String("*" + data["keyword"], (data["uri"]), (data["text"]));
+                    }
+                    else {
+                        this.deal_card();
+                    }
                 };
                 Luna.prototype.onResult = function (data) {
                     var record_set = (data["record_set"]);

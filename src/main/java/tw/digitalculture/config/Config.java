@@ -15,7 +15,7 @@ public class Config {
         public static String LOGO_PATH = "/element/logo_2.png";
         public static String VERSION = "0.6.2-beta-jswt";
 
-        public static List<String> KEYWORDS = new ArrayList<>();
+//        public static List<String> KEYWORDS = new ArrayList<>();
     }
 
     public static class UMBRA {

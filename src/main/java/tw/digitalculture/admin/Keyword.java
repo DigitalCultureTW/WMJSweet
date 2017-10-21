@@ -20,14 +20,15 @@ class Keyword {
     String word;
     HTMLInputElement input;
 
-    public Keyword() {
+    public Keyword(String id) {
+        this(id, "");
     }
 
-    public Keyword(String id) {
+    public Keyword(String id, String word) {
         this._id = id;
-        this.word = "";
+        this.word = word;
         input = (HTMLInputElement) document.createElement("input");
-        $(input).attr("id", _id);
+        $(input).attr("id", _id).val(word);
         input.placeholder = "請輸入預設關鍵字";
         $(input).on("change", this::handler);
     }
