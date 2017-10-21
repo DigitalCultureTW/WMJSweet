@@ -31,6 +31,8 @@ var port = process.env.port || process.env.PORT || 1337;
 //var port = process.env.port || process.env.npm_package_config_LOCAL_PORT;
 var io = require('socket.io')(server);
 var cf = require('./config.js');
+var CF = require(__dirname + '/webapp/js/tw/digitalculture/config/Config.js').PROJECT;
+console.log(CF);
 var dc = require('./libs/DataCenter')(cf.DATA.LIMIT, () => {
     io.on('connection', function (client) {
         console.log(client.id + "_" + client.handshake.query.role + "_connection");

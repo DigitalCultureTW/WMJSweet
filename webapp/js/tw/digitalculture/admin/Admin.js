@@ -12,10 +12,14 @@ var tw;
              */
             var Admin = (function () {
                 function Admin() {
-                    if (this.default_keywords === undefined)
-                        this.default_keywords = null;
+                    this.number = 3;
+                    if (this.keyword_elements === undefined)
+                        this.keyword_elements = null;
                     if (this.ideasql_pool_size === undefined)
                         this.ideasql_pool_size = 0;
+                    if (this.socket === undefined)
+                        this.socket = null;
+                    this.setup_socket();
                     this.setup();
                 }
                 Admin.main = function (args) {
@@ -27,13 +31,34 @@ var tw;
                     });
                 };
                 /*private*/ Admin.prototype.setup = function () {
-                    this.default_keywords = ({});
-                    /* put */ (this.default_keywords["#k1"] = new tw.digitalculture.admin.Keyword("k1"));
-                    /* put */ (this.default_keywords["#k2"] = new tw.digitalculture.admin.Keyword("k2"));
-                    /* entrySet */ (function (o) { var s = []; for (var e in o)
-                        s.push({ k: e, v: o[e], getKey: function () { return this.k; }, getValue: function () { return this.v; } }); return s; })(this.default_keywords).forEach(function (e) {
-                        $("#keyword_panel").append(e.getValue().getHTMLElement());
-                    });
+                    var _this = this;
+                    this.keyword_elements = ({});
+                    for (var i = 0; i < this.number; i++) {
+                        var keyword = new tw.digitalculture.admin.Keyword("keyword" + i);
+                        /* put */ (this.keyword_elements[keyword._id] = keyword);
+                        $("#keyword_panel").append(keyword.getHTMLElement());
+                    }
+                    ;
+                    $("#submit").on("click", function (e, o) { return _this.handler(e, o); });
+                };
+                /*private*/ Admin.prototype.handler = function (e, o) {
+                    var _this = this;
+                    var current = ([]);
+                    /* clear */ (tw.digitalculture.config.Config.PROJECT.KEYWORDS_$LI$().length = 0);
+                    $("#current").text("");
+                    /* keySet */ Object.keys(this.keyword_elements).forEach((function (current) {
+                        return function (key) {
+                            var word = (function (m, k) { return m[k] === undefined ? null : m[k]; })(_this.keyword_elements, key).word;
+                            /* add */ (tw.digitalculture.config.Config.PROJECT.KEYWORDS_$LI$().push(word) > 0);
+                            console.info(word + " added.");
+                            /* add */ (current.push(word) > 0);
+                            $("#current").text($("#current").text() + " " + word);
+                        };
+                    })(current));
+                    return null;
+                };
+                /*private*/ Admin.prototype.setup_socket = function () {
+                    this.socket = io("?role=admin");
                 };
                 return Admin;
             }());

@@ -34,6 +34,7 @@ var tw;
                             _this.input = document.createElement("input");
                             $(_this.input).attr("id", _this._id);
                             _this.input.placeholder = "\u8acb\u8f38\u5165\u9810\u8a2d\u95dc\u9375\u5b57";
+                            $(_this.input).on("change", function (e, o) { return _this.handler(e, o); });
                         })();
                     }
                     else if (id === undefined) {
@@ -54,6 +55,10 @@ var tw;
                     else
                         throw new Error('invalid overload');
                 }
+                /*private*/ Keyword.prototype.handler = function (e, o) {
+                    this.word = this.input.value;
+                    return null;
+                };
                 Keyword.prototype.getHTMLElement = function () {
                     return this.input;
                 };

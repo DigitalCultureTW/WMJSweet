@@ -71,14 +71,12 @@ public final class Card {
 //                System.out.println(ori + ":" + img_source);
 //            }
             front_img = (HTMLImageElement) document.createElement("img");
+            $(front_img).css("transform", "rotate(" + DEG(ori) + "deg)");
             front_img.crossOrigin = "anonymous";
             front_img.src = (LUNA.QRCODE.equals(path)) ? UMBRA.QRCODE_IMG
                     : (path.startsWith(LUNA.TEXT))
                     ? path.substring(LUNA.TEXT.length()) : img_source;// path;
             front_img.onload = (e) -> {
-                $(front_img).css("width", "100%").css("height", "100%");
-//            $(front_img).css("image-orientation", "from-image");
-                $(front_img).css("transform", "rotate(" + DEG(ori) + "deg)");
                 $(front_img).addClass("img");
                 $(card_face).append(front_img);
                 callback.accept(card_face);

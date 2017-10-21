@@ -1,5 +1,8 @@
 package tw.digitalculture.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Config {
 
     public static class PROJECT {
@@ -11,6 +14,8 @@ public class Config {
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
         public static String VERSION = "0.6.2-beta-jswt";
+
+        public static List<String> KEYWORDS = new ArrayList<>();
     }
 
     public static class UMBRA {

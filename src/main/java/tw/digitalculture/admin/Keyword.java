@@ -8,6 +8,7 @@ package tw.digitalculture.admin;
 import static def.dom.Globals.document;
 import def.dom.HTMLInputElement;
 import static def.jquery.Globals.$;
+import def.jquery.JQueryEventObject;
 
 /**
  *
@@ -28,6 +29,12 @@ class Keyword {
         input = (HTMLInputElement) document.createElement("input");
         $(input).attr("id", _id);
         input.placeholder = "請輸入預設關鍵字";
+        $(input).on("change", this::handler);
+    }
+
+    private Object handler(JQueryEventObject e, Object o) {
+        word = input.value;
+        return null;
     }
 
     public HTMLInputElement getHTMLElement() {

@@ -17,12 +17,15 @@ and open the template in the editor.
         <script>
             $(() => {
                 var PROJECT = tw.digitalculture.config.Config.PROJECT;
-//                var UMBRA = tw.digitalculture.config.Config.UMBRA;
                 $("title").text(PROJECT.TITLE_MAIN + " | " + PROJECT.TITLE_ENGLISH);
+                var keywords = Array.from(PROJECT.KEYWORDS);
+                $("#current").text(keywords.toString());
             });
         </script>
     </head>
     <body>
+        <div id="current"></div>
         <div id="keyword_panel"></div>
+        <button id="submit">Submit</button>
     </body>
 </html>

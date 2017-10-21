@@ -22,44 +22,50 @@ var tw;
                     this.setup_socket();
                     setInterval(function (arg) { return _this.trigger_data(arg); }, tw.digitalculture.config.Config.LUNA.SHOW_INTERVAL);
                 }
-                Luna.main = function (args) {
-                    $(document).ready(function () {
-                        var luna = new Luna();
-                        return null;
-                    });
-                };
                 Luna.data_pool_$LI$ = function () { if (Luna.data_pool == null)
                     Luna.data_pool = ({}); return Luna.data_pool; };
                 ;
                 Luna.deleted_keys_$LI$ = function () { if (Luna.deleted_keys == null)
                     Luna.deleted_keys = ([]); return Luna.deleted_keys; };
                 ;
-                Luna.prototype.trigger_data = function (arg) {
-                    if (Object.keys(Luna.data_pool_$LI$()).length - Luna.deleted_keys_$LI$().length > 0 && Luna.is_locked < tw.digitalculture.config.Config.LUNA.COLUMN * tw.digitalculture.config.Config.LUNA.ROW) {
-                        var key = "";
-                        do {
-                            var index = (((Math.random() * Object.keys(Luna.data_pool_$LI$()).length) - 1) | 0);
-                            key = Object.keys(Luna.data_pool_$LI$()).slice(0)[index];
-                            if ((function (m, k) { return m[k] === undefined ? null : m[k]; })(Luna.data_pool_$LI$(), key).used) {
-                                /* remove */ delete Luna.data_pool_$LI$()[key];
-                                key = "";
-                            }
-                        } while (((key.length === 0)));
-                        var rec = (function (m, k) { return m[k] === undefined ? null : m[k]; })(Luna.data_pool_$LI$(), key);
-                        rec.used = true;
-                        /* add */ (Luna.deleted_keys_$LI$().push(key) > 0);
-                        this.deal_card$java_lang_String$java_lang_String$java_lang_String(rec.query_str, rec.img_path, rec.content);
-                    }
-                    else {
-                        if (Luna.deleted_keys_$LI$().length > 0) {
-                            Luna.deleted_keys_$LI$().forEach(function (key) {
-                                /* remove */ delete Luna.data_pool_$LI$()[key];
-                            });
-                            console.info(/* size */ Luna.deleted_keys_$LI$().length + " dumped. data_pool size = " + Object.keys(Luna.data_pool_$LI$()).length);
-                            Luna.deleted_keys = ([]);
+                Luna.main = function (args) {
+                    $(document).ready(function () {
+                        var luna = new Luna();
+                        return null;
+                    });
+                };
+                Luna.prototype.setup = function () {
+                    $("title").text(tw.digitalculture.config.Config.PROJECT.TITLE_MAIN + " | " + tw.digitalculture.config.Config.PROJECT.TITLE_ENGLISH);
+                    $(".box").css("color", tw.digitalculture.config.Config.LUNA.TITLE_COLOR);
+                    var WT = window.screen.availWidth - 10;
+                    var HT = window.screen.availHeight;
+                    var top_height = HT * tw.digitalculture.config.Config.LUNA.TOP_HEIGHT_RATIO;
+                    var bottom_height = HT * tw.digitalculture.config.Config.LUNA.BOTTOM_HEIGHT_RATIO;
+                    Luna.SIDE = (WT / tw.digitalculture.config.Config.LUNA.COLUMN > (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW) ? (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.ROW) - tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2 : WT * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.COLUMN) / tw.digitalculture.config.Config.LUNA.COLUMN - tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2;
+                    $("#title_text").text(tw.digitalculture.config.Config.PROJECT.TITLE_$LI$());
+                    $("#version_text").text("Ver. " + tw.digitalculture.config.Config.PROJECT.VERSION);
+                    var font_size_top = (((tw.digitalculture.config.Config.PROJECT.TITLE_$LI$().length > WT / top_height) ? WT / top_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO : top_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO) | 0);
+                    var font_size_bottom = ((bottom_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO) | 0);
+                    $(".box").css("width", WT).css("font-family", tw.digitalculture.config.Config.LUNA.FONT);
+                    $(".box.top").css("height", top_height).css("font-size", font_size_top + "px");
+                    $(".box.bottom").css("height", bottom_height).css("font-size", font_size_bottom + "px");
+                };
+                Luna.prototype.init_cards = function () {
+                    Luna.cards = ({});
+                    for (var row = 0; row < tw.digitalculture.config.Config.LUNA.ROW; row++) {
+                        var row_div = document.createElement("div");
+                        $(row_div).addClass("row");
+                        $("#display").append(row_div);
+                        for (var col = 0; col < tw.digitalculture.config.Config.LUNA.COLUMN; col++) {
+                            var id = row + "_" + col;
+                            var card = new tw.digitalculture.luna.Card(id);
+                            /* put */ (Luna.cards[id] = card);
+                            $(row_div).append(card.card);
                         }
-                        this.deal_card();
+                        ;
                     }
+                    ;
+                    $(".row").css("height", Luna.SIDE + tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2).css("width", (Luna.SIDE + tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2) * tw.digitalculture.config.Config.LUNA.COLUMN);
                 };
                 /*private*/ Luna.prototype.setup_socket = function () {
                     var _this = this;
@@ -80,7 +86,7 @@ var tw;
                             replaced++;
                         }
                         if (i === 0) {
-                            this.deal_card$java_lang_String$java_lang_String$java_lang_String(record.query_str, record.img_path, record.content);
+                            this.deal_card$tw_digitalculture_model_Record_Display(record);
                         }
                         else {
                             /* put */ (Luna.data_pool_$LI$()[record.query_str + record.img_path] = record);
@@ -89,8 +95,42 @@ var tw;
                     ;
                     console.info("data_pool size = " + Object.keys(Luna.data_pool_$LI$()).length + "(" + replaced + ")");
                 };
+                /**
+                 * Trigger card dealing in the interval of LUNA.SHOW_INTERVAL.
+                 * @param {*} arg
+                 */
+                Luna.prototype.trigger_data = function (arg) {
+                    if (Object.keys(Luna.data_pool_$LI$()).length - Luna.deleted_keys_$LI$().length > 0 && Luna.is_locked < tw.digitalculture.config.Config.LUNA.COLUMN * tw.digitalculture.config.Config.LUNA.ROW) {
+                        var key = "";
+                        do {
+                            var index = (((Math.random() * Object.keys(Luna.data_pool_$LI$()).length) - 1) | 0);
+                            key = Object.keys(Luna.data_pool_$LI$()).slice(0)[index];
+                            if ((function (m, k) { return m[k] === undefined ? null : m[k]; })(Luna.data_pool_$LI$(), key).used) {
+                                /* remove */ delete Luna.data_pool_$LI$()[key];
+                                key = "";
+                            }
+                        } while (((key.length === 0)));
+                        var rec = (function (m, k) { return m[k] === undefined ? null : m[k]; })(Luna.data_pool_$LI$(), key);
+                        rec.used = true;
+                        /* add */ (Luna.deleted_keys_$LI$().push(key) > 0);
+                        this.deal_card$tw_digitalculture_model_Record_Display(rec);
+                    }
+                    else {
+                        if (Luna.deleted_keys_$LI$().length > 0) {
+                            Luna.deleted_keys_$LI$().forEach(function (key) {
+                                /* remove */ delete Luna.data_pool_$LI$()[key];
+                            });
+                            console.info(/* size */ Luna.deleted_keys_$LI$().length + " dumped. data_pool size = " + Object.keys(Luna.data_pool_$LI$()).length);
+                            Luna.deleted_keys = ([]);
+                        }
+                        this.deal_card();
+                    }
+                };
                 Luna.prototype.deal_card$ = function () {
                     this.deal_card$java_lang_String$java_lang_String$java_lang_String("", tw.digitalculture.config.Config.PROJECT.LOGO_PATH, tw.digitalculture.config.Config.LUNA.QRCODE);
+                };
+                Luna.prototype.deal_card$tw_digitalculture_model_Record_Display = function (record) {
+                    this.deal_card$java_lang_String$java_lang_String$java_lang_String(record.query_str, record.img_path, record.content);
                 };
                 Luna.prototype.deal_card$java_lang_String$java_lang_String$java_lang_String = function (query_str, img_path, content) {
                     var c = null;
@@ -162,44 +202,14 @@ var tw;
                     if (((typeof query_str === 'string') || query_str === null) && ((typeof img_path === 'string') || img_path === null) && ((typeof content === 'string') || content === null)) {
                         return this.deal_card$java_lang_String$java_lang_String$java_lang_String(query_str, img_path, content);
                     }
+                    else if (((query_str != null && query_str instanceof tw.digitalculture.model.Record_Display) || query_str === null) && img_path === undefined && content === undefined) {
+                        return this.deal_card$tw_digitalculture_model_Record_Display(query_str);
+                    }
                     else if (query_str === undefined && img_path === undefined && content === undefined) {
                         return this.deal_card$();
                     }
                     else
                         throw new Error('invalid overload');
-                };
-                Luna.prototype.init_cards = function () {
-                    Luna.cards = ({});
-                    for (var row = 0; row < tw.digitalculture.config.Config.LUNA.ROW; row++) {
-                        var row_div = document.createElement("div");
-                        $(row_div).addClass("row");
-                        $("#display").append(row_div);
-                        for (var col = 0; col < tw.digitalculture.config.Config.LUNA.COLUMN; col++) {
-                            var id = row + "_" + col;
-                            var card = new tw.digitalculture.luna.Card(id);
-                            /* put */ (Luna.cards[id] = card);
-                            $(row_div).append(card.card);
-                        }
-                        ;
-                    }
-                    ;
-                    $(".row").css("height", Luna.SIDE + tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2).css("width", (Luna.SIDE + tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2) * tw.digitalculture.config.Config.LUNA.COLUMN);
-                };
-                Luna.prototype.setup = function () {
-                    $("title").text(tw.digitalculture.config.Config.PROJECT.TITLE_MAIN + " | " + tw.digitalculture.config.Config.PROJECT.TITLE_ENGLISH);
-                    $(".box").css("color", tw.digitalculture.config.Config.LUNA.TITLE_COLOR);
-                    var WT = window.screen.availWidth - 10;
-                    var HT = window.screen.availHeight;
-                    var top_height = HT * tw.digitalculture.config.Config.LUNA.TOP_HEIGHT_RATIO;
-                    var bottom_height = HT * tw.digitalculture.config.Config.LUNA.BOTTOM_HEIGHT_RATIO;
-                    Luna.SIDE = (WT / tw.digitalculture.config.Config.LUNA.COLUMN > (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW) ? (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.ROW) - tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2 : WT * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.COLUMN) / tw.digitalculture.config.Config.LUNA.COLUMN - tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2;
-                    $("#title_text").text(tw.digitalculture.config.Config.PROJECT.TITLE_$LI$());
-                    $("#version_text").text("Ver. " + tw.digitalculture.config.Config.PROJECT.VERSION);
-                    var font_size_top = (((tw.digitalculture.config.Config.PROJECT.TITLE_$LI$().length > WT / top_height) ? WT / top_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO : top_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO) | 0);
-                    var font_size_bottom = ((bottom_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO) | 0);
-                    $(".box").css("width", WT).css("font-family", tw.digitalculture.config.Config.LUNA.FONT);
-                    $(".box.top").css("height", top_height).css("font-size", font_size_top + "px");
-                    $(".box.bottom").css("height", bottom_height).css("font-size", font_size_bottom + "px");
                 };
                 return Luna;
             }());

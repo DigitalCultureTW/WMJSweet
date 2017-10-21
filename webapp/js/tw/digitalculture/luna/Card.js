@@ -57,6 +57,7 @@ var tw;
                     $(card_face).addClass("face");
                     tw.digitalculture.luna.ExifReader.getOrientation(path, function (ori, img_source) {
                         _this.front_img = document.createElement("img");
+                        $(_this.front_img).css("transform", "rotate(" + Card.DEG(ori) + "deg)");
                         _this.front_img.crossOrigin = "anonymous";
                         _this.front_img.src = ((function (o1, o2) { if (o1 && o1.equals) {
                             return o1.equals(o2);
@@ -68,8 +69,6 @@ var tw;
                             return str.substr(position, searchString.length) === searchString;
                         })(path, tw.digitalculture.config.Config.LUNA.TEXT)) ? path.substring(tw.digitalculture.config.Config.LUNA.TEXT.length) : img_source;
                         _this.front_img.onload = function (e) {
-                            $(_this.front_img).css("width", "100%").css("height", "100%");
-                            $(_this.front_img).css("transform", "rotate(" + Card.DEG(ori) + "deg)");
                             $(_this.front_img).addClass("img");
                             $(card_face).append(_this.front_img);
                             (function (target) { return (typeof target === 'function') ? target(card_face) : target.accept(card_face); })(callback);

@@ -19,6 +19,9 @@ var tw;
                     PROJECT.TITLE_$LI$ = function () { if (PROJECT.TITLE == null)
                         PROJECT.TITLE = Config.PROJECT.TITLE_MAIN + "\u2014" + Config.PROJECT.SUBTITLE; return PROJECT.TITLE; };
                     ;
+                    PROJECT.KEYWORDS_$LI$ = function () { if (PROJECT.KEYWORDS == null)
+                        PROJECT.KEYWORDS = ([]); return PROJECT.KEYWORDS; };
+                    ;
                     return PROJECT;
                 }());
                 PROJECT.TITLE_MAIN = "\u8a18\u61b6\u7a97\u6afa";
@@ -121,4 +124,5 @@ var tw;
 })(tw || (tw = {}));
 tw.digitalculture.config.Config.DATA.FILETYPES_$LI$();
 tw.digitalculture.config.Config.LUNA.CARD.BORDER_COLOR_$LI$();
+tw.digitalculture.config.Config.PROJECT.KEYWORDS_$LI$();
 tw.digitalculture.config.Config.PROJECT.TITLE_$LI$();
