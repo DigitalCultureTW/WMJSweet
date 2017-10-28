@@ -58,11 +58,11 @@
                     <includes>
                         <include>**/config/*.java</include>
                         <include>**/data/**/*.java</include>
+                        <include>**/model/*.java</include>
                     </includes>
                     <outputDirectory>target/classes</outputDirectory>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <fork>true</fork>
                     <encoding>UTF-8</encoding>
                 </configuration>
                 <executions>
@@ -87,9 +87,11 @@
                         </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/classes/lib</outputDirectory>
+                            <!--<outputDirectory>target/classes/lib</outputDirectory>-->
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
+                            <encoding>UTF-8</encoding>
                         </configuration>
                     </execution>
                 </executions>
@@ -97,17 +99,19 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                             <classpathPrefix>lib</classpathPrefix> 
+                            <classpathPrefix>lib</classpathPrefix> 
                             <!-- <mainClass>test.org.Cliente</mainClass> -->
                         </manifest>
                         <manifestEntries>
                             <Class-Path>lib/</Class-Path>
                         </manifestEntries>
                     </archive>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -173,6 +177,11 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.1</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>

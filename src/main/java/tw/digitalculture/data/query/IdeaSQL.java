@@ -32,7 +32,7 @@ import tw.digitalculture.data.interfaces.Query;
 import tw.digitalculture.data.Config.DATA;
 import tw.digitalculture.data.bin.IDEASQL_JSON;
 import tw.digitalculture.data.model.IDEASQL_Record;
-import tw.digitalculture.data.model.Record_Query;
+import tw.digitalculture.model.Record_Query;
 
 /**
  *

@@ -99,6 +99,7 @@ var tw;
                 };
                 /**
                  * Trigger card dealing in the interval of LUNA.SHOW_INTERVAL.
+                 *
                  * @param {*} arg
                  */
                 Luna.prototype.trigger_data = function (arg) {

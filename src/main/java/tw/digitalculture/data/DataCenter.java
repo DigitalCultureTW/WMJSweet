@@ -21,11 +21,10 @@ import tw.digitalculture.data.query.TWDC;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import javax.json.Json;
 import javax.json.JsonObject;
 import tw.digitalculture.data.interfaces.Query;
-import tw.digitalculture.data.model.Record_Query;
-import tw.digitalculture.data.model.Result;
+import tw.digitalculture.model.Record_Query;
+import tw.digitalculture.model.Result;
 import tw.digitalculture.data.query.IdeaSQL;
 
 /**
@@ -38,20 +37,19 @@ public class DataCenter {
     IdeaSQL ideasql;
     List<Query<Record_Query>> queries;
 
-    public static void main(String[] args) {
-        JsonObject data = Json.createObjectBuilder()
-                .add("client", "local")
-                .add("text", "臺中").build();
-        new DataCenter((dc) -> {
-            dc.getResult(data, 20, (Result result) -> {
-                System.out.println("Result = " + result.record_set.size());
-                result.record_set.forEach((t) -> {
-                    System.out.println("* " + t.img_url);
-                });
-            });
-        });
-    }
-
+//    public static void main(String[] args) {
+//        JsonObject data = Json.createObjectBuilder()
+//                .add("client", "local")
+//                .add("text", "臺中").build();
+//        new DataCenter((dc) -> {
+//            dc.getResult(data, 20, (Result result) -> {
+//                System.out.println("Result = " + result.record_set.size());
+//                result.record_set.forEach((t) -> {
+//                    System.out.println("* " + t.img_url);
+//                });
+//            });
+//        });
+//    }
     public DataCenter(Consumer<DataCenter> callback) {
         this.queries = new ArrayList<>();
         this.ideasql = new IdeaSQL();

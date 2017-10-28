@@ -18,7 +18,6 @@
 package tw.digitalculture.data.query;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 import org.jsoup.nodes.Element;
@@ -29,7 +28,7 @@ import tw.digitalculture.data.bin.TWDC_XML;
 import tw.digitalculture.data.model.TWDC_Record;
 import static tw.digitalculture.data.Config.DATA.TWDC.URL;
 import tw.digitalculture.data.interfaces.Query;
-import tw.digitalculture.data.model.Record_Query;
+import tw.digitalculture.model.Record_Query;
 
 /**
  *

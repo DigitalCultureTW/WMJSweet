@@ -14,17 +14,16 @@
         "Jenghan Hsieh <jenghan.hsieh@gmail.com>"
     ],
     "dependencies": {
-        "w3c-xmlhttprequest": "^2.1.2",
-        "jsdom": "^10.1.0",
+        "blueimp-load-image": "^2.17.0",
+        "exif-js": "^2.3.0",
         "express": "^4.15.5",
         "jquery": "^3.2.1",
+        "jsdom": "^10.1.0",
+        "qrcode": "^0.9.0",
         "request": "^2.83.0",
         "socket.io": "^2.0.3",
         "socket.io-client": "^2.0.3",
-        "exif-js": "^2.3.0",
-        "blueimp-load-image": "^2.17.0",
-        "qrcode": "^0.9.0",
-        "java": "^0.9.0"
+        "w3c-xmlhttprequest": "^2.1.2"
     },
     "scripts": {
         "start": "node server.js"
@@ -37,5 +36,8 @@
     "license": "GPL-3.0",
     "config": {
         "LOCAL_PORT": "80"
+    },
+    "devDependencies": {
+        "java": "^0.9.0"
     }
 }

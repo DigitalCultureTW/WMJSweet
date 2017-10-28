@@ -15,6 +15,7 @@ import tw.digitalculture.config.Config.LUNA;
 import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.model.Record_Display;
 import tw.digitalculture.model.Record_Query;
+import tw.digitalculture.model.Result;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,6 +101,7 @@ public final class Luna {
         socket.on("fire", function((JSON data) -> onFire(data)));
 
         socket.on("result", function((JSON data) -> onResult(data)));
+//        socket.on("result", function((Result data) -> onResult(data)));
     }
 
     public void onFire(JSON data) {
@@ -111,6 +113,29 @@ public final class Luna {
         }
         deal_card();
     }
+
+//    public void onResult(Result data) {
+//        System.out.println("data = " + data);
+//        List<Record_Query> record_set = data.record_set;
+//        System.out.println("Size = " + data.record_set.size());
+//        System.out.println("Size = " + record_set.size());
+//        int replaced = 0;
+//        for (int i = 0; i < record_set.size(); i++) {
+//            Record_Display record = new Record_Display(
+//                    data.query_str,
+//                    record_set.get(i).img_url,
+//                    record_set.get(i).content);
+//            if (data_pool.containsKey(record.query_str + record.img_path)) {
+//                replaced++;
+//            }
+//            if (i == 0) {
+//                deal_card(record);
+//            } else {
+//                data_pool.put(record.query_str + record.img_path, record);
+//            }
+//        }
+//        System.out.println("data_pool size = " + data_pool.size() + "(" + replaced + ")");
+//    }
 
     public void onResult(JSON data) {
         def.js.Array<Record_Query> record_set = data.$get("record_set");
@@ -131,9 +156,9 @@ public final class Luna {
         }
         System.out.println("data_pool size = " + data_pool.size() + "(" + replaced + ")");
     }
-
     /**
      * Trigger card dealing in the interval of LUNA.SHOW_INTERVAL.
+     *
      * @param arg
      */
     public void trigger_data(Object arg) {
