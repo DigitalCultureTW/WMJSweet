@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>tw.digitalculture</groupId>
     <artifactId>WindowOfOurMemories</artifactId>
-    <version>0.7.0-beta-jswt</version>
+    <version>0.7.1-beta-jswt</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +37,7 @@
         </repository>
     </repositories>
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
+        <!--<sourceDirectory>src/main/java</sourceDirectory>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -55,10 +55,59 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.7.0</version>
                 <configuration>
+                    <includes>
+                        <include>**/config/*.java</include>
+                        <include>**/data/**/*.java</include>
+                    </includes>
+                    <outputDirectory>target/classes</outputDirectory>
                     <source>1.8</source>
                     <target>1.8</target>
                     <fork>true</fork>
                     <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-classes</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/classes/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                             <classpathPrefix>lib</classpathPrefix> 
+                            <!-- <mainClass>test.org.Cliente</mainClass> -->
+                        </manifest>
+                        <manifestEntries>
+                            <Class-Path>lib/</Class-Path>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
             <plugin>
@@ -66,6 +115,9 @@
                 <artifactId>jsweet-maven-plugin</artifactId>
                 <version>2.0.1-SNAPSHOT</version>
                 <configuration>
+                    <excludes>
+                        <exclude>**/data/**</exclude>
+                    </excludes>
                     <verbose>true</verbose>
                     <tsOut>target/ts</tsOut>
                     <outDir>webapp/js</outDir>
@@ -106,6 +158,26 @@
             <groupId>org.jsweet.candies</groupId>
             <artifactId>socket.io-client</artifactId>
             <version>1.4.5-20170726</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
         </dependency>
     </dependencies>
 </project>

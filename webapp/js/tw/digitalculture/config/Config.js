@@ -25,7 +25,7 @@ var tw;
                 PROJECT.TITLE_ENGLISH = "The Window of Our Memories";
                 PROJECT.SUBTITLE = "\u5171\u7bc9\u81fa\u4e2d\u5370\u8c61\u7684\u89d2\u843d";
                 PROJECT.LOGO_PATH = "/element/logo_2.png";
-                PROJECT.VERSION = "0.7.0-beta-jswt";
+                PROJECT.VERSION = "0.7.1-beta-jswt";
                 Config.PROJECT = PROJECT;
                 PROJECT["__class"] = "tw.digitalculture.config.Config.PROJECT";
                 var UMBRA = (function () {
@@ -54,6 +54,7 @@ var tw;
                 LUNA.ROW = 4;
                 LUNA.FONT = "\'Yu Gothic\', SimHei";
                 LUNA.FLIP_TIME_OUT = 5000;
+                LUNA.SYSTEM_LOGO_TIME_OUT = 7000;
                 LUNA.SHOW_INTERVAL = 3000;
                 LUNA.SHOW_STAY = 1500;
                 LUNA.QRCODE = "@QR_CODE_TOKEN";
@@ -86,7 +87,7 @@ var tw;
                     function DATA() {
                     }
                     DATA.FILETYPES_$LI$ = function () { if (DATA.FILETYPES == null)
-                        DATA.FILETYPES = ["jpg", "png"]; return DATA.FILETYPES; };
+                        DATA.FILETYPES = ["jpg", "png", "JPG", "PNG"].slice(0); return DATA.FILETYPES; };
                     ;
                     DATA.LIMIT = function () {
                         return (((Config.LUNA.ROW * Config.LUNA.COLUMN) | 0) / 2 | 0);

@@ -1,5 +1,8 @@
 package tw.digitalculture.config;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Config {
 
     public static class PROJECT {
@@ -10,7 +13,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.7.0-beta-jswt";
+        public static String VERSION = "0.7.1-beta-jswt";
     }
 
     public static class UMBRA {
@@ -43,7 +46,7 @@ public class Config {
         }
 
         public static int FLIP_TIME_OUT = 5000; //ms
-//        public static int SYSTEM_LOGO_TIME_OUT = 7000; //ms
+        public static int SYSTEM_LOGO_TIME_OUT = 7000; //ms
         public static int SHOW_INTERVAL = 3000; //ms
         public static int SHOW_STAY = 1500; //ms
         public static String QRCODE = "@QR_CODE_TOKEN";
@@ -65,7 +68,8 @@ public class Config {
 
     public static class DATA {
 
-        public static String[] FILETYPES = {"jpg", "png"};
+        public static List<String> FILETYPES
+                = Arrays.asList(new String[]{"jpg", "png", "JPG", "PNG"});
 
         public static int LIMIT() {
             return (int) (LUNA.ROW * LUNA.COLUMN) / 2;

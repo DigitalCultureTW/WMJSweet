@@ -30,9 +30,74 @@ var server = require('http').createServer(app);
 var port = process.env.port || process.env.PORT || 1337;
 //var port = process.env.port || process.env.npm_package_config_LOCAL_PORT;
 var io = require('socket.io')(server);
-var cf = require('./config.js');
+var java = require('java');
+var fs = require('fs');
+var baseDir = "./target/classes/lib";
+var dependencies = fs.readdirSync(baseDir); 
+dependencies.forEach(function(dependency){
+    java.classpath.push(baseDir + "/" + dependency);
+});
+java.classpath.push('target/classes');
+
+var limit = java.callStaticMethodSync('tw.digitalculture.config.Config$DATA', 'LIMIT');
+var timeout = java.getStaticFieldValue('tw.digitalculture.config.Config$LUNA', 'SYSTEM_LOGO_TIME_OUT');
+//var cf = require('./config.js');
 var keyword = "文化局";
-var dc = require('./libs/DataCenter')(cf.DATA.LIMIT, () => {
+
+java.newInstanceSync('tw.digitalculture.data.DataCenter', (dc)=>{
+    io.on('connection', function (client) {
+        console.log(client.id + "_" + client.handshake.query.role + "_connection");
+        client.on('query', function (data) {
+            dc.getResultSync(data, (result) => {
+                var data_package = result;
+                var result_str = (data_package.record_set.length === 0) ?
+                        '抱歉，' + data.text + ' 沒有找到任何內容。'
+                        : data.text + ' 取得' + data_package.record_set.length + '筆內容。';
+                console.log(result_str);
+                io.emit('message', {
+                    user: data.client,
+                    message: result_str
+                });
+                if (data_package.record_set.length > 0)
+                    io.emit('result', data_package);
+            });
+        });
+        client.on('disconnect', function () {
+            console.log("disconnect");
+        });
+        client.on('keyword', function (data) {
+            if (data.keyword)
+                keyword = data.keyword;
+        });
+        client.on('keyword_query', function () {
+            io.emit('keyword_current', {keyword: keyword});
+        });
+    });
+
+    setInterval(function () {
+        var data = {
+            client: 'Server',
+            text: keyword
+        };
+        dc.getResultSync(data, (result) => {
+            var select = result.record_set[parseInt(result.record_set.length * Math.random())];
+            io.emit('fire', {
+                user: "Server",
+                keyword: keyword,
+                uri: select.img_url,
+                text: select.content});
+        });
+    }, timeout);
+
+    console.log("Server listening to port: " + port);
+    server.listen(port);
+    
+    
+    
+});
+/*
+var dc = require('./libs/DataCenter')(limit, () => {
+//var dc = require('./libs/DataCenter')(cf.DATA.LIMIT, () => {
     io.on('connection', function (client) {
         console.log(client.id + "_" + client.handshake.query.role + "_connection");
         client.on('query', function (data) {
@@ -75,11 +140,11 @@ var dc = require('./libs/DataCenter')(cf.DATA.LIMIT, () => {
                 uri: select.img_url,
                 text: select.content});
         });
-    }, cf.LUNA.SYSTEM_LOGO_TIME_OUT);
+    }, timeout);
 
     console.log("Server listening to port: " + port);
     server.listen(port);
 });
 
-
+*/
 
