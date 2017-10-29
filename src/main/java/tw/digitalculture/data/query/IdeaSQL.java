@@ -67,11 +67,14 @@ public class IdeaSQL extends Query<Record_Query> {
             for (int i = 0; i < fetch_result.size(); i++) {
                 IDEASQL_Record record = new IDEASQL_Record(fetch_result.getJsonObject(i));
                 IsValidImageUrl(record.uri, (Boolean isValid) -> {
-                    record.img_link_valid = isValid;
-                    String text = record.title.contains(query_text)
-                            ? record.title : record.description;
-                    result.add(new Record_Query(record.uri, text));
                     count++;
+                    record.img_link_valid = isValid;
+//                    System.out.println(count + "," + isValid);
+                    if (isValid) {
+                        String text = record.title.contains(query_text)
+                                ? record.title : record.description;
+                        result.add(new Record_Query(record.uri, text));
+                    }
                     if (count == fetch_result.size()) {
                         callback.accept(result);
                     }
@@ -82,11 +85,8 @@ public class IdeaSQL extends Query<Record_Query> {
 
     public void IsValidImageUrl(String url, Consumer<Boolean> callback) {
         try {
-            if (Jsoup.connect(url).execute().statusCode() == 200) {
-                callback.accept(true);
-            } else {
-                callback.accept(false);
-            }
+            callback.accept(Jsoup.connect(url).ignoreContentType(true)
+                    .execute().statusCode() == 200);
         } catch (IOException ex) {
             callback.accept(false);
         }
