@@ -17,6 +17,8 @@
  */
 package tw.digitalculture.data.model;
 
+import java.io.StringReader;
+import javax.json.Json;
 import javax.json.JsonObject;
 import tw.digitalculture.data.interfaces.Record;
 
@@ -30,15 +32,13 @@ public class IDEASQL_Record extends Record {
     public boolean img_link_valid = false;
 
     public IDEASQL_Record(JsonObject rec) {
-        super(rec.getString("id"),
+        super(rec.getInt("id"),
                 "",
                 rec.getString("content"),
                 rec.getString("img_link"));
-        this.detail_infos = rec.getJsonObject("detail_infos");
+        this.detail_infos = Json.createReader(new StringReader(rec.getString("detail_infos"))).readObject();
         this.title = detail_infos.getString("title");
-
         this.title = this.title.replaceAll("\\n", " ");
         this.description = this.description.replaceAll("\\n", " ");
     }
-
 }

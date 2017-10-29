@@ -87,7 +87,7 @@ var tw;
                     function DATA() {
                     }
                     DATA.FILETYPES_$LI$ = function () { if (DATA.FILETYPES == null)
-                        DATA.FILETYPES = ["jpg", "png", "JPG", "PNG"].slice(0); return DATA.FILETYPES; };
+                        DATA.FILETYPES = ["jpg", "png"].slice(0); return DATA.FILETYPES; };
                     ;
                     DATA.LIMIT = function () {
                         return (((Config.LUNA.ROW * Config.LUNA.COLUMN) | 0) / 2 | 0);

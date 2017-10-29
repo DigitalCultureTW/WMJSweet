@@ -22,11 +22,11 @@ import java.util.List;
 import java.util.function.Consumer;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import tw.digitalculture.data.Config.DATA;
-import static tw.digitalculture.data.Config.DATA.FILETYPES;
+import tw.digitalculture.config.Config.DATA;
+import static tw.digitalculture.config.Config.DATA.FILETYPES;
 import tw.digitalculture.data.bin.TWDC_XML;
 import tw.digitalculture.data.model.TWDC_Record;
-import static tw.digitalculture.data.Config.DATA.TWDC.URL;
+import static tw.digitalculture.config.Config.DATA.TWDC.URL_BASE;
 import tw.digitalculture.data.interfaces.Query;
 import tw.digitalculture.model.Record_Query;
 
@@ -40,7 +40,7 @@ public class TWDC extends Query<Record_Query> {
 
     public TWDC(Consumer<TWDC> callback) {
         TWDC.dataset = new ArrayList<>();
-        refresh(URL, (ok) -> {
+        refresh(URL_BASE, (ok) -> {
             callback.accept(ok ? this : null);
         });
     }

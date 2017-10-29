@@ -17,16 +17,17 @@
  */
 package tw.digitalculture.data.bin;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.StringReader;
+import java.io.InputStream;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonReader;
+import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 
 /**
  *
@@ -36,10 +37,11 @@ public class IDEASQL_JSON {
 
     public static void fetch(String url, Consumer<JsonArray> callback) {
         try {
-            Document doc = Jsoup.connect(url).ignoreContentType(true).get();
-            JsonReader jr = Json.createReader(new StringReader(doc.body().text()));
+            Response r = Jsoup.connect(url).ignoreContentType(true).execute();
+            byte[] data = r.bodyAsBytes();
+            InputStream stream = new ByteArrayInputStream(data);
+            JsonReader jr = Json.createReader(stream);
             JsonArray result = jr.readArray();
-            System.out.println("size=" + result.size());
             callback.accept(result);
         } catch (IOException ex) {
             Logger.getLogger(IDEASQL_JSON.class.getName()).log(Level.SEVERE, null, ex);

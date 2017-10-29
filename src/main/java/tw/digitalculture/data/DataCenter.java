@@ -21,6 +21,7 @@ import tw.digitalculture.data.query.TWDC;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import javax.json.Json;
 import javax.json.JsonObject;
 import tw.digitalculture.data.interfaces.Query;
 import tw.digitalculture.model.Record_Query;
@@ -40,7 +41,7 @@ public class DataCenter {
 //    public static void main(String[] args) {
 //        JsonObject data = Json.createObjectBuilder()
 //                .add("client", "local")
-//                .add("text", "臺中").build();
+//                .add("text", "清水").build();
 //        new DataCenter((dc) -> {
 //            dc.getResult(data, 20, (Result result) -> {
 //                System.out.println("Result = " + result.record_set.size());

@@ -17,6 +17,7 @@
  */
 package tw.digitalculture.data.query;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -29,7 +30,7 @@ import javax.json.JsonArray;
 import org.jsoup.Jsoup;
 
 import tw.digitalculture.data.interfaces.Query;
-import tw.digitalculture.data.Config.DATA;
+import tw.digitalculture.config.Config.DATA;
 import tw.digitalculture.data.bin.IDEASQL_JSON;
 import tw.digitalculture.data.model.IDEASQL_Record;
 import tw.digitalculture.model.Record_Query;
@@ -80,9 +81,13 @@ public class IdeaSQL extends Query<Record_Query> {
     }
 
     public void IsValidImageUrl(String url, Consumer<Boolean> callback) {
-        if (Jsoup.connect(url).response().statusCode() == 200) {
-            callback.accept(true);
-        } else {
+        try {
+            if (Jsoup.connect(url).execute().statusCode() == 200) {
+                callback.accept(true);
+            } else {
+                callback.accept(false);
+            }
+        } catch (IOException ex) {
             callback.accept(false);
         }
     }

@@ -40,7 +40,9 @@ public abstract class Record {
         setFilename();
         setFiletype();
     }
-
+    public Record(int id, String title, String description, String uri) {
+        this(String.valueOf(id), title, description, uri);
+    }
     public void setFilename() {
         this.filename = this.uri.contains("/")
                 ? this.uri.split("/")[this.uri.split("/").length - 1] : "";
