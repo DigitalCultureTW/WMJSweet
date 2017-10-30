@@ -21,7 +21,6 @@ import tw.digitalculture.data.query.TWDC;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import javax.json.Json;
 import javax.json.JsonObject;
 import tw.digitalculture.data.interfaces.Query;
 import tw.digitalculture.model.Record_Query;
@@ -38,19 +37,6 @@ public class DataCenter {
     IdeaSQL ideasql;
     List<Query<Record_Query>> queries;
 
-//    public static void main(String[] args) {
-//        JsonObject data = Json.createObjectBuilder()
-//                .add("client", "local")
-//                .add("text", "清水").build();
-//        new DataCenter((dc) -> {
-//            dc.getResult(data, 20, (Result result) -> {
-//                System.out.println("Result = " + result.record_set.size());
-//                result.record_set.forEach((t) -> {
-//                    System.out.println("* " + t.img_url);
-//                });
-//            });
-//        });
-//    }
     public DataCenter(Consumer<DataCenter> callback) {
         this.queries = new ArrayList<>();
         this.ideasql = new IdeaSQL();
@@ -58,12 +44,12 @@ public class DataCenter {
             if (t != null) {
                 this.queries.add(t);
                 System.out.println("TWDC added");
-                this.queries.add(ideasql);
-                System.out.println("IdeaSQL added");
-                callback.accept(this);
             } else {
-                callback.accept(null);
+                System.out.println("*** TWDC failed");
             }
+            this.queries.add(ideasql);
+            System.out.println("IdeaSQL added");
+            callback.accept(this);
         });
     }
 
@@ -74,7 +60,6 @@ public class DataCenter {
         n = limit;
         Result result = new Result(data.getString("client"), data.getString("text"));
         System.out.println("Query string = " + result.query_str);
-//        System.out.println("queries.size = " + queries.size());
         queries.forEach((Query<Record_Query> source) -> {
             count++;
             if (n > 0) {
@@ -90,6 +75,23 @@ public class DataCenter {
                 });
             } else {
                 callback.accept(result);
+            }
+        });
+    }
+
+    public void getResult(JsonObject data, int limit, String data_source, Consumer<Result> callback) {
+        Result result = new Result(data.getString("client"), data.getString("text"));
+        System.out.println("Query string = " + result.query_str);
+        queries.forEach((Query<Record_Query> source) -> {
+            if (source.getClass().getSimpleName().equals(data_source)) {
+                source.query(result.query_str, limit, (List<Record_Query> t) -> {
+                    System.out.println(source.id + ":" + t.size());
+                    n -= t.size();
+                    t.forEach((Record_Query rq) -> {
+                        result.record_set.add(rq);
+                    });
+                    callback.accept(result);
+                });
             }
         });
     }

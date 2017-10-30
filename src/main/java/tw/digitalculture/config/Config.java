@@ -13,7 +13,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.7.1-beta-jswt";
+        public static String VERSION = "0.7.2-beta-jswt";
     }
 
     public static class UMBRA {
@@ -32,7 +32,7 @@ public class Config {
 
         public static class CARD {
 
-            public static int BORDER_WIDTH = 10;
+            public static double BORDER_RATIO = 0.03;
             public static String BORDER_STYLE = "inset";
             public static String[] BORDER_COLOR = {"Silver", "White"};
             public static String COLOR = "#121212";

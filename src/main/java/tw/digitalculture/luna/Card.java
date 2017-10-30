@@ -41,7 +41,7 @@ public final class Card {
         $(c).addClass("card viewport-flip left");
         $(c).attr("id", this.id);
         $(c).css("width", SIDE).css("height", SIDE)
-                .css("border", LUNA.CARD.BORDER_WIDTH + "px "
+                .css("border", SIDE * LUNA.CARD.BORDER_RATIO + "px "
                         + LUNA.CARD.BORDER_STYLE + " "
                         + LUNA.CARD.BORDER_COLOR[0]);
         return c;
@@ -88,16 +88,20 @@ public final class Card {
 
     public void flip(String img, int color_index) {
         create_face(img, (back_face) -> {
-            $(back_face).addClass("flip out");
-            $(front_face).toggleClass("in").toggleClass("out");
+//            $(back_face).addClass("flip out");
+            $(back_face).addClass("flip");  //try
+            $(front_face).toggleClass("in out");
             setTimeout((o1) -> {
+                $(back_face).addClass("in");
                 $(card).append(back_face);
-                $(back_face).toggleClass("out").toggleClass("in");
                 $(card).find(".front").remove();
-                $(back_face).toggleClass("front");
+                $(back_face).addClass("front");
+//                $(back_face).toggleClass("out").toggleClass("in");
+//                $(back_face).toggleClass("in front");  //try
+//                $(back_face).toggleClass("front");
                 front_face = back_face;
                 setTimeout((o2) -> {
-                    $(card).css("border", LUNA.CARD.BORDER_WIDTH + "px "
+                    $(card).css("border", SIDE * LUNA.CARD.BORDER_RATIO + "px "
                             + LUNA.CARD.BORDER_STYLE + " "
                             + LUNA.CARD.BORDER_COLOR[color_index]);
                 }, 175);

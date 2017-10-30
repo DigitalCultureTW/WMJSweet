@@ -15,7 +15,6 @@ import tw.digitalculture.config.Config.LUNA;
 import tw.digitalculture.config.Config.PROJECT;
 import tw.digitalculture.model.Record_Display;
 import tw.digitalculture.model.Record_Query;
-import tw.digitalculture.model.Result;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,8 +62,8 @@ public final class Luna {
         double bottom_height = HT * LUNA.BOTTOM_HEIGHT_RATIO;
         SIDE = (WT / LUNA.COLUMN > (HT - top_height - bottom_height) / LUNA.ROW)
                 ? (HT - top_height - bottom_height) / LUNA.ROW * LUNA.MOD(LUNA.ROW)
-                - LUNA.CARD.BORDER_WIDTH * 2
-                : WT * LUNA.MOD(LUNA.COLUMN) / LUNA.COLUMN - LUNA.CARD.BORDER_WIDTH * 2;
+                * (1 - LUNA.CARD.BORDER_RATIO * 2)
+                : WT * LUNA.MOD(LUNA.COLUMN) / LUNA.COLUMN * (1 - LUNA.CARD.BORDER_RATIO * 2);
         $("#title_text").text(PROJECT.TITLE);
         $("#version_text").text("Ver. " + PROJECT.VERSION);
         int font_size_top = (int) ((PROJECT.TITLE.length() > WT / top_height)
@@ -91,8 +90,8 @@ public final class Luna {
                 $(row_div).append(card.card);
             }
         }
-        $(".row").css("height", SIDE + LUNA.CARD.BORDER_WIDTH * 2)
-                .css("width", (SIDE + LUNA.CARD.BORDER_WIDTH * 2) * LUNA.COLUMN);
+        $(".row").css("height", SIDE * (1 + LUNA.CARD.BORDER_RATIO * 2))
+                .css("width", (SIDE * (1 + LUNA.CARD.BORDER_RATIO * 2)) * LUNA.COLUMN);
     }
 
     private void setup_socket() {
@@ -136,7 +135,6 @@ public final class Luna {
 //        }
 //        System.out.println("data_pool size = " + data_pool.size() + "(" + replaced + ")");
 //    }
-
     public void onResult(JSON data) {
         def.js.Array<Record_Query> record_set = data.$get("record_set");
         int replaced = 0;
@@ -156,6 +154,7 @@ public final class Luna {
         }
         System.out.println("data_pool size = " + data_pool.size() + "(" + replaced + ")");
     }
+
     /**
      * Trigger card dealing in the interval of LUNA.SHOW_INTERVAL.
      *

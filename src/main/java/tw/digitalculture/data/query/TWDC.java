@@ -20,6 +20,7 @@ package tw.digitalculture.data.query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import tw.digitalculture.config.Config.DATA;
@@ -47,7 +48,7 @@ public class TWDC extends Query<Record_Query> {
 
     public static void refresh(String url, Consumer<Boolean> callback) {
 
-        TWDC_XML.fetch(url, (data) -> {
+        TWDC_XML.fetch(url, (Document data) -> {
             Elements xml_records = data.getElementsByTag("record");
             System.out.println("processing " + xml_records.size() + " records...");
             for (Element rec : xml_records) {
@@ -56,7 +57,7 @@ public class TWDC extends Query<Record_Query> {
                         rec.getElementsByTag("metadata"));
                 if (!record.uri.isEmpty() && FILETYPES.contains(record.filetype.toLowerCase())) {
                     dataset.add(record);
-                    System.out.println(dataset.size() + ". " + record.title);
+//                    System.out.println(dataset.size() + ". " + record.title);
                 }
             }
             String resumptionToken = data.getElementsByTag("resumptionToken").text();
@@ -73,7 +74,7 @@ public class TWDC extends Query<Record_Query> {
     @Override
     public void query(String text, int limit, Consumer<List<Record_Query>> callback) {
         List<Record_Query> records = new ArrayList();
-        int n = limit;
+        int n = (limit > 0) ? limit : -1;
         for (TWDC_Record data : dataset) {
             String result = data.contains(text);
             if (!result.isEmpty()) {
