@@ -13,8 +13,6 @@ var tw;
                         this.id = null;
                     if (this.front_face === undefined)
                         this.front_face = null;
-                    if (this.front_img === undefined)
-                        this.front_img = null;
                     if (this.locked === undefined)
                         this.locked = null;
                     if (this.is_logo === undefined)
@@ -35,60 +33,64 @@ var tw;
                     var c = document.createElement("div");
                     $(c).addClass("card viewport-flip left");
                     $(c).attr("id", this.id);
-                    $(c).css("width", tw.digitalculture.luna.Luna.SIDE).css("height", tw.digitalculture.luna.Luna.SIDE).css("border", tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH + "px " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_STYLE + " " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_COLOR_$LI$()[0]);
+                    $(c).css("width", tw.digitalculture.luna.Luna.SIDE).css("height", tw.digitalculture.luna.Luna.SIDE).css("border", tw.digitalculture.luna.Luna.SIDE * tw.digitalculture.config.Config.LUNA.CARD.BORDER_RATIO + "px " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_STYLE + " " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_COLOR_$LI$()[0]);
                     return c;
                 };
                 Card.DEG = function (ori) {
                     switch ((ori)) {
                         case 3:
-                            return "180";
+                            return 180;
                         case 6:
-                            return "90";
+                            return 90;
                         case 8:
-                            return "-90";
+                            return -90;
                         default:
-                            return "0";
+                            return 0;
                     }
                 };
                 /*private*/ Card.prototype.create_face = function (path, callback) {
-                    var _this = this;
                     var card_face = document.createElement("div");
                     $(card_face).css("width", tw.digitalculture.luna.Luna.SIDE).css("height", tw.digitalculture.luna.Luna.SIDE).css("background-color", tw.digitalculture.config.Config.LUNA.CARD.COLOR);
                     $(card_face).addClass("face");
-                    tw.digitalculture.luna.ExifReader.getOrientation(path, function (ori, img_source) {
-                        _this.front_img = document.createElement("img");
-                        $(_this.front_img).css("transform", "rotate(" + Card.DEG(ori) + "deg)");
-                        _this.front_img.crossOrigin = "anonymous";
-                        _this.front_img.src = ((function (o1, o2) { if (o1 && o1.equals) {
-                            return o1.equals(o2);
-                        }
-                        else {
-                            return o1 === o2;
-                        } })(tw.digitalculture.config.Config.LUNA.QRCODE, path)) ? tw.digitalculture.config.Config.UMBRA.QRCODE_IMG : ((function (str, searchString, position) {
-                            if (position === void 0) { position = 0; }
-                            return str.substr(position, searchString.length) === searchString;
-                        })(path, tw.digitalculture.config.Config.LUNA.TEXT)) ? path.substring(tw.digitalculture.config.Config.LUNA.TEXT.length) : img_source;
-                        _this.front_img.onload = function (e) {
-                            $(_this.front_img).addClass("img");
-                            $(card_face).append(_this.front_img);
-                            (function (target) { return (typeof target === 'function') ? target(card_face) : target.accept(card_face); })(callback);
-                            return null;
+                    tw.digitalculture.luna.ExifReader.getOrientation(path, (function (card_face) {
+                        return function (orientation, img_source) {
+                            var front_img = document.createElement("img");
+                            var rotation = Card.DEG(orientation);
+                            if (rotation !== 0) {
+                                $(front_img).css("transform", "rotate(" + rotation + "deg)");
+                            }
+                            front_img.crossOrigin = "anonymous";
+                            $(front_img).addClass("img");
+                            $(card_face).append(front_img);
+                            front_img.src = ((function (o1, o2) { if (o1 && o1.equals) {
+                                return o1.equals(o2);
+                            }
+                            else {
+                                return o1 === o2;
+                            } })(tw.digitalculture.config.Config.LUNA.QRCODE, path)) ? tw.digitalculture.config.Config.UMBRA.QRCODE_IMG : ((function (str, searchString, position) {
+                                if (position === void 0) { position = 0; }
+                                return str.substr(position, searchString.length) === searchString;
+                            })(path, tw.digitalculture.config.Config.LUNA.TEXT)) ? path.substring(tw.digitalculture.config.Config.LUNA.TEXT.length) : img_source;
+                            front_img.onload = function (e) {
+                                (function (target) { return (typeof target === 'function') ? target(card_face) : target.accept(card_face); })(callback);
+                                return null;
+                            };
                         };
-                    });
+                    })(card_face));
                 };
                 Card.prototype.flip = function (img, color_index) {
                     var _this = this;
                     this.create_face(img, function (back_face) {
-                        $(back_face).addClass("flip out");
-                        $(_this.front_face).toggleClass("in").toggleClass("out");
+                        $(back_face).addClass("flip");
+                        $(_this.front_face).toggleClass("in out");
                         setTimeout(function (o1) {
+                            $(back_face).addClass("in");
                             $(_this.card).append(back_face);
-                            $(back_face).toggleClass("out").toggleClass("in");
                             $(_this.card).find(".front").remove();
-                            $(back_face).toggleClass("front");
+                            $(back_face).addClass("front");
                             _this.front_face = back_face;
                             setTimeout(function (o2) {
-                                $(_this.card).css("border", tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH + "px " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_STYLE + " " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_COLOR_$LI$()[color_index]);
+                                $(_this.card).css("border", tw.digitalculture.luna.Luna.SIDE * tw.digitalculture.config.Config.LUNA.CARD.BORDER_RATIO + "px " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_STYLE + " " + tw.digitalculture.config.Config.LUNA.CARD.BORDER_COLOR_$LI$()[color_index]);
                             }, 175);
                         }, 225);
                     });
@@ -123,6 +125,8 @@ var tw;
                 };
                 return Card;
             }());
+            Card.num_locked = 0;
+            Card.num_logo = 0;
             luna.Card = Card;
             Card["__class"] = "tw.digitalculture.luna.Card";
         })(luna = digitalculture.luna || (digitalculture.luna = {}));

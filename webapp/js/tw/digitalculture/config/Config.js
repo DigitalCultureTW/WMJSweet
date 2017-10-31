@@ -25,7 +25,7 @@ var tw;
                 PROJECT.TITLE_ENGLISH = "The Window of Our Memories";
                 PROJECT.SUBTITLE = "\u5171\u7bc9\u81fa\u4e2d\u5370\u8c61\u7684\u89d2\u843d";
                 PROJECT.LOGO_PATH = "/element/logo_2.png";
-                PROJECT.VERSION = "0.7.1-beta-jswt";
+                PROJECT.VERSION = "0.7.2-beta-jswt";
                 Config.PROJECT = PROJECT;
                 PROJECT["__class"] = "tw.digitalculture.config.Config.PROJECT";
                 var UMBRA = (function () {
@@ -74,7 +74,7 @@ var tw;
                         ;
                         return CARD;
                     }());
-                    CARD.BORDER_WIDTH = 10;
+                    CARD.BORDER_RATIO = 0.03;
                     CARD.BORDER_STYLE = "inset";
                     CARD.COLOR = "#121212";
                     CARD.FONT = "Meiryo, \'\u5fae\u8edf\u6b63\u9ed1\u9ad4\', \'Microsoft JhengHei\'";

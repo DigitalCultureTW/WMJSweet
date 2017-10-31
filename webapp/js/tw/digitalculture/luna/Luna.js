@@ -16,7 +16,7 @@ var tw;
                     if (this.socket === undefined)
                         this.socket = null;
                     console.info(tw.digitalculture.config.Config.PROJECT.TITLE_ENGLISH);
-                    Luna.is_logo = tw.digitalculture.config.Config.LUNA.COLUMN * tw.digitalculture.config.Config.LUNA.ROW;
+                    tw.digitalculture.luna.Card.num_logo = tw.digitalculture.config.Config.LUNA.COLUMN * tw.digitalculture.config.Config.LUNA.ROW;
                     this.setup();
                     this.init_cards();
                     this.setup_socket();
@@ -41,7 +41,7 @@ var tw;
                     var HT = window.screen.availHeight;
                     var top_height = HT * tw.digitalculture.config.Config.LUNA.TOP_HEIGHT_RATIO;
                     var bottom_height = HT * tw.digitalculture.config.Config.LUNA.BOTTOM_HEIGHT_RATIO;
-                    Luna.SIDE = (WT / tw.digitalculture.config.Config.LUNA.COLUMN > (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW) ? (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.ROW) - tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2 : WT * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.COLUMN) / tw.digitalculture.config.Config.LUNA.COLUMN - tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2;
+                    Luna.SIDE = (WT / tw.digitalculture.config.Config.LUNA.COLUMN > (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW) ? (HT - top_height - bottom_height) / tw.digitalculture.config.Config.LUNA.ROW * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.ROW) * (1 - tw.digitalculture.config.Config.LUNA.CARD.BORDER_RATIO * 2) : WT * tw.digitalculture.config.Config.LUNA.MOD(tw.digitalculture.config.Config.LUNA.COLUMN) / tw.digitalculture.config.Config.LUNA.COLUMN * (1 - tw.digitalculture.config.Config.LUNA.CARD.BORDER_RATIO * 2);
                     $("#title_text").text(tw.digitalculture.config.Config.PROJECT.TITLE_$LI$());
                     $("#version_text").text("Ver. " + tw.digitalculture.config.Config.PROJECT.VERSION);
                     var font_size_top = (((tw.digitalculture.config.Config.PROJECT.TITLE_$LI$().length > WT / top_height) ? WT / top_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO : top_height * tw.digitalculture.config.Config.LUNA.TITLE_RATIO) | 0);
@@ -65,7 +65,7 @@ var tw;
                         ;
                     }
                     ;
-                    $(".row").css("height", Luna.SIDE + tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2).css("width", (Luna.SIDE + tw.digitalculture.config.Config.LUNA.CARD.BORDER_WIDTH * 2) * tw.digitalculture.config.Config.LUNA.COLUMN);
+                    $(".row").css("height", Luna.SIDE * (1 + tw.digitalculture.config.Config.LUNA.CARD.BORDER_RATIO * 2)).css("width", (Luna.SIDE * (1 + tw.digitalculture.config.Config.LUNA.CARD.BORDER_RATIO * 2)) * tw.digitalculture.config.Config.LUNA.COLUMN);
                 };
                 /*private*/ Luna.prototype.setup_socket = function () {
                     var _this = this;
@@ -103,10 +103,10 @@ var tw;
                  * @param {*} arg
                  */
                 Luna.prototype.trigger_data = function (arg) {
-                    if (Object.keys(Luna.data_pool_$LI$()).length - Luna.deleted_keys_$LI$().length > 0 && Luna.is_locked < tw.digitalculture.config.Config.LUNA.COLUMN * tw.digitalculture.config.Config.LUNA.ROW) {
+                    if (Object.keys(Luna.data_pool_$LI$()).length - Luna.deleted_keys_$LI$().length > 0 && tw.digitalculture.luna.Card.num_locked < tw.digitalculture.config.Config.LUNA.COLUMN * tw.digitalculture.config.Config.LUNA.ROW) {
                         var key = "";
                         do {
-                            var index = (((Math.random() * Object.keys(Luna.data_pool_$LI$()).length) - 1) | 0);
+                            var index = (Math.floor(Math.random() * Object.keys(Luna.data_pool_$LI$()).length) | 0);
                             key = Object.keys(Luna.data_pool_$LI$()).slice(0)[index];
                             if ((function (m, k) { return m[k] === undefined ? null : m[k]; })(Luna.data_pool_$LI$(), key).used) {
                                 /* remove */ delete Luna.data_pool_$LI$()[key];
@@ -148,8 +148,10 @@ var tw;
                     }
                     else {
                         return o1 === o2;
-                    } })(tw.digitalculture.config.Config.LUNA.QRCODE, content) && !c.is_logo && Luna.is_logo > tw.digitalculture.config.Config.LUNA.MIN_LOGO())));
+                    } })(tw.digitalculture.config.Config.LUNA.QRCODE, content) && !c.is_logo && tw.digitalculture.luna.Card.num_logo > tw.digitalculture.config.Config.LUNA.MIN_LOGO())));
                     var flip_card = c;
+                    flip_card.locked = true;
+                    tw.digitalculture.luna.Card.num_locked++;
                     if ((function (o1, o2) { if (o1 && o1.equals) {
                         return o1.equals(o2);
                     }
@@ -162,18 +164,16 @@ var tw;
                         return o1 === o2;
                     } })(tw.digitalculture.config.Config.LUNA.QRCODE, content)) {
                         if (!flip_card.is_logo) {
-                            Luna.is_logo++;
+                            tw.digitalculture.luna.Card.num_logo++;
                             flip_card.is_logo = true;
                         }
                     }
                     else {
                         if (flip_card.is_logo) {
-                            Luna.is_logo--;
+                            tw.digitalculture.luna.Card.num_logo--;
                             flip_card.is_logo = false;
                         }
                     }
-                    flip_card.locked = true;
-                    Luna.is_locked++;
                     if ((function (o1, o2) { if (o1 && o1.equals) {
                         return o1.equals(o2);
                     }
@@ -191,7 +191,7 @@ var tw;
                             flip_card.flip(img_path, 0);
                             setTimeout(function (o2) {
                                 flip_card.locked = false;
-                                Luna.is_locked--;
+                                tw.digitalculture.luna.Card.num_locked--;
                             }, /* equals */ (function (o1, o2) { if (o1 && o1.equals) {
                                 return o1.equals(o2);
                             }
@@ -218,9 +218,6 @@ var tw;
             }());
             Luna.SIDE = 0;
             Luna.cards = null;
-            Luna.is_logo = 0;
-            Luna.qr_code = null;
-            Luna.is_locked = 0;
             luna_1.Luna = Luna;
             Luna["__class"] = "tw.digitalculture.luna.Luna";
         })(luna = digitalculture.luna || (digitalculture.luna = {}));

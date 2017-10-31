@@ -30,11 +30,9 @@ public final class Luna {
     Socket socket;
     public static double SIDE;
     static Map<String, Card> cards;
-    static int is_logo;
-    static String qr_code;
+//    static String qr_code;
 
     static Map<String, Record_Display> data_pool = new HashMap<>();
-    static int is_locked = 0;
     static List<String> deleted_keys = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -47,7 +45,7 @@ public final class Luna {
 
     public Luna() {
         System.out.println(PROJECT.TITLE_ENGLISH);
-        Luna.is_logo = LUNA.COLUMN * LUNA.ROW;
+        Card.num_logo = LUNA.COLUMN * LUNA.ROW;
         setup();
         init_cards();
         setup_socket();
@@ -162,10 +160,10 @@ public final class Luna {
      */
     public void trigger_data(Object arg) {
         if (data_pool.size() - deleted_keys.size() > 0
-                && is_locked < LUNA.COLUMN * LUNA.ROW) {
+                && Card.num_locked < LUNA.COLUMN * LUNA.ROW) {
             String key = "";
             do {
-                int index = (int) ((Math.random() * data_pool.size()) - 1);
+                int index = (int) Math.floor(Math.random() * data_pool.size());
                 key = (String) data_pool.keySet().toArray()[index];
 //                System.out.println(key + ":" + data_pool.get(key).used);
                 if (data_pool.get(key).used) {
@@ -211,24 +209,23 @@ public final class Luna {
             c = cards.get(row + "_" + col);
             //System.out.println(row + "," + col + "," + cards.size() + "," + c.is_logo + "," + is_logo);
         } while (c.locked || (!LUNA.QRCODE.equals(content) && !c.is_logo
-                && is_logo > LUNA.MIN_LOGO()));
+                && Card.num_logo > LUNA.MIN_LOGO()));
         //  當內容不是QRCode、選到卡片也不是logo，並且版面上的logo仍多於LUNA.MIN_LOGO：
         //  當logo還很多時，讓有內容的卡片不要輕易取代掉其它有內容的卡片。
         final Card flip_card = c;
-
+        flip_card.locked = true;
+        Card.num_locked++;
         if (PROJECT.LOGO_PATH.equals(img_path) || LUNA.QRCODE.equals(content)) {
             if (!flip_card.is_logo) {
-                is_logo++;
+                Card.num_logo++;
                 flip_card.is_logo = true;
             }
         } else {
             if (flip_card.is_logo) {
-                is_logo--;
+                Card.num_logo--;
                 flip_card.is_logo = false;
             }
         }
-        flip_card.locked = true;
-        is_locked++;
         if (LUNA.QRCODE.equals(content)) {
             flip_card.flip(LUNA.QRCODE, 1);
         } else {
@@ -239,7 +236,7 @@ public final class Luna {
             flip_card.flip(img_path, 0);
             setTimeout((o2) -> {
                 flip_card.locked = false;
-                is_locked--;
+                Card.num_locked--;
             }, PROJECT.LOGO_PATH.equals(img_path)
                     ? LUNA.SHOW_STAY / 3 : LUNA.SHOW_STAY);
         }, LUNA.FLIP_TIME_OUT);

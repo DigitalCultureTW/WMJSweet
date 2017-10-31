@@ -16,9 +16,11 @@ import static tw.digitalculture.luna.Luna.SIDE;
 
 public final class Card {
 
+    public static int num_locked;
+    public static int num_logo;
     public String id;
     private HTMLElement front_face;
-    private HTMLImageElement front_img;
+//    private HTMLImageElement front_img;
     public Boolean locked;
     public Boolean is_logo;
     public HTMLElement card;
@@ -47,16 +49,16 @@ public final class Card {
         return c;
     }
 
-    public static String DEG(int ori) {
+    public static int DEG(int ori) {
         switch (ori) {
             case 3:
-                return "180";
+                return 180;
             case 6:
-                return "90";
+                return 90;
             case 8:
-                return "-90";
+                return -90;
             default:
-                return "0";
+                return 0;
         }
     }
 
@@ -66,19 +68,22 @@ public final class Card {
                 .css("background-color", LUNA.CARD.COLOR);
         $(card_face).addClass("face");
 
-        ExifReader.getOrientation(path, (Integer ori, String img_source) -> {
+        ExifReader.getOrientation(path, (Integer orientation, String img_source) -> {
 //            if (!img_source.startsWith(LUNA.TEXT)) {
 //                System.out.println(ori + ":" + img_source);
 //            }
-            front_img = (HTMLImageElement) document.createElement("img");
-            $(front_img).css("transform", "rotate(" + DEG(ori) + "deg)");
+            HTMLImageElement front_img = (HTMLImageElement) document.createElement("img");
+            int rotation = DEG(orientation);
+            if (rotation != 0) {
+                $(front_img).css("transform", "rotate(" + rotation + "deg)");
+            }
             front_img.crossOrigin = "anonymous";
+            $(front_img).addClass("img");
+            $(card_face).append(front_img);
             front_img.src = (LUNA.QRCODE.equals(path)) ? UMBRA.QRCODE_IMG
                     : (path.startsWith(LUNA.TEXT))
                     ? path.substring(LUNA.TEXT.length()) : img_source;// path;
             front_img.onload = (e) -> {
-                $(front_img).addClass("img");
-                $(card_face).append(front_img);
                 callback.accept(card_face);
                 return null;
             };
@@ -88,17 +93,13 @@ public final class Card {
 
     public void flip(String img, int color_index) {
         create_face(img, (back_face) -> {
-//            $(back_face).addClass("flip out");
-            $(back_face).addClass("flip");  //try
+            $(back_face).addClass("flip");
             $(front_face).toggleClass("in out");
             setTimeout((o1) -> {
                 $(back_face).addClass("in");
                 $(card).append(back_face);
                 $(card).find(".front").remove();
                 $(back_face).addClass("front");
-//                $(back_face).toggleClass("out").toggleClass("in");
-//                $(back_face).toggleClass("in front");  //try
-//                $(back_face).toggleClass("front");
                 front_face = back_face;
                 setTimeout((o2) -> {
                     $(card).css("border", SIDE * LUNA.CARD.BORDER_RATIO + "px "
