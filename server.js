@@ -27,8 +27,8 @@ app.get('/:page?', function (req, res) {
     }
 });
 var server = require('http').createServer(app);
-var port = process.env.port || process.env.PORT || 1337;
-//var port = process.env.port || process.env.npm_package_config_LOCAL_PORT;
+//var port = process.env.port || process.env.PORT || 1337;
+var port = process.env.port || process.env.npm_package_config_LOCAL_PORT;
 var io = require('socket.io')(server);
 var java = require('java');
 java.options.push("-Dfile.encoding=UTF-8");
@@ -47,15 +47,19 @@ var keyword = "文化局";
 java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.util.function.Consumer', {
     accept: function (dc) {
         var keyword_uri_pool;
-        update_keyword_uri_pool();
+        update_keyword(keyword);
 
-        function update_keyword_uri_pool() {
+        function update_keyword(new_keyword) {
             var data = java.callStaticMethodSync('javax.json.Json', 'createObjectBuilder')
                     .addSync("client", "Server")
-                    .addSync("text", keyword).buildSync();
+                    .addSync("text", new_keyword).buildSync();
             dc.getResultSync(data, 0, "TWDC", java.newProxy('java.util.function.Consumer', {
                 accept: function (result) {
-                    keyword_uri_pool = result;
+                    if (result.record_set.sizeSync() > 0) {
+                        keyword_uri_pool = result;
+                        keyword = new_keyword;
+                    } else
+                        console.log('** Keyword unchanged due to empty query result.');
                 }
             }));
         }
@@ -69,24 +73,23 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
                         .addSync("text", data.text).buildSync();
                 dc.getResultSync(data_query, 20, java.newProxy('java.util.function.Consumer', {
                     accept: function (result) {
-                        var data_package = result;
-                        var result_str = (data_package.record_set.length === 0) ?
+                        var result_str = (result.record_set.sizeSync() === 0) ?
                                 '抱歉，' + data.text + ' 沒有找到任何內容。'
-                                : data.text + ' 取得' + data_package.record_set.sizeSync() + '筆內容。';
+                                : data.text + ' 取得' + result.record_set.sizeSync() + '筆內容。';
                         console.log(result_str);
                         io.emit('message', {
                             user: data.client,
                             message: result_str
                         });
-                        if (data_package.record_set.sizeSync() > 0) {
+                        if (result.record_set.sizeSync() > 0) {
                             var pack = {
-                                client: data_package.client,
-                                query_str: data_package.query_str,
+                                client: result.client,
+                                query_str: result.query_str,
                                 record_set: []
                             };
-                            for (var i = 0; i < data_package.record_set.sizeSync(); i++) {
-//                                console.log('index = ' + i + "/" + data_package.record_set.sizeSync());
-                                var rec = data_package.record_set.getSync(i);
+                            for (var i = 0; i < result.record_set.sizeSync(); i++) {
+//                                console.log('index = ' + i + "/" + result.record_set.sizeSync());
+                                var rec = result.record_set.getSync(i);
                                 pack.record_set.push({
                                     img_url: rec.img_url,
                                     content: rec.content
@@ -102,8 +105,7 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
             });
             client.on('keyword', function (data) {
                 if (data.keyword) {
-                    keyword = data.keyword;
-                    update_keyword_uri_pool();
+                    update_keyword(data.keyword);
                 }
             });
             client.on('keyword_query', function () {
@@ -112,7 +114,7 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
         });
 
         setInterval(function () {
-            var index = parseInt(keyword_uri_pool.record_set.sizeSync() * Math.random());
+            var index = Math.floor(keyword_uri_pool.record_set.sizeSync() * Math.random());
             var select = keyword_uri_pool.record_set.getSync(index);
             io.emit('fire', {
                 user: "Server",

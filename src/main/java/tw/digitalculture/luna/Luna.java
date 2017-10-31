@@ -111,28 +111,6 @@ public final class Luna {
         deal_card();
     }
 
-//    public void onResult(Result data) {
-//        System.out.println("data = " + data);
-//        List<Record_Query> record_set = data.record_set;
-//        System.out.println("Size = " + data.record_set.size());
-//        System.out.println("Size = " + record_set.size());
-//        int replaced = 0;
-//        for (int i = 0; i < record_set.size(); i++) {
-//            Record_Display record = new Record_Display(
-//                    data.query_str,
-//                    record_set.get(i).img_url,
-//                    record_set.get(i).content);
-//            if (data_pool.containsKey(record.query_str + record.img_path)) {
-//                replaced++;
-//            }
-//            if (i == 0) {
-//                deal_card(record);
-//            } else {
-//                data_pool.put(record.query_str + record.img_path, record);
-//            }
-//        }
-//        System.out.println("data_pool size = " + data_pool.size() + "(" + replaced + ")");
-//    }
     public void onResult(JSON data) {
         def.js.Array<Record_Query> record_set = data.$get("record_set");
         int replaced = 0;

@@ -74,16 +74,16 @@ public class TWDC extends Query<Record_Query> {
     @Override
     public void query(String text, int limit, Consumer<List<Record_Query>> callback) {
         List<Record_Query> records = new ArrayList();
-        int n = (limit > 0) ? limit : -1;
         for (TWDC_Record data : dataset) {
             String result = data.contains(text);
             if (!result.isEmpty()) {
-                n--;
                 records.add(new Record_Query(data.uri, result));
             }
-            if (n == 0) {
-                break;
-            }
+        }
+        if (records.size() > limit && limit > 0) {
+            do {
+                records.remove((int) Math.floor(records.size() * Math.random()));
+            } while (records.size() > limit);
         }
         callback.accept(records);
     }

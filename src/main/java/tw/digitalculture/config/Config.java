@@ -18,7 +18,7 @@ public class Config {
 
     public static class UMBRA {
 
-        public static String URL = "http://wm.localstudies.info";
+        public static String URL = "http://wm.localstudies.tw";
         public static String FONT = "'DFKai-sb', 'BiauKai'";
         public static String TITLE_COLOR = "Silver";
         public static String QRCODE_IMG;

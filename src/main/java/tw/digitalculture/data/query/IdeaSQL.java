@@ -80,6 +80,7 @@ public class IdeaSQL extends Query<Record_Query> {
                     }
                 });
             }
+            callback.accept(result);
         });
     }
 
