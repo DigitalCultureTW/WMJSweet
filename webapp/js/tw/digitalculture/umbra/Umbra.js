@@ -7,7 +7,7 @@ var tw;
         (function (umbra_1) {
             /**
              *
-             * @author Jonathan
+             * @author Jonathan Chang, Chun-yien <ccy@musicapoetica.org>
              * @class
              */
             var Umbra = (function () {

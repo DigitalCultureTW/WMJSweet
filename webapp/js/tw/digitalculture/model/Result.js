@@ -7,7 +7,7 @@ var tw;
         (function (model) {
             /**
              *
-             * @author Jonathan
+             * @author Jonathan Chang, Chun-yien <ccy@musicapoetica.org>
              * @param {string} client
              * @param {string} query_string
              * @class

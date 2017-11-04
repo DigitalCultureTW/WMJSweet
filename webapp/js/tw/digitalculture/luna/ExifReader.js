@@ -7,7 +7,7 @@ var tw;
         (function (luna) {
             /**
              *
-             * @author Jonathan
+             * @author Jonathan Chang, Chun-yien <ccy@musicapoetica.org>
              * @class
              */
             var ExifReader = (function () {
