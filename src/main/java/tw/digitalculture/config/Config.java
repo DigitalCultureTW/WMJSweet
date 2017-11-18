@@ -40,7 +40,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.7.3-beta-jswt";
+        public static String VERSION = "0.7.4-beta-jswt";
     }
 
     public static class UMBRA {

@@ -67,6 +67,35 @@ var limit = java.callStaticMethodSync('tw.digitalculture.config.Config$DATA', 'L
 var timeout = java.getStaticFieldValue('tw.digitalculture.config.Config$LUNA', 'SYSTEM_LOGO_TIME_OUT');
 //var cf = require('./config.js');
 var keyword = "文化局";
+
+function getDateTime() {
+
+    var date = new Date();
+
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var sec = date.getSeconds();
+    sec = (sec < 10 ? "0" : "") + sec;
+
+    var mil_sec = date.getMilliseconds();
+    mil_sec = (mil_sec < 100 ? "0" : "") + (mil_sec < 10 ? "0" : "") + mil_sec;
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + "/" + month + "/" + day + " " + hour + ":" + min + ":" + sec + "." + mil_sec;
+
+}
+
 java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.util.function.Consumer', {
     accept: function (dc) {
         var keyword_uri_pool;
@@ -89,7 +118,7 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
 
         io.on('connection', function (client) {
             var role = client.handshake.query.role;
-            console.log(client.id + "_" + role + "_connection");
+            console.log(getDateTime() + " " + client.id + "_" + role + "_connection");
             client.on('query', function (data) {
                 var data_query = java.callStaticMethodSync('javax.json.Json', 'createObjectBuilder')
                         .addSync("client", data.client)
@@ -124,7 +153,7 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
                 }));
             });
             client.on('disconnect', function () {
-                console.log("disconnect");
+                console.log(getDateTime() + " " + client.id + " disconnect");
             });
             client.on('keyword', function (data) {
                 if (data.keyword) {
@@ -150,5 +179,7 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
         server.listen(port);
     }
 }));
+
+
 
 

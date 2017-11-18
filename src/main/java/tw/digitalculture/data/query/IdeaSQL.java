@@ -54,7 +54,7 @@ public class IdeaSQL extends Query<Record_Query> {
         try {
             url = api + URLEncoder.encode(query_text, "UTF-8")
                     + ((limit > 0) ? "?limit=" + limit : "");
-            System.out.println(URLDecoder.decode(url, "UTF-8"));
+            //System.out.println(URLDecoder.decode(url, "UTF-8"));
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(IdeaSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,6 +70,9 @@ public class IdeaSQL extends Query<Record_Query> {
         count = 0;
         result = new ArrayList<>();
         IDEASQL_JSON.fetch(get_url(query_text, limit), (JsonArray fetch_result) -> {
+            if (fetch_result.isEmpty()) {
+                callback.accept(result);
+            }
             for (int i = 0; i < fetch_result.size(); i++) {
                 IDEASQL_Record record = new IDEASQL_Record(fetch_result.getJsonObject(i));
                 IsValidImageUrl(record.uri, (Boolean isValid) -> {
