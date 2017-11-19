@@ -108,8 +108,10 @@ public final class Umbra {
     }
 
     public void setup() {
-
         context = new AudioContext();
+        if (context == null) {
+            context = def.js.Globals.eval("new webkitAudioContext();");
+        }
         $("#query").attr("disabled", "true");
         $("#search").attr("disabled", "true");
         BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
@@ -128,19 +130,6 @@ public final class Umbra {
             return null;
         });
     }
-
-//    public void load(Event t) {
-//        $("#query").attr("disabled", "true");
-//        $("#search").attr("disabled", "true");
-//        BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
-//            audioBuffer = buffer;
-//            System.out.println("after buffer assigned");
-//            $("#query").removeAttr("disabled");
-//            $("#search").removeAttr("disabled");
-//        });
-//        bufferLoader.load();
-//        System.out.println("after load");
-//    }
 
     public void resizeImage() {
         double window_height = document.body.clientHeight;

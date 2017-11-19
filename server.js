@@ -63,6 +63,9 @@ dependencies.forEach(function (dependency) {
 });
 java.classpath.push('target/classes');
 
+var title = java.getStaticFieldValue('tw.digitalculture.config.Config$PROJECT', 'TITLE_ENGLISH');
+var version = java.getStaticFieldValue('tw.digitalculture.config.Config$PROJECT', 'VERSION');
+console.log(title + ' [' + version + ']');
 var limit = java.callStaticMethodSync('tw.digitalculture.config.Config$DATA', 'LIMIT');
 var timeout = java.getStaticFieldValue('tw.digitalculture.config.Config$LUNA', 'SYSTEM_LOGO_TIME_OUT');
 //var cf = require('./config.js');

@@ -75,15 +75,9 @@ var tw;
                 Umbra.prototype.setup = function () {
                     var _this = this;
                     this.context = new AudioContext();
-                    window.addEventListener("load", function (t) { return _this.load(t); });
-                    $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
-                    $("#logo").on("load", function (arg0, arg1) {
-                        _this.resizeImage();
-                        return null;
-                    });
-                };
-                Umbra.prototype.load = function (t) {
-                    var _this = this;
+                    if (this.context == null) {
+                        this.context = (eval("new webkitAudioContext();"));
+                    }
                     $("#query").attr("disabled", "true");
                     $("#search").attr("disabled", "true");
                     var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {
@@ -94,6 +88,11 @@ var tw;
                     });
                     bufferLoader.load();
                     console.info("after load");
+                    $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
+                    $("#logo").on("load", function (arg0, arg1) {
+                        _this.resizeImage();
+                        return null;
+                    });
                 };
                 Umbra.prototype.resizeImage = function () {
                     var window_height = document.body.clientHeight;
