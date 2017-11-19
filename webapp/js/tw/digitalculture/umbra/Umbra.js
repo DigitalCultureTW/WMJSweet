@@ -76,8 +76,7 @@ var tw;
                     var _this = this;
                     this.context = new AudioContext();
                     window.addEventListener("load", function (t) {
-                        var urlList = (["res/atonia72.wav", "res/beep1.mp3", "res/celesta-a4.wav", "res/ding.wav", "res/scifi19.mp3"].slice(0).slice(0));
-                        var bufferLoader = new tw.digitalculture.umbra.BufferLoader(_this.context, urlList, function (buffer) {
+                        var bufferLoader = new tw.digitalculture.umbra.BufferLoader(_this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {
                             _this.audioBuffer = buffer;
                         });
                         bufferLoader.load();

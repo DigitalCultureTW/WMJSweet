@@ -40,12 +40,12 @@ import java.util.function.Consumer;
 public class BufferLoader {
 
     AudioContext context;
-    List<String> urlList;
+    String[] urlList;
     Consumer<List<AudioBuffer>> onload;
     List<AudioBuffer> bufferList;
     int loadCount = 0;
 
-    public BufferLoader(AudioContext context, List<String> urlList, Consumer<List<AudioBuffer>> callback) {
+    public BufferLoader(AudioContext context, String[] urlList, Consumer<List<AudioBuffer>> callback) {
         this.urlList = urlList;
         this.context = context;
         this.onload = callback;
@@ -53,8 +53,8 @@ public class BufferLoader {
     }
 
     public void load() {
-        for (int i = 0; i < this.urlList.size(); ++i) {
-            this.loadBuffer(this.urlList.get(i));
+        for (int i = 0; i < this.urlList.length; ++i) {
+            this.loadBuffer(this.urlList[i]);
         }
     }
 
@@ -71,7 +71,7 @@ public class BufferLoader {
                             return;
                         }
                         bufferList.add(buffer);
-                        if (++loadCount == urlList.size()) {
+                        if (++loadCount == urlList.length) {
                             onload.accept(bufferList);
                         }
                     },

@@ -34,10 +34,10 @@ import static def.socket_io_client.Globals.io;
 import static jsweet.util.Lang.function;
 import def.socket_io_client.socketioclient.Socket;
 import def.js.JSON;
-import static java.lang.Math.random;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import tw.digitalculture.config.Config;
 
 import tw.digitalculture.config.Config.PROJECT;
 
@@ -114,13 +114,7 @@ public final class Umbra {
     public void setup() {
         context = new AudioContext();
         window.addEventListener("load", (Event t) -> {
-            List<String> urlList = new ArrayList<>(Arrays.asList(new String[]{
-                "res/atonia72.wav",
-                "res/beep1.mp3",
-                "res/celesta-a4.wav",
-                "res/ding.wav",
-                "res/scifi19.mp3"}));
-            BufferLoader bufferLoader = new BufferLoader(context, urlList, (List<AudioBuffer> buffer) -> {
+            BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
                 audioBuffer = buffer;
             });
             bufferLoader.load();
