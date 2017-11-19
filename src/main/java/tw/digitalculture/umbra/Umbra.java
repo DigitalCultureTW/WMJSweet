@@ -97,7 +97,7 @@ public final class Umbra {
                 $("#search").removeAttr("disabled");
                 $("#message").text((String) data.$get("message"));
                 $("#search").val("");
-                playSound((int) (random() * audioBuffer.size()));
+                playSound((int) Math.floor(audioBuffer.size() * Math.random()));
             }
             return null;
         }));

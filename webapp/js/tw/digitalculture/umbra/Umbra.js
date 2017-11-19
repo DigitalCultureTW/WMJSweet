@@ -61,7 +61,7 @@ var tw;
                             $("#search").removeAttr("disabled");
                             $("#message").text((data["message"]));
                             $("#search").val("");
-                            _this.playSound(((Math.random() * _this.audioBuffer.length) | 0));
+                            _this.playSound((Math.floor(/* size */ _this.audioBuffer.length * Math.random()) | 0));
                         }
                         return null;
                     }));
