@@ -110,24 +110,27 @@ public final class Umbra {
     }
 
     public void setup() {
-        $("#query").attr("disabled", "true");
-        $("#search").attr("disabled", "true");
+
         context = new AudioContext();
-        window.addEventListener("load", (Event t) -> {
-            BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
-                audioBuffer = buffer;
-                System.out.println("after buffer assigned");
-                $("#query").removeAttr("disabled");
-                $("#search").removeAttr("disabled");
-            });
-            bufferLoader.load();
-            System.out.println("after load");
-        });
+        window.addEventListener("load", this::load);
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {
             resizeImage();
             return null;
         });
+    }
+
+    public void load(Event t) {
+        $("#query").attr("disabled", "true");
+        $("#search").attr("disabled", "true");
+        BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
+            audioBuffer = buffer;
+            System.out.println("after buffer assigned");
+            $("#query").removeAttr("disabled");
+            $("#search").removeAttr("disabled");
+        });
+        bufferLoader.load();
+        System.out.println("after load");
     }
 
     public void resizeImage() {

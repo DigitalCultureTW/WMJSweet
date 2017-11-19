@@ -74,24 +74,26 @@ var tw;
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
-                    $("#query").attr("disabled", "true");
-                    $("#search").attr("disabled", "true");
                     this.context = new AudioContext();
-                    window.addEventListener("load", function (t) {
-                        var bufferLoader = new tw.digitalculture.umbra.BufferLoader(_this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {
-                            _this.audioBuffer = buffer;
-                            console.info("after buffer assigned");
-                            $("#query").removeAttr("disabled");
-                            $("#search").removeAttr("disabled");
-                        });
-                        bufferLoader.load();
-                        console.info("after load");
-                    });
+                    window.addEventListener("load", function (t) { return _this.load(t); });
                     $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
                     $("#logo").on("load", function (arg0, arg1) {
                         _this.resizeImage();
                         return null;
                     });
+                };
+                Umbra.prototype.load = function (t) {
+                    var _this = this;
+                    $("#query").attr("disabled", "true");
+                    $("#search").attr("disabled", "true");
+                    var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {
+                        _this.audioBuffer = buffer;
+                        console.info("after buffer assigned");
+                        $("#query").removeAttr("disabled");
+                        $("#search").removeAttr("disabled");
+                    });
+                    bufferLoader.load();
+                    console.info("after load");
                 };
                 Umbra.prototype.resizeImage = function () {
                     var window_height = document.body.clientHeight;
