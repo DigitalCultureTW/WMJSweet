@@ -67,6 +67,7 @@ var tw;
                     }));
                 };
                 Umbra.prototype.playSound = function (index) {
+                    this.context = new AudioContext();
                     var source = this.context.createBufferSource();
                     source.buffer = this.audioBuffer[index];
                     source.connect(this.context.destination);
