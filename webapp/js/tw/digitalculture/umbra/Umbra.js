@@ -70,7 +70,7 @@ var tw;
                     var source = this.context.createBufferSource();
                     source.buffer = this.audioBuffer[index];
                     source.connect(this.context.destination);
-                    source.start();
+                    source.start(0);
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;

@@ -104,7 +104,7 @@ public final class Umbra {
         AudioBufferSourceNode source = context.createBufferSource();
         source.buffer = audioBuffer.get(index);
         source.connect(context.destination);
-        source.start();
+        source.start(0);
     }
 
     public void setup() {
