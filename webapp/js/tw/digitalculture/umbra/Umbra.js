@@ -74,10 +74,7 @@ var tw;
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
-                    this.context = new AudioContext();
-                    if (this.context == null) {
-                        this.context = (eval("new webkitAudioContext();"));
-                    }
+                    this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
                     $("#query").attr("disabled", "true");
                     $("#search").attr("disabled", "true");
                     var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {

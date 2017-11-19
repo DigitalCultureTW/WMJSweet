@@ -108,10 +108,7 @@ public final class Umbra {
     }
 
     public void setup() {
-        context = new AudioContext();
-        if (context == null) {
-            context = def.js.Globals.eval("new webkitAudioContext();");
-        }
+        context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
         $("#query").attr("disabled", "true");
         $("#search").attr("disabled", "true");
         BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
