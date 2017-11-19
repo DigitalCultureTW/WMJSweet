@@ -34,8 +34,6 @@ import static def.socket_io_client.Globals.io;
 import static jsweet.util.Lang.function;
 import def.socket_io_client.socketioclient.Socket;
 import def.js.JSON;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import tw.digitalculture.config.Config;
 
@@ -105,7 +103,6 @@ public final class Umbra {
     }
 
     public void playSound(int index) {
-        context = new AudioContext();
         AudioBufferSourceNode source = context.createBufferSource();
         source.buffer = audioBuffer.get(index);
         source.connect(context.destination);
@@ -113,12 +110,18 @@ public final class Umbra {
     }
 
     public void setup() {
+        $("#query").attr("disabled", "true");
+        $("#search").attr("disabled", "true");
         context = new AudioContext();
         window.addEventListener("load", (Event t) -> {
             BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
                 audioBuffer = buffer;
+                System.out.println("after buffer assigned");
+                $("#query").removeAttr("disabled");
+                $("#search").removeAttr("disabled");
             });
             bufferLoader.load();
+            System.out.println("after load");
         });
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {
