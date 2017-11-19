@@ -23,12 +23,21 @@
  */
 package tw.digitalculture.umbra;
 
+import def.dom.AudioBuffer;
+import def.dom.AudioBufferSourceNode;
+import def.dom.AudioContext;
+import def.dom.Event;
 import static def.dom.Globals.document;
+import static def.dom.Globals.window;
 import static def.jquery.Globals.$;
 import static def.socket_io_client.Globals.io;
 import static jsweet.util.Lang.function;
 import def.socket_io_client.socketioclient.Socket;
 import def.js.JSON;
+import static java.lang.Math.random;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import tw.digitalculture.config.Config.PROJECT;
 
@@ -39,6 +48,8 @@ import tw.digitalculture.config.Config.PROJECT;
 public final class Umbra {
 
     private Socket socket;
+    AudioContext context;
+    List<AudioBuffer> audioBuffer;
 
     public static void main(String[] args) {
         $(document).ready(() -> {
@@ -86,13 +97,34 @@ public final class Umbra {
                 $("#search").removeAttr("disabled");
                 $("#message").text((String) data.$get("message"));
                 $("#search").val("");
+                playSound((int) (random() * audioBuffer.size()));
             }
             return null;
         }));
 
     }
 
+    public void playSound(int index) {
+        AudioBufferSourceNode source = context.createBufferSource();
+        source.buffer = audioBuffer.get(index);
+        source.connect(context.destination);
+        source.start();
+    }
+
     public void setup() {
+        context = new AudioContext();
+        window.addEventListener("load", (Event t) -> {
+            List<String> urlList = new ArrayList<>(Arrays.asList(new String[]{
+                "res/atonia72.wav",
+                "res/beep1.mp3",
+                "res/celesta-a4.wav",
+                "res/ding.wav",
+                "res/scifi19.mp3"}));
+            BufferLoader bufferLoader = new BufferLoader(context, urlList, (List<AudioBuffer> buffer) -> {
+                audioBuffer = buffer;
+            });
+            bufferLoader.load();
+        });
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {
             resizeImage();

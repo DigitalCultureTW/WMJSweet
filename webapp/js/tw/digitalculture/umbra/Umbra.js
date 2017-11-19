@@ -14,6 +14,10 @@ var tw;
                 function Umbra() {
                     if (this.__socket === undefined)
                         this.__socket = null;
+                    if (this.context === undefined)
+                        this.context = null;
+                    if (this.audioBuffer === undefined)
+                        this.audioBuffer = null;
                     this.setup();
                     this.socket();
                 }
@@ -57,12 +61,27 @@ var tw;
                             $("#search").removeAttr("disabled");
                             $("#message").text((data["message"]));
                             $("#search").val("");
+                            _this.playSound(((Math.random() * _this.audioBuffer.length) | 0));
                         }
                         return null;
                     }));
                 };
+                Umbra.prototype.playSound = function (index) {
+                    var source = this.context.createBufferSource();
+                    source.buffer = this.audioBuffer[index];
+                    source.connect(this.context.destination);
+                    source.start();
+                };
                 Umbra.prototype.setup = function () {
                     var _this = this;
+                    this.context = new AudioContext();
+                    window.addEventListener("load", function (t) {
+                        var urlList = (["res/atonia72.wav", "res/beep1.mp3", "res/celesta-a4.wav", "res/ding.wav", "res/scifi19.mp3"].slice(0).slice(0));
+                        var bufferLoader = new tw.digitalculture.umbra.BufferLoader(_this.context, urlList, function (buffer) {
+                            _this.audioBuffer = buffer;
+                        });
+                        bufferLoader.load();
+                    });
                     $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
                     $("#logo").on("load", function (arg0, arg1) {
                         _this.resizeImage();
