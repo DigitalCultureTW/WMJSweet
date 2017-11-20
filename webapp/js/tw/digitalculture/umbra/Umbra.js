@@ -72,16 +72,8 @@ var tw;
                     alert("Playing sound no." + index);
                     var source = this.context.createBufferSource();
                     source.buffer = this.audioBuffer[index];
-                    if (this.iOS) {
-                        var gain_node = (eval("context.createGainNode();"));
-                        source.connect(gain_node);
-                        gain_node.connect(this.context.destination);
-                        eval("source.noteOn(0);");
-                    }
-                    else {
-                        source.connect(this.context.destination);
-                        source.start(0);
-                    }
+                    source.connect(this.context.destination);
+                    source.start(0);
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;

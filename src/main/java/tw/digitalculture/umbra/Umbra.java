@@ -107,18 +107,18 @@ public final class Umbra {
         alert("Playing sound no." + index);
         AudioBufferSourceNode source = context.createBufferSource();
         source.buffer = audioBuffer.get(index);
-        if (iOS) {
-            AudioNode gain_node = def.js.Globals.eval("context.createGainNode();");
-            source.connect(gain_node);
-            gain_node.connect(context.destination);
-            def.js.Globals.eval("source.noteOn(0);");
-        } else {
+//        if (iOS) {
+//            AudioNode gain_node = def.js.Globals.eval("context.createGainNode();");
+//            source.connect(gain_node);
+//            gain_node.connect(context.destination);
+//            def.js.Globals.eval("source.noteOn(0);");
+//        } else {
             source.connect(context.destination);
             source.start(0);
-        }
+//        }
     }
 
-    boolean iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
+//    boolean iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
 
     public void setup() {
         context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
