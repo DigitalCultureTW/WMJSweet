@@ -85,32 +85,18 @@ var tw;
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
-                    this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
                     for (var i = 0; i < tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length; i++) {
-                        var audio_1 = document.createElement("audio");
-                        audio_1.src = tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$()[i];
-                        audio_1.id = "audio_" + i;
-                        $("head").append(audio_1);
+                        var audio = document.createElement("audio");
+                        audio.id = "audio_" + i;
+                        audio.src = tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$()[i];
+                        $("body").append(audio);
                     }
                     ;
-                    var audio = document.createElement("audio");
-                    audio.id = "soundHandle";
-                    $(audio).css("display", "none");
-                    $("head").append(audio);
                     $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
                     $("#logo").on("load", function (arg0, arg1) {
                         _this.resizeImage();
                         return null;
                     });
-                    var soundHandle = document.getElementById("soundHandle");
-                    addEventListener("touchstart", (function (soundHandle) {
-                        return function (e) {
-                            soundHandle.src = "/res/beep1.mp3";
-                            soundHandle.loop = true;
-                            soundHandle.play();
-                            soundHandle.pause();
-                        };
-                    })(soundHandle));
                 };
                 Umbra.prototype.resizeImage = function () {
                     var window_height = document.body.clientHeight;

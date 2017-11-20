@@ -118,33 +118,18 @@ public final class Umbra {
     }
 
     public void setup() {
-        context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
-
         for (int i = 0; i < Config.UMBRA.SOUNDS.length; i++) {
             HTMLAudioElement audio = (HTMLAudioElement) document.createElement("audio");
-            audio.src = Config.UMBRA.SOUNDS[i];
             audio.id = "audio_" + i;
-            $("head").append(audio);
+            audio.src = Config.UMBRA.SOUNDS[i];
+            $("body").append(audio);
         }
-        HTMLAudioElement audio = (HTMLAudioElement) document.createElement("audio");
-        audio.id = "soundHandle";
-        $(audio).css("display", "none");
-        $("head").append(audio);
 
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {
             resizeImage();
             return null;
         });
-
-        HTMLAudioElement soundHandle = (HTMLAudioElement) document.getElementById("soundHandle");
-        addEventListener("touchstart", (e) -> {
-            soundHandle.src = "/res/beep1.mp3";
-            soundHandle.loop = true;
-            soundHandle.play();
-            soundHandle.pause();
-        });
-
     }
 
     public void resizeImage() {
