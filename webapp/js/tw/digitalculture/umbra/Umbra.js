@@ -74,7 +74,10 @@ var tw;
                     var source = this.context.createBufferSource();
                     source.buffer = this.audioBuffer[index];
                     if (this.iOS) {
-                        eval("var gain_node = audio_ctx.createGainNode();source.connect(gain_node);gain_node.connect(context.destination);source.noteOn(0);");
+                        var gain_node = (eval("audio_ctx.createGainNode();"));
+                        source.connect(gain_node);
+                        gain_node.connect(this.context.destination);
+                        eval("source.noteOn(0);");
                     }
                     else {
                         source.connect(this.context.destination);

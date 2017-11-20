@@ -26,6 +26,7 @@ package tw.digitalculture.umbra;
 import def.dom.AudioBuffer;
 import def.dom.AudioBufferSourceNode;
 import def.dom.AudioContext;
+import def.dom.AudioNode;
 import static def.dom.Globals.alert;
 import static def.dom.Globals.document;
 import static def.jquery.Globals.$;
@@ -107,22 +108,20 @@ public final class Umbra {
         AudioBufferSourceNode source = context.createBufferSource();
         source.buffer = audioBuffer.get(index);
         if (iOS) {
-            def.js.Globals.eval("var gain_node = audio_ctx.createGainNode();"
-                    + "source.connect(gain_node);"
-                    + "gain_node.connect(context.destination);"
-                    + "source.noteOn(0);");
+            AudioNode gain_node = def.js.Globals.eval("audio_ctx.createGainNode();");
+            source.connect(gain_node);
+            gain_node.connect(context.destination);
+            def.js.Globals.eval("source.noteOn(0);");
         } else {
             source.connect(context.destination);
             source.start(0);
         }
     }
 
-    boolean iOS;
+    boolean iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
 
     public void setup() {
         context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
-        iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
-        alert("iOS = " + iOS);
         $("#query").attr("disabled", "true");
         $("#search").attr("disabled", "true");
         BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
