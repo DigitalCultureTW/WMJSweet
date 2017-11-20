@@ -50,11 +50,12 @@ public class Config {
         public static String TITLE_COLOR = "Silver";
         public static String QRCODE_IMG;
         public static String[] SOUNDS = {
-//                "/res/atonia72.wav",
-                "/res/beep1.mp3",
-//                "/res/celesta-a4.wav",
-                "/res/ding.wav",
-                "/res/scifi19.mp3"};
+            //"/res/atonia72.wav",
+            "/res/beep1.mp3",
+            //"/res/celesta-a4.wav",
+            "/res/ding.wav",
+            "/res/scifi19.mp3"};
+        public static boolean iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
     }
 
     public static class LUNA {

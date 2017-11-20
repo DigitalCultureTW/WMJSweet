@@ -12,7 +12,6 @@ var tw;
              */
             var Umbra = (function () {
                 function Umbra() {
-                    this.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;"));
                     if (this.__socket === undefined)
                         this.__socket = null;
                     if (this.context === undefined)
@@ -69,11 +68,16 @@ var tw;
                     }));
                 };
                 Umbra.prototype.playSound = function (index) {
-                    alert("Playing sound no." + index);
+                    alert("iOS = " + tw.digitalculture.config.Config.UMBRA.iOS_$LI$() + ", Playing sound no." + index);
                     var source = this.context.createBufferSource();
                     source.buffer = this.audioBuffer[index];
                     source.connect(this.context.destination);
-                    source.start(0);
+                    if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
+                        eval("source.noteOn(0);");
+                    }
+                    else {
+                        source.start(0);
+                    }
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
