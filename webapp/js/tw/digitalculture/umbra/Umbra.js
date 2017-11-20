@@ -84,9 +84,8 @@ var tw;
                 Umbra.prototype.setup = function () {
                     var _this = this;
                     this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
-                    if (!(this.context != null && this.context instanceof AudioContext)) {
-                        this.iOS = true;
-                    }
+                    this.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;"));
+                    alert("iOS = " + this.iOS);
                     $("#query").attr("disabled", "true");
                     $("#search").attr("disabled", "true");
                     var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {

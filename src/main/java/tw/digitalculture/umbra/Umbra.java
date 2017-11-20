@@ -121,9 +121,8 @@ public final class Umbra {
 
     public void setup() {
         context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
-        if (!(context instanceof AudioContext)) {
-            iOS = true;
-        }
+        iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
+        alert("iOS = " + iOS);
         $("#query").attr("disabled", "true");
         $("#search").attr("disabled", "true");
         BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
