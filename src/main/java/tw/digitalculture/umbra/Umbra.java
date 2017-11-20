@@ -36,8 +36,6 @@ import def.socket_io_client.socketioclient.Socket;
 import def.js.JSON;
 import static def.node.Globals.setTimeout;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import tw.digitalculture.config.Config;
 
 import tw.digitalculture.config.Config.PROJECT;
@@ -131,6 +129,7 @@ public final class Umbra {
         HTMLAudioElement audio = (HTMLAudioElement) document.createElement("audio");
         audio.id = "soundHandle";
         $(audio).css("display", "none");
+        $("head").append(audio);
 
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {
