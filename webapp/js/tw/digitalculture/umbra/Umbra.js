@@ -47,10 +47,6 @@ var tw;
                             $("#search").attr("disabled", "true");
                             $("#message").text("\u8655\u7406\u4e2d...");
                             _this.__socket.emit("query", JSON.parse("{\"client\": \"" + _this.__socket.id + "\",\"text\": \"" + text + "\"}"));
-                            if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
-                                var index = (Math.floor(/* size */ _this.audioBuffer.length * Math.random()) | 0);
-                                _this.playSound(index);
-                            }
                         }
                         return null;
                     });
@@ -73,18 +69,29 @@ var tw;
                 };
                 Umbra.prototype.playSound = function (index) {
                     alert("iOS = " + tw.digitalculture.config.Config.UMBRA.iOS_$LI$() + ", Playing sound no." + index);
-                    document.getElementById("audio_" + index).play();
+                    if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
+                        var soundHandle = document.getElementById("soundHandle");
+                        soundHandle.src = document.getElementById("audio_" + index).src;
+                        soundHandle.play();
+                        soundHandle.pause();
+                    }
+                    else {
+                        document.getElementById("audio_" + index).play();
+                    }
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
                     this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
                     for (var i = 0; i < tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length; i++) {
-                        var audio = document.createElement("audio");
-                        audio.src = tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$()[i];
-                        audio.id = "audio_" + i;
-                        $("head").append(audio);
+                        var audio_1 = document.createElement("audio");
+                        audio_1.src = tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$()[i];
+                        audio_1.id = "audio_" + i;
+                        $("head").append(audio_1);
                     }
                     ;
+                    var audio = document.createElement("audio");
+                    audio.id = "soundHandle";
+                    $(audio).css("display", "none");
                     $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
                     $("#logo").on("load", function (arg0, arg1) {
                         _this.resizeImage();
