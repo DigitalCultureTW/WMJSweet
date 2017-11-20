@@ -26,6 +26,7 @@ package tw.digitalculture.umbra;
 import def.dom.AudioBuffer;
 import def.dom.AudioBufferSourceNode;
 import def.dom.AudioContext;
+import static def.dom.Globals.alert;
 import static def.dom.Globals.document;
 import static def.jquery.Globals.$;
 import static def.socket_io_client.Globals.io;
@@ -93,7 +94,8 @@ public final class Umbra {
                 $("#search").removeAttr("disabled");
                 $("#message").text((String) data.$get("message"));
                 $("#search").val("");
-                playSound((int) Math.floor(audioBuffer.size() * Math.random()));
+                int index = (int) Math.floor(audioBuffer.size() * Math.random());
+                playSound(index);
             }
             return null;
         }));
@@ -101,25 +103,36 @@ public final class Umbra {
     }
 
     public void playSound(int index) {
+        alert("Playing sound no." + index);
         AudioBufferSourceNode source = context.createBufferSource();
         source.buffer = audioBuffer.get(index);
-        source.connect(context.destination);
-        source.start(0);
+        if (iOS) {
+            def.js.Globals.eval("var gain_node = audio_ctx.createGainNode();"
+                    + "source.connect(gain_node);"
+                    + "gain_node.connect(context.destination);"
+                    + "source.noteOn(0);");
+        } else {
+            source.connect(context.destination);
+            source.start(0);
+        }
     }
+
+    boolean iOS;
 
     public void setup() {
         context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
+        if (!(context instanceof AudioContext)) {
+            iOS = true;
+        }
         $("#query").attr("disabled", "true");
         $("#search").attr("disabled", "true");
         BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
             audioBuffer = buffer;
-            System.out.println("after buffer assigned");
+            System.out.println("Umbra setup finished.");
             $("#query").removeAttr("disabled");
             $("#search").removeAttr("disabled");
         });
         bufferLoader.load();
-        System.out.println("after load");
-//        window.addEventListener("load", this::load);
 
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {
