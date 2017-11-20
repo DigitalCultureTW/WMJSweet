@@ -25,6 +25,7 @@ package tw.digitalculture.umbra;
 
 import def.dom.AudioBuffer;
 import def.dom.AudioContext;
+import static def.dom.Globals.addEventListener;
 import static def.dom.Globals.alert;
 import static def.dom.Globals.document;
 import def.dom.HTMLAudioElement;
@@ -136,6 +137,15 @@ public final class Umbra {
             resizeImage();
             return null;
         });
+
+        HTMLAudioElement soundHandle = (HTMLAudioElement) document.getElementById("soundHandle");
+        addEventListener("touchstart", (e) -> {
+            soundHandle.src = "/res/beep1.mp3";
+            soundHandle.loop = true;
+            soundHandle.play();
+            soundHandle.pause();
+        });
+
     }
 
     public void resizeImage() {

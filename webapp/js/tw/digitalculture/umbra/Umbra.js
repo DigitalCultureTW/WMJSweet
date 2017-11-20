@@ -101,6 +101,15 @@ var tw;
                         _this.resizeImage();
                         return null;
                     });
+                    var soundHandle = document.getElementById("soundHandle");
+                    addEventListener("touchstart", (function (soundHandle) {
+                        return function (e) {
+                            soundHandle.src = "/res/beep1.mp3";
+                            soundHandle.loop = true;
+                            soundHandle.play();
+                            soundHandle.pause();
+                        };
+                    })(soundHandle));
                 };
                 Umbra.prototype.resizeImage = function () {
                     var window_height = document.body.clientHeight;
