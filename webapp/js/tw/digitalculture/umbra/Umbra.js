@@ -65,38 +65,26 @@ var tw;
                             $("#search").removeAttr("disabled");
                             $("#message").text((data["message"]));
                             $("#search").val("");
-                            if (!tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
-                                var index = (Math.floor(/* size */ _this.audioBuffer.length * Math.random()) | 0);
-                                _this.playSound(index);
-                            }
+                            var index = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
+                            _this.playSound(index);
                         }
                         return null;
                     }));
                 };
                 Umbra.prototype.playSound = function (index) {
                     alert("iOS = " + tw.digitalculture.config.Config.UMBRA.iOS_$LI$() + ", Playing sound no." + index);
-                    var source = this.context.createBufferSource();
-                    source.buffer = this.audioBuffer[index];
-                    source.connect(this.context.destination);
-                    if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
-                        eval("source.noteOn(0);");
-                    }
-                    else {
-                        source.start(0);
-                    }
+                    document.getElementById("audio_" + index).play();
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
                     this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
-                    $("#query").attr("disabled", "true");
-                    $("#search").attr("disabled", "true");
-                    var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {
-                        _this.audioBuffer = buffer;
-                        console.info("Umbra setup finished.");
-                        $("#query").removeAttr("disabled");
-                        $("#search").removeAttr("disabled");
-                    });
-                    bufferLoader.load();
+                    for (var i = 0; i < tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length; i++) {
+                        var audio = document.createElement("audio");
+                        audio.src = tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$()[i];
+                        audio.id = "audio_" + i;
+                        $("head").append(audio);
+                    }
+                    ;
                     $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
                     $("#logo").on("load", function (arg0, arg1) {
                         _this.resizeImage();
