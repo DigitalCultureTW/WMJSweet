@@ -12,14 +12,13 @@ var tw;
              */
             var Umbra = (function () {
                 function Umbra() {
+                    this.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;"));
                     if (this.__socket === undefined)
                         this.__socket = null;
                     if (this.context === undefined)
                         this.context = null;
                     if (this.audioBuffer === undefined)
                         this.audioBuffer = null;
-                    if (this.iOS === undefined)
-                        this.iOS = false;
                     this.setup();
                     this.socket();
                 }
@@ -74,7 +73,7 @@ var tw;
                     var source = this.context.createBufferSource();
                     source.buffer = this.audioBuffer[index];
                     if (this.iOS) {
-                        var gain_node = (eval("audio_ctx.createGainNode();"));
+                        var gain_node = (eval("context.createGainNode();"));
                         source.connect(gain_node);
                         gain_node.connect(this.context.destination);
                         eval("source.noteOn(0);");
@@ -87,8 +86,6 @@ var tw;
                 Umbra.prototype.setup = function () {
                     var _this = this;
                     this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
-                    this.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;"));
-                    alert("iOS = " + this.iOS);
                     $("#query").attr("disabled", "true");
                     $("#search").attr("disabled", "true");
                     var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {

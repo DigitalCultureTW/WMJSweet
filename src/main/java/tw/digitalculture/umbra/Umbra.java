@@ -108,7 +108,7 @@ public final class Umbra {
         AudioBufferSourceNode source = context.createBufferSource();
         source.buffer = audioBuffer.get(index);
         if (iOS) {
-            AudioNode gain_node = def.js.Globals.eval("audio_ctx.createGainNode();");
+            AudioNode gain_node = def.js.Globals.eval("context.createGainNode();");
             source.connect(gain_node);
             gain_node.connect(context.destination);
             def.js.Globals.eval("source.noteOn(0);");
