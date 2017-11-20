@@ -47,6 +47,10 @@ var tw;
                             $("#search").attr("disabled", "true");
                             $("#message").text("\u8655\u7406\u4e2d...");
                             _this.__socket.emit("query", JSON.parse("{\"client\": \"" + _this.__socket.id + "\",\"text\": \"" + text + "\"}"));
+                            if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
+                                var index = (Math.floor(/* size */ _this.audioBuffer.length * Math.random()) | 0);
+                                _this.playSound(index);
+                            }
                         }
                         return null;
                     });
@@ -61,8 +65,10 @@ var tw;
                             $("#search").removeAttr("disabled");
                             $("#message").text((data["message"]));
                             $("#search").val("");
-                            var index = (Math.floor(/* size */ _this.audioBuffer.length * Math.random()) | 0);
-                            _this.playSound(index);
+                            if (!tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
+                                var index = (Math.floor(/* size */ _this.audioBuffer.length * Math.random()) | 0);
+                                _this.playSound(index);
+                            }
                         }
                         return null;
                     }));

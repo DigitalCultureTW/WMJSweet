@@ -85,6 +85,10 @@ public final class Umbra {
                 socket.emit("query", JSON.parse(
                         "{\"client\": \"" + socket.id + "\","
                         + "\"text\": \"" + text + "\"}"));
+                if (Config.UMBRA.iOS) {
+                    int index = (int) Math.floor(audioBuffer.size() * Math.random());
+                    playSound(index);
+                }
             }
             return null;
         });
@@ -95,8 +99,10 @@ public final class Umbra {
                 $("#search").removeAttr("disabled");
                 $("#message").text((String) data.$get("message"));
                 $("#search").val("");
-                int index = (int) Math.floor(audioBuffer.size() * Math.random());
-                playSound(index);
+                if (!Config.UMBRA.iOS) {
+                    int index = (int) Math.floor(audioBuffer.size() * Math.random());
+                    playSound(index);
+                }
             }
             return null;
         }));
