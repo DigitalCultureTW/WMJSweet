@@ -73,7 +73,11 @@ var tw;
                         var soundHandle = document.getElementById("soundHandle");
                         soundHandle.src = document.getElementById("audio_" + index).src;
                         soundHandle.play();
-                        soundHandle.pause();
+                        setTimeout((function (soundHandle) {
+                            return function (o) {
+                                soundHandle.pause();
+                            };
+                        })(soundHandle), soundHandle.duration * 100);
                     }
                     else {
                         document.getElementById("audio_" + index).play();

@@ -33,7 +33,10 @@ import static def.socket_io_client.Globals.io;
 import static jsweet.util.Lang.function;
 import def.socket_io_client.socketioclient.Socket;
 import def.js.JSON;
+import static def.node.Globals.setTimeout;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import tw.digitalculture.config.Config;
 
 import tw.digitalculture.config.Config.PROJECT;
@@ -101,13 +104,15 @@ public final class Umbra {
         }));
     }
 
-    public void playSound(int index) {
+    public synchronized void playSound(int index) {
         alert("iOS = " + Config.UMBRA.iOS + ", Playing sound no." + index);
         if (Config.UMBRA.iOS) {
             HTMLAudioElement soundHandle = (HTMLAudioElement) document.getElementById("soundHandle");
             soundHandle.src = ((HTMLAudioElement) document.getElementById("audio_" + index)).src;
             soundHandle.play();
-            soundHandle.pause();
+            setTimeout((o) -> {
+                soundHandle.pause();
+            }, soundHandle.duration * 100);
         } else {
             ((HTMLAudioElement) document.getElementById("audio_" + index)).play();
         }
