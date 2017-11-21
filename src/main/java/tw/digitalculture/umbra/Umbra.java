@@ -25,8 +25,6 @@ package tw.digitalculture.umbra;
 
 import def.dom.AudioBuffer;
 import def.dom.AudioContext;
-import static def.dom.Globals.addEventListener;
-import static def.dom.Globals.alert;
 import static def.dom.Globals.document;
 import def.dom.HTMLAudioElement;
 import static def.jquery.Globals.$;
@@ -87,6 +85,12 @@ public final class Umbra {
                         "{\"client\": \"" + socket.id + "\","
                         + "\"text\": \"" + text + "\"}"));
             }
+            if (Config.UMBRA.iOS) {
+                int index = (int) Math.floor(Config.UMBRA.SOUNDS.length * Math.random());
+                setTimeout((o) -> {
+                    ((HTMLAudioElement) document.getElementById("audio_" + index)).play();
+                }, 2000);
+            }
             return null;
         });
 
@@ -96,25 +100,13 @@ public final class Umbra {
                 $("#search").removeAttr("disabled");
                 $("#message").text((String) data.$get("message"));
                 $("#search").val("");
-                int index = (int) Math.floor(Config.UMBRA.SOUNDS.length * Math.random());
-                playSound(index);
+                if (!Config.UMBRA.iOS) {
+                    int index = (int) Math.floor(Config.UMBRA.SOUNDS.length * Math.random());
+                    ((HTMLAudioElement) document.getElementById("audio_" + index)).play();
+                }
             }
             return null;
         }));
-    }
-
-    public synchronized void playSound(int index) {
-        alert("iOS = " + Config.UMBRA.iOS + ", Playing sound no." + index);
-        if (Config.UMBRA.iOS) {
-            HTMLAudioElement soundHandle = (HTMLAudioElement) document.getElementById("soundHandle");
-            soundHandle.src = ((HTMLAudioElement) document.getElementById("audio_" + index)).src;
-            soundHandle.play();
-            setTimeout((o) -> {
-                soundHandle.pause();
-            }, soundHandle.duration * 100);
-        } else {
-            ((HTMLAudioElement) document.getElementById("audio_" + index)).play();
-        }
     }
 
     public void setup() {

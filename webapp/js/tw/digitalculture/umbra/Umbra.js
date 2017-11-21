@@ -48,6 +48,12 @@ var tw;
                             $("#message").text("\u8655\u7406\u4e2d...");
                             _this.__socket.emit("query", JSON.parse("{\"client\": \"" + _this.__socket.id + "\",\"text\": \"" + text + "\"}"));
                         }
+                        if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
+                            var index_1 = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
+                            setTimeout(function (o) {
+                                document.getElementById("audio_" + index_1).play();
+                            }, 2000);
+                        }
                         return null;
                     });
                     this.__socket.on("message", (function (data) {
@@ -61,27 +67,13 @@ var tw;
                             $("#search").removeAttr("disabled");
                             $("#message").text((data["message"]));
                             $("#search").val("");
-                            var index = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
-                            _this.playSound(index);
+                            if (!tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
+                                var index = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
+                                document.getElementById("audio_" + index).play();
+                            }
                         }
                         return null;
                     }));
-                };
-                Umbra.prototype.playSound = function (index) {
-                    alert("iOS = " + tw.digitalculture.config.Config.UMBRA.iOS_$LI$() + ", Playing sound no." + index);
-                    if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
-                        var soundHandle = document.getElementById("soundHandle");
-                        soundHandle.src = document.getElementById("audio_" + index).src;
-                        soundHandle.play();
-                        setTimeout((function (soundHandle) {
-                            return function (o) {
-                                soundHandle.pause();
-                            };
-                        })(soundHandle), soundHandle.duration * 100);
-                    }
-                    else {
-                        document.getElementById("audio_" + index).play();
-                    }
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;

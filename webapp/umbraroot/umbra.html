@@ -15,17 +15,8 @@
         <script src="umbra/Umbra.js"></script>
     </head>
     <body>
-        <audio id="soundHandle" style="display:none;"></audio>
         <script>
             $(() => {
-                var soundHandle = document.getElementById("soundHandle");
-                addEventListener("touchstart", (e) => {
-                    soundHandle.src = "/res/beep1.mp3";
-                    soundHandle.loop = true;
-                    soundHandle.play();
-                    soundHandle.pause();
-                });
-
                 var PROJECT = tw.digitalculture.config.Config.PROJECT;
                 var UMBRA = tw.digitalculture.config.Config.UMBRA;
                 $("title").text(PROJECT.TITLE_MAIN + " | " + PROJECT.TITLE_ENGLISH);
