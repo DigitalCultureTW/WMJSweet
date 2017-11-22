@@ -24,15 +24,14 @@
 package tw.digitalculture.umbra;
 
 import def.dom.AudioBuffer;
+import def.dom.AudioBufferSourceNode;
 import def.dom.AudioContext;
 import static def.dom.Globals.document;
-import def.dom.HTMLAudioElement;
 import static def.jquery.Globals.$;
 import static def.socket_io_client.Globals.io;
 import static jsweet.util.Lang.function;
 import def.socket_io_client.socketioclient.Socket;
 import def.js.JSON;
-import static def.node.Globals.setTimeout;
 import java.util.List;
 import tw.digitalculture.config.Config;
 
@@ -85,10 +84,14 @@ public final class Umbra {
                         "{\"client\": \"" + socket.id + "\","
                         + "\"text\": \"" + text + "\"}"));
             }
+
             if (Config.UMBRA.iOS) {
                 int index = (int) Math.floor(Config.UMBRA.SOUNDS.length * Math.random());
-                setTimeout((o) -> {
-                    ((HTMLAudioElement) document.getElementById("audio_" + index)).play();
+                AudioBufferSourceNode source = context.createBufferSource();
+                source.buffer = audioBuffer.get(index);
+                source.connect(context.destination);
+                def.node.Globals.setTimeout((t) -> {
+                    source.start();
                 }, 2000);
             }
             return null;
@@ -102,7 +105,10 @@ public final class Umbra {
                 $("#search").val("");
                 if (!Config.UMBRA.iOS) {
                     int index = (int) Math.floor(Config.UMBRA.SOUNDS.length * Math.random());
-                    ((HTMLAudioElement) document.getElementById("audio_" + index)).play();
+                    AudioBufferSourceNode source = context.createBufferSource();
+                    source.buffer = audioBuffer.get(index);
+                    source.connect(context.destination);
+                    source.start();
                 }
             }
             return null;
@@ -110,12 +116,16 @@ public final class Umbra {
     }
 
     public void setup() {
-        for (int i = 0; i < Config.UMBRA.SOUNDS.length; i++) {
-            HTMLAudioElement audio = (HTMLAudioElement) document.createElement("audio");
-            audio.id = "audio_" + i;
-            audio.src = Config.UMBRA.SOUNDS[i];
-            $("body").append(audio);
-        }
+        context = def.js.Globals.eval("new (window.AudioContext || window.webkitAudioContext)();");
+        $("#query").attr("disabled", "true");
+        $("#search").attr("disabled", "true");
+        BufferLoader bufferLoader = new BufferLoader(context, Config.UMBRA.SOUNDS, (List<AudioBuffer> buffer) -> {
+            audioBuffer = buffer;
+            System.out.println("Umbra setup finished.");
+            $("#query").removeAttr("disabled");
+            $("#search").removeAttr("disabled");
+        });
+        bufferLoader.load();
 
         $("#logo").attr("src", PROJECT.LOGO_PATH);
         $("#logo").on("load", (arg0, arg1) -> {

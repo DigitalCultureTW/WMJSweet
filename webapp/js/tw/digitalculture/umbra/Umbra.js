@@ -49,9 +49,12 @@ var tw;
                             _this.__socket.emit("query", JSON.parse("{\"client\": \"" + _this.__socket.id + "\",\"text\": \"" + text + "\"}"));
                         }
                         if (tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
-                            var index_1 = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
-                            setTimeout(function (o) {
-                                document.getElementById("audio_" + index_1).play();
+                            var index = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
+                            var source_1 = _this.context.createBufferSource();
+                            source_1.buffer = _this.audioBuffer[index];
+                            source_1.connect(_this.context.destination);
+                            setTimeout(function (t) {
+                                source_1.start();
                             }, 2000);
                         }
                         return null;
@@ -69,7 +72,10 @@ var tw;
                             $("#search").val("");
                             if (!tw.digitalculture.config.Config.UMBRA.iOS_$LI$()) {
                                 var index = (Math.floor(tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length * Math.random()) | 0);
-                                document.getElementById("audio_" + index).play();
+                                var source = _this.context.createBufferSource();
+                                source.buffer = _this.audioBuffer[index];
+                                source.connect(_this.context.destination);
+                                source.start();
                             }
                         }
                         return null;
@@ -77,13 +83,16 @@ var tw;
                 };
                 Umbra.prototype.setup = function () {
                     var _this = this;
-                    for (var i = 0; i < tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$().length; i++) {
-                        var audio = document.createElement("audio");
-                        audio.id = "audio_" + i;
-                        audio.src = tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$()[i];
-                        $("body").append(audio);
-                    }
-                    ;
+                    this.context = (eval("new (window.AudioContext || window.webkitAudioContext)();"));
+                    $("#query").attr("disabled", "true");
+                    $("#search").attr("disabled", "true");
+                    var bufferLoader = new tw.digitalculture.umbra.BufferLoader(this.context, tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$(), function (buffer) {
+                        _this.audioBuffer = buffer;
+                        console.info("Umbra setup finished.");
+                        $("#query").removeAttr("disabled");
+                        $("#search").removeAttr("disabled");
+                    });
+                    bufferLoader.load();
                     $("#logo").attr("src", tw.digitalculture.config.Config.PROJECT.LOGO_PATH);
                     $("#logo").on("load", function (arg0, arg1) {
                         _this.resizeImage();
