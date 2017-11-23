@@ -5,6 +5,12 @@ var tw;
     (function (digitalculture) {
         var luna;
         (function (luna) {
+            /**
+             *
+             * @author Jonathan Chang, Chun-yien <ccy@musicapoetica.org>
+             * @param {string} id
+             * @class
+             */
             var Card = (function () {
                 function Card(id) {
                     var _this = this;

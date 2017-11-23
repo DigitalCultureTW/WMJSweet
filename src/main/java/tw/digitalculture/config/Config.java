@@ -40,7 +40,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.8.2-beta-jswt";
+        public static String VERSION = "0.8.3-beta-jswt";
     }
 
     public static class UMBRA {
@@ -51,10 +51,13 @@ public class Config {
         public static String QRCODE_IMG;
         public static String[] SOUNDS = {
             //"/res/atonia72.wav",
-            "/res/beep1.mp3",
+//            "/res/beep1.mp3",
             //"/res/celesta-a4.wav",
-            "/res/ding.wav",
-            "/res/scifi19.mp3"};
+//            "/res/ding.wav",
+            "/res/scifi19.mp3",
+            "/res/scifi19[+2].mp3",
+            "/res/scifi19[+5].mp3"
+        };
         public static boolean iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
     }
 

@@ -7,7 +7,7 @@ var tw;
         (function (luna_1) {
             /**
              *
-             * @author Jonathan
+             * @author Jonathan Chang, Chun-yien <ccy@musicapoetica.org>
              * @class
              */
             var Luna = (function () {

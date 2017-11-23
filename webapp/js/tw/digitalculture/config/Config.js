@@ -5,6 +5,11 @@ var tw;
     (function (digitalculture) {
         var config;
         (function (config) {
+            /**
+             *
+             * @author Jonathan Chang, Chun-yien <ccy@musicapoetica.org>
+             * @class
+             */
             var Config = (function () {
                 function Config() {
                 }
@@ -25,15 +30,21 @@ var tw;
                 PROJECT.TITLE_ENGLISH = "The Window of Our Memories";
                 PROJECT.SUBTITLE = "\u5171\u7bc9\u81fa\u4e2d\u5370\u8c61\u7684\u89d2\u843d";
                 PROJECT.LOGO_PATH = "/element/logo_2.png";
-                PROJECT.VERSION = "0.7.2-beta-jswt";
+                PROJECT.VERSION = "0.8.3-beta-jswt";
                 Config.PROJECT = PROJECT;
                 PROJECT["__class"] = "tw.digitalculture.config.Config.PROJECT";
                 var UMBRA = (function () {
                     function UMBRA() {
                     }
+                    UMBRA.SOUNDS_$LI$ = function () { if (UMBRA.SOUNDS == null)
+                        UMBRA.SOUNDS = ["/res/scifi19.mp3", "/res/scifi19[+2].mp3", "/res/scifi19[+5].mp3"]; return UMBRA.SOUNDS; };
+                    ;
+                    UMBRA.iOS_$LI$ = function () { if (UMBRA.iOS == null)
+                        UMBRA.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;")); return UMBRA.iOS; };
+                    ;
                     return UMBRA;
                 }());
-                UMBRA.URL = "http://wm.localstudies.info";
+                UMBRA.URL = "http://wm.localstudies.tw";
                 UMBRA.FONT = "\'DFKai-sb\', \'BiauKai\'";
                 UMBRA.TITLE_COLOR = "Silver";
                 UMBRA.QRCODE_IMG = null;
@@ -123,4 +134,6 @@ var tw;
 })(tw || (tw = {}));
 tw.digitalculture.config.Config.DATA.FILETYPES_$LI$();
 tw.digitalculture.config.Config.LUNA.CARD.BORDER_COLOR_$LI$();
+tw.digitalculture.config.Config.UMBRA.iOS_$LI$();
+tw.digitalculture.config.Config.UMBRA.SOUNDS_$LI$();
 tw.digitalculture.config.Config.PROJECT.TITLE_$LI$();
