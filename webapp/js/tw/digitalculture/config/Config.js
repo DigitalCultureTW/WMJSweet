@@ -30,14 +30,14 @@ var tw;
                 PROJECT.TITLE_ENGLISH = "The Window of Our Memories";
                 PROJECT.SUBTITLE = "\u5171\u7bc9\u81fa\u4e2d\u5370\u8c61\u7684\u89d2\u843d";
                 PROJECT.LOGO_PATH = "/element/logo_2.png";
-                PROJECT.VERSION = "0.8.3-beta-jswt";
+                PROJECT.VERSION = "0.8.4-beta-jswt";
                 Config.PROJECT = PROJECT;
                 PROJECT["__class"] = "tw.digitalculture.config.Config.PROJECT";
                 var UMBRA = (function () {
                     function UMBRA() {
                     }
                     UMBRA.SOUNDS_$LI$ = function () { if (UMBRA.SOUNDS == null)
-                        UMBRA.SOUNDS = ["/res/scifi19.mp3", "/res/scifi19[+2].mp3", "/res/scifi19[+5].mp3"]; return UMBRA.SOUNDS; };
+                        UMBRA.SOUNDS = ["/res/scifi19[0].mp3", "/res/scifi19[3].mp3", "/res/scifi19[5].mp3", "/res/scifi19[7].mp3", "/res/scifi19[9].mp3", "/res/scifi19[10].mp3"]; return UMBRA.SOUNDS; };
                     ;
                     UMBRA.iOS_$LI$ = function () { if (UMBRA.iOS == null)
                         UMBRA.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;")); return UMBRA.iOS; };
