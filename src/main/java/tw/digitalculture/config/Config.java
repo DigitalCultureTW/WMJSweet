@@ -40,7 +40,7 @@ public class Config {
 
         public static String TITLE = PROJECT.TITLE_MAIN + "—" + PROJECT.SUBTITLE;
         public static String LOGO_PATH = "/element/logo_2.png";
-        public static String VERSION = "0.8.4-beta-jswt";
+        public static String VERSION = "0.8.5-beta-jswt";
     }
 
     public static class UMBRA {
@@ -50,13 +50,23 @@ public class Config {
         public static String TITLE_COLOR = "Silver";
         public static String QRCODE_IMG;
         public static String[] SOUNDS = {
-            "/res/scifi19[0].mp3",
-            "/res/scifi19[3].mp3",
-            "/res/scifi19[5].mp3",
-            "/res/scifi19[7].mp3",
-            "/res/scifi19[9].mp3",
-            "/res/scifi19[10].mp3"
+            "/res/atonia1.mp3",
+            "/res/atonia2.mp3",
+            "/res/atonia3.mp3",
+            "/res/atonia4.mp3",
+            "/res/atonia5.mp3",
+            "/res/atonia6.mp3",
+            "/res/atonia7.mp3",
+            "/res/atonia8.mp3"
         };
+//        public static String[] SOUNDS = {
+//            "/res/scifi19[0].mp3",
+//            "/res/scifi19[3].mp3",
+//            "/res/scifi19[5].mp3",
+//            "/res/scifi19[7].mp3",
+//            "/res/scifi19[9].mp3",
+//            "/res/scifi19[10].mp3"
+//        };
         public static boolean iOS = def.js.Globals.eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;");
     }
 

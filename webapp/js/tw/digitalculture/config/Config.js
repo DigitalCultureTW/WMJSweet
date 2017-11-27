@@ -37,7 +37,7 @@ var tw;
                     function UMBRA() {
                     }
                     UMBRA.SOUNDS_$LI$ = function () { if (UMBRA.SOUNDS == null)
-                        UMBRA.SOUNDS = ["/res/scifi19[0].mp3", "/res/scifi19[3].mp3", "/res/scifi19[5].mp3", "/res/scifi19[7].mp3", "/res/scifi19[9].mp3", "/res/scifi19[10].mp3"]; return UMBRA.SOUNDS; };
+                        UMBRA.SOUNDS = ["/res/atonia1.mp3", "/res/atonia2.mp3", "/res/atonia3.mp3", "/res/atonia4.mp3", "/res/atonia5.mp3", "/res/atonia6.mp3", "/res/atonia7.mp3", "/res/atonia8.mp3"]; return UMBRA.SOUNDS; };
                     ;
                     UMBRA.iOS_$LI$ = function () { if (UMBRA.iOS == null)
                         UMBRA.iOS = (eval("/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;")); return UMBRA.iOS; };
