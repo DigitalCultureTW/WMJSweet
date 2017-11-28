@@ -1,7 +1,0 @@
-query text = 大雅(100)
-total data = 27
-good url = 27
-good % = 100.00%
-
-bad links:
-

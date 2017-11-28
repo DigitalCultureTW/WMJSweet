@@ -126,7 +126,7 @@ java.newInstanceSync('tw.digitalculture.data.DataCenter', java.newProxy('java.ut
                 var data_query = java.callStaticMethodSync('javax.json.Json', 'createObjectBuilder')
                         .addSync("client", data.client)
                         .addSync("text", data.text).buildSync();
-                dc.getResultSync(data_query, 20, java.newProxy('java.util.function.Consumer', {
+                dc.getResultSync(data_query, limit, java.newProxy('java.util.function.Consumer', {
                     accept: function (result) {
                         var result_str = (result.record_set.sizeSync() === 0) ?
                                 '抱歉，' + data.text + ' 沒有找到任何內容。'

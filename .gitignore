@@ -1,3 +1,5 @@
 /target/
 /nbproject/
 /webapp/js/
+/.jsweet/
+/build/

@@ -1,7 +1,0 @@
-query text = 綠川(100)
-total data = 5
-good url = 5
-good % = 100.00%
-
-bad links:
-
