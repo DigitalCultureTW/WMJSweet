@@ -35,7 +35,7 @@
         "type": "git",
         "url": "https://github.com/DigitalCultureTW/WMJSweet.git"
     },
-    "license": "GPL-3.0",
+    "license": "MIT",
     "config": {
         "LOCAL_PORT": "80"
     }

@@ -6,7 +6,7 @@
       "lastUpdateTimestamp": 1501669704000,
       "modelVersion": "unknown",
       "transpilerVersion": "2.0.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\MWJSweet2\\target\\js",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\WMJSweet\\target\\js",
       "jsDirPath": "META-INF/resources/webjars/jquery/1.10.0-20170726",
       "jsFilesPaths": []
     },
@@ -16,7 +16,7 @@
       "lastUpdateTimestamp": 1496040138000,
       "modelVersion": "unknown",
       "transpilerVersion": "2.0.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\MWJSweet2\\target\\js",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\WMJSweet\\target\\js",
       "jsDirPath": "META-INF/resources/webjars/jsweet-core/6-SNAPSHOT",
       "jsFilesPaths": []
     },
@@ -26,7 +26,7 @@
       "lastUpdateTimestamp": 1506526686000,
       "modelVersion": "unknown",
       "transpilerVersion": "2.0.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\MWJSweet2\\target\\js",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\WMJSweet\\target\\js",
       "jsDirPath": "META-INF/resources/webjars/socket.io/1.4.5-20170726",
       "jsFilesPaths": []
     },
@@ -36,7 +36,7 @@
       "lastUpdateTimestamp": 1501572704000,
       "modelVersion": "unknown",
       "transpilerVersion": "2.0.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\MWJSweet2\\target\\js",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\WMJSweet\\target\\js",
       "jsDirPath": "META-INF/resources/webjars/node/7.5.0-20170726",
       "jsFilesPaths": []
     },
@@ -46,7 +46,7 @@
       "lastUpdateTimestamp": 1501725786000,
       "modelVersion": "unknown",
       "transpilerVersion": "2.0.0",
-      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\MWJSweet2\\target\\js",
+      "jsOutputDirPath": "C:\\Users\\Jonathan Chang\\Documents\\NetBeansProjects\\Group-TWDC\\WMJSweet\\target\\js",
       "jsDirPath": "META-INF/resources/webjars/socket.io-client/1.4.5-20170726",
       "jsFilesPaths": []
     }

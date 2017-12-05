@@ -30,7 +30,7 @@ var tw;
                 PROJECT.TITLE_ENGLISH = "The Window of Our Memories";
                 PROJECT.SUBTITLE = "\u5171\u7bc9\u81fa\u4e2d\u5370\u8c61\u7684\u89d2\u843d";
                 PROJECT.LOGO_PATH = "/element/logo_2.png";
-                PROJECT.VERSION = "0.8.4-beta-jswt";
+                PROJECT.VERSION = "0.8.5-beta-jswt";
                 Config.PROJECT = PROJECT;
                 PROJECT["__class"] = "tw.digitalculture.config.Config.PROJECT";
                 var UMBRA = (function () {
