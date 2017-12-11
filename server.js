@@ -180,24 +180,23 @@ con.connect(function (err) {
                             }
                         }
                     }));
-                });
-                client.on('disconnect', function () {
+                }).on('disconnect', function () {
                     console.log(getDateTime() + " " + client.id + " disconnect");
 
                     var sql = "INSERT INTO syslog (timestamp, id, role, type) VALUES ('"
                             + getDateTime() + "', '" + client.id + "', '" + role + "','disconnect');";
                     con.query(sql);
-                });
-                client.on('keyword', function (data) {
+                }).on('keyword', function (data) {
                     if (data.keyword) {
                         update_keyword(data.keyword);
                     }
-                });
-                client.on('keyword_query', function () {
+                }).on('keyword_query', function () {
                     io.emit('keyword_current', {keyword: keyword});
                 });
+            }).on('error', function (e) {
+                console.log('System', e ? e : 'A unknown error occurred');
             });
-
+            
             setInterval(function () {
                 var index = Math.floor(keyword_uri_pool.record_set.sizeSync() * Math.random());
                 var select = keyword_uri_pool.record_set.getSync(index);
