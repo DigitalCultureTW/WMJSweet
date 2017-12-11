@@ -192,6 +192,8 @@ con.connect(function (err) {
                     }
                 }).on('keyword_query', function () {
                     io.emit('keyword_current', {keyword: keyword});
+                }).on('error', function (e) {
+                    console.log('System', e ? e : 'A unknown error occurred');
                 });
             }).on('error', function (e) {
                 console.log('System', e ? e : 'A unknown error occurred');
