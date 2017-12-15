@@ -1,0 +1,450 @@
+﻿"C:\Program Files\nodejs\npm.cmd" "run-script" "start"
+
+> WindowOfOurMemories@0.7.2-beta-jswt start C:\Users\winmem\Documents\NetBeansProjects\WMJSweet
+> node server.js
+
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 39 records...
+Initializing twdc dataset completed. Total record fetched = 263
+TWDC added
+IdeaSQL added
+Query string = 文化局
+TWDC:52
+Server listening to port: 80
+AbkcnjzPEMWK2xSYAAAA_luna_connection
+QEk1DuGzxerByw-aAAAB_luna_connection
+7fqhvCW-c-pHbSzeAAAC_umbra_connection
+disconnect
+disconnect
+LzI0pjmP-YL0Tc1jAAAD_luna_connection
+disconnect
+disconnect
+k_zXjq37t5rU5pBPAAAE_luna_connection
+vnuv8hTKxYy8urAgAAAF_luna_connection
+disconnect
+disconnect
+fqFkrAtxutHvFybvAAAG_luna_connection
+disconnect
+oNDesGHIoqmG1-3eAAAH_luna_connection
+disconnect
+A_iSwUZ_mow9ldb3AAAI_luna_connection
+disconnect
+MunwmUqIJGUKxTFHAAAJ_luna_connection
+ZWC5IYeViIr4oElhAAAK_umbra_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+disconnect
+pgx9izzznDVA19V7AAAL_umbra_connection
+Query string = 漢堡
+TWDC:0
+http://designav.io/api/image/search/漢堡?limit=20
+IdeaSQL:18
+漢堡 取得18筆內容。
+IdeaSQL:18
+漢堡 取得36筆內容。
+Query string = 牛排
+TWDC:0
+http://designav.io/api/image/search/牛排?limit=20
+IdeaSQL:20
+牛排 取得20筆內容。
+IdeaSQL:20
+牛排 取得40筆內容。
+Query string = 熊
+TWDC:0
+http://designav.io/api/image/search/熊?limit=20
+IdeaSQL:20
+熊 取得20筆內容。
+IdeaSQL:20
+熊 取得40筆內容。
+disconnect
+lHWFBGpmaMnQoFRSAAAM_umbra_connection
+Query string = 台中
+TWDC:6
+http://designav.io/api/image/search/台中?limit=14
+IdeaSQL:12
+台中 取得18筆內容。
+IdeaSQL:12
+台中 取得30筆內容。
+disconnect
+disconnect
+VNUPqAzA_p0uAf5hAAAN_umbra_connection
+disconnect
+mRRuRZJKYcx28vZYAAAO_umbra_connection
+disconnect
+RZVjjQooVGKU_hNLAAAP_luna_connection
+jiOWDklww4JWxzKmAAAQ_umbra_connection
+Ul_Vo_7i3Lu1z4ftAAAR_umbra_connection
+8zw1myc-vj-thGexAAAS_umbra_connection
+Query string = 東海
+TWDC:15
+http://designav.io/api/image/search/東海?limit=5
+IdeaSQL:5
+東海 取得20筆內容。
+IdeaSQL:5
+東海 取得25筆內容。
+Query string = 媽祖
+TWDC:20
+媽祖 取得20筆內容。
+Query string = 高美濕地
+TWDC:1
+http://designav.io/api/image/search/高美濕地?limit=19
+IdeaSQL:15
+高美濕地 取得16筆內容。
+IdeaSQL:15
+高美濕地 取得31筆內容。
+9Lxt4yIbogyMF6s9AAAT_umbra_connection
+Query string = 攝影
+TWDC:20
+攝影 取得20筆內容。
+disconnect
+disconnect
+Query string = 太陽餅
+TWDC:0
+http://designav.io/api/image/search/太陽餅?limit=20
+IdeaSQL:13
+太陽餅 取得13筆內容。
+IdeaSQL:13
+太陽餅 取得26筆內容。
+E58t7sZEWI4IzkL2AAAU_umbra_connection
+Query string = Taichung
+TWDC:0
+http://designav.io/api/image/search/Taichung?limit=20
+IdeaSQL:19
+Taichung 取得19筆內容。
+IdeaSQL:19
+Taichung 取得38筆內容。
+disconnect
+Query string = 豐原
+TWDC:20
+豐原 取得20筆內容。
+Query string = Sunset
+TWDC:0
+http://designav.io/api/image/search/Sunset?limit=20
+IdeaSQL:18
+Sunset 取得18筆內容。
+IdeaSQL:18
+Sunset 取得36筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 翠鳥
+TWDC:2
+http://designav.io/api/image/search/翠鳥?limit=18
+IdeaSQL:0
+翠鳥 取得2筆內容。
+Query string = 回憶
+TWDC:1
+http://designav.io/api/image/search/回憶?limit=19
+IdeaSQL:19
+回憶 取得20筆內容。
+IdeaSQL:19
+回憶 取得39筆內容。
+Query string = 童年
+TWDC:0
+http://designav.io/api/image/search/童年?limit=20
+IdeaSQL:13
+童年 取得13筆內容。
+IdeaSQL:13
+童年 取得26筆內容。
+Query string = 高美濕地
+TWDC:1
+http://designav.io/api/image/search/高美濕地?limit=19
+IdeaSQL:15
+高美濕地 取得16筆內容。
+IdeaSQL:15
+高美濕地 取得31筆內容。
+Swjn3RYfGmVUiy_KAAAV_umbra_connection
+ei_2QLW3VbnvN4mwAAAW_umbra_connection
+Query string = 新年
+TWDC:0
+http://designav.io/api/image/search/新年?limit=20
+IdeaSQL:20
+新年 取得20筆內容。
+IdeaSQL:20
+新年 取得40筆內容。
+disconnect
+disconnect
+disconnect
+disconnect
+thST1mVYtMMQZ_puAAAX_umbra_connection
+Query string = 記憶
+TWDC:6
+http://designav.io/api/image/search/記憶?limit=14
+IdeaSQL:14
+記憶 取得20筆內容。
+IdeaSQL:14
+記憶 取得34筆內容。
+0Aj6YWHnK2-D2v3ZAAAY_umbra_connection
+40DiZp6HIH4UutZbAAAZ_umbra_connection
+disconnect
+disconnect
+fZLSHIUehfEiRqVdAAAa_umbra_connection
+disconnect
+6HGBHQi24tFZ3zhRAAAb_umbra_connection
+disconnect
+mPEGdoZvptfmX_kAAAAc_umbra_connection
+disconnect
+Query string = 歌劇院
+TWDC:2
+http://designav.io/api/image/search/歌劇院?limit=18
+IdeaSQL:16
+歌劇院 取得18筆內容。
+IdeaSQL:16
+歌劇院 取得34筆內容。
+d_xFQ1NVFD5dIMFvAAAd_umbra_connection
+jNqvl8UOtIStf7DFAAAe_umbra_connection
+disconnect
+FGbSJdg_Sbxiafa7AAAf_umbra_connection
+m2x0Y0Y3d8VWWB3KAAAg_umbra_connection
+Query string = 爵士音樂節
+TWDC:0
+http://designav.io/api/image/search/爵士音樂節?limit=20
+IdeaSQL:2
+爵士音樂節 取得2筆內容。
+IdeaSQL:2
+爵士音樂節 取得4筆內容。
+disconnect
+disconnect
+disconnect
+disconnect
+3hV0cSQAJiZJm4S0AAAh_umbra_connection
+LmFoIi9GBLxhJZESAAAi_umbra_connection
+aDFmTreMKHVBbqNhAAAj_umbra_connection
+-0th1lqnZqDbJkU7AAAk_umbra_connection
+Query string = 自拍
+TWDC:0
+http://designav.io/api/image/search/自拍?limit=20
+IdeaSQL:17
+自拍 取得17筆內容。
+IdeaSQL:17
+自拍 取得34筆內容。
+splCfUUaLhb4Fn36AAAl_umbra_connection
+disconnect
+disconnect
+BjDEn5xjQw7nyd8TAAAm_umbra_connection
+Query string = 都會公園
+TWDC:3
+http://designav.io/api/image/search/都會公園?limit=17
+IdeaSQL:3
+都會公園 取得6筆內容。
+IdeaSQL:3
+都會公園 取得9筆內容。
+disconnect
+disconnect
+Query string = 鶇
+TWDC:2
+http://designav.io/api/image/search/鶇?limit=18
+IdeaSQL:0
+鶇 取得2筆內容。
+U4fidv5Uiq1n-YtxAAAn_umbra_connection
+disconnect
+disconnect
+Query string = 建築
+TWDC:20
+建築 取得20筆內容。
+rXF0b4ceyATrzUFsAAAo_umbra_connection
+Query string = 臺北
+TWDC:5
+http://designav.io/api/image/search/臺北?limit=15
+IdeaSQL:8
+臺北 取得13筆內容。
+IdeaSQL:8
+臺北 取得21筆內容。
+Query string = 歌劇院
+TWDC:2
+http://designav.io/api/image/search/歌劇院?limit=18
+IdeaSQL:16
+歌劇院 取得18筆內容。
+IdeaSQL:16
+歌劇院 取得34筆內容。
+p8I4UTlUx76CncnxAAAp_umbra_connection
+Query string = 歌劇
+TWDC:2
+http://designav.io/api/image/search/歌劇?limit=18
+IdeaSQL:16
+歌劇 取得18筆內容。
+IdeaSQL:16
+歌劇 取得34筆內容。
+KRS5vl9iABYtJlbZAAAq_umbra_connection
+Query string = 下午茶
+TWDC:4
+http://designav.io/api/image/search/下午茶?limit=16
+IdeaSQL:15
+下午茶 取得19筆內容。
+IdeaSQL:15
+下午茶 取得34筆內容。
+GvlqibePEaW_q6S4AAAr_umbra_connection
+wMqZDqWUJm42z68fAAAs_umbra_connection
+disconnect
+disconnect
+Query string = 中港路
+TWDC:0
+http://designav.io/api/image/search/中港路?limit=20
+IdeaSQL:9
+中港路 取得9筆內容。
+IdeaSQL:9
+中港路 取得18筆內容。
+disconnect
+AOehwwl0RlOPAMsjAAAt_umbra_connection
+Query string = 日出
+TWDC:0
+http://designav.io/api/image/search/日出?limit=20
+IdeaSQL:18
+日出 取得18筆內容。
+IdeaSQL:18
+日出 取得36筆內容。
+disconnect
+Query string = 台灣大道
+TWDC:0
+http://designav.io/api/image/search/台灣大道?limit=20
+IdeaSQL:16
+台灣大道 取得16筆內容。
+IdeaSQL:16
+台灣大道 取得32筆內容。
+Query string = 彩虹眷村
+TWDC:0
+http://designav.io/api/image/search/彩虹眷村?limit=20
+IdeaSQL:19
+彩虹眷村 取得19筆內容。
+IdeaSQL:19
+彩虹眷村 取得38筆內容。
+disconnect
+6XzT1R4Xt9z7bqP2AAAu_umbra_connection
+Query string = 東勢
+TWDC:1
+http://designav.io/api/image/search/東勢?limit=19
+IdeaSQL:19
+東勢 取得20筆內容。
+IdeaSQL:19
+東勢 取得39筆內容。
+Query string = 國際
+TWDC:16
+http://designav.io/api/image/search/國際?limit=4
+IdeaSQL:4
+國際 取得20筆內容。
+IdeaSQL:4
+國際 取得24筆內容。
+disconnect
+Query string = 教育
+TWDC:10
+http://designav.io/api/image/search/教育?limit=10
+IdeaSQL:10
+教育 取得20筆內容。
+IdeaSQL:10
+教育 取得30筆內容。
+Query string = 太陽餅
+TWDC:0
+http://designav.io/api/image/search/太陽餅?limit=20
+IdeaSQL:13
+太陽餅 取得13筆內容。
+IdeaSQL:13
+太陽餅 取得26筆內容。
+disconnect
+eDr4SH0ZF0oE6TluAAAv_umbra_connection
+Query string = 夜市
+TWDC:1
+http://designav.io/api/image/search/夜市?limit=19
+IdeaSQL:16
+夜市 取得17筆內容。
+IdeaSQL:16
+夜市 取得33筆內容。
+WHL_mTCNghbDHlUXAAAw_umbra_connection
+Query string = 太陽餅
+TWDC:0
+http://designav.io/api/image/search/太陽餅?limit=20
+IdeaSQL:13
+太陽餅 取得13筆內容。
+IdeaSQL:13
+太陽餅 取得26筆內容。
+2uA9nzIEHWugUI7iAAAx_umbra_connection
+Teb1O50bSPSSRHQqAAAy_umbra_connection
+8cLyJTs9_J06ssMhAAAz_umbra_connection
+Query string = 秋紅谷
+TWDC:0
+http://designav.io/api/image/search/秋紅谷?limit=20
+IdeaSQL:19
+秋紅谷 取得19筆內容。
+IdeaSQL:19
+秋紅谷 取得38筆內容。
+disconnect
+jPFNn_I0qhqQm45WAAA0_umbra_connection
+disconnect
+disconnect
+Query string = 晴美
+TWDC:0
+http://designav.io/api/image/search/晴美?limit=20
+IdeaSQL:0
+抱歉，晴美 沒有找到任何內容。
+Query string = 誠品
+TWDC:0
+http://designav.io/api/image/search/誠品?limit=20
+IdeaSQL:18
+誠品 取得18筆內容。
+IdeaSQL:18
+誠品 取得36筆內容。
+disconnect
+disconnect
+disconnect
+disconnect
+IJGNNxkIQx_b25lTAAA1_umbra_connection
+disconnect
+J93-gEAh0fSlEKREAAA2_umbra_connection
+disconnect
+disconnect
+v8piH475kDp-DIz-AAA3_umbra_connection
+disconnect
+TJZM0I1jLBuAXO8gAAA4_umbra_connection
+Ynkq8W6iUG9oEzIEAAA5_umbra_connection
+disconnect
+disconnect
+G4QOjBZ9fLLxkK3xAAA6_umbra_connection
+Lp9cM68hZMTIFO2bAAA7_umbra_connection
+disconnect
+disconnect
+Awn78WB9JrQt7atkAAA8_umbra_connection
+disconnect
+pWB7sVxd4tdW_BKhAAA9_umbra_connection
+disconnect
+sKStxDM1jRrhEOmKAAA-_umbra_connection
+disconnect
+ugMq--yFo1EZb2fKAAA__luna_connection
+disconnect
+CilbFWgSmYTFcLQjAABA_luna_connection
+disconnect
+H_-dv-7EKzjLqgfUAABB_umbra_connection
+disconnect
+Y54m-5yeMxzOycYmAABC_umbra_connection
+disconnect
+-a4SdbR1Ha1BE5NJAABD_umbra_connection
+disconnect
+8Nu9yfU9X-EN6ESsAABE_umbra_connection
+disconnect
+JiAjlMmOD__1NTxTAABF_umbra_connection
+disconnect
+HzD55oOeEE8R4UfzAABG_luna_connection
+bUwYUa6q08DaVuogAABH_umbra_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 熊
+TWDC:0
+http://designav.io/api/image/search/熊?limit=20
+IdeaSQL:20
+熊 取得20筆內容。
+IdeaSQL:20
+熊 取得40筆內容。
+Query string = 后豐
+TWDC:0
+http://designav.io/api/image/search/后豐?limit=20
+IdeaSQL:20
+后豐 取得20筆內容。
+IdeaSQL:20
+后豐 取得40筆內容。
+disconnect
+disconnect
+Done.

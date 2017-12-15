@@ -1,0 +1,457 @@
+﻿"C:\Program Files\nodejs\npm.cmd" "run-script" "start"
+
+> WindowOfOurMemories@0.8.4-beta-jswt start C:\Users\winmem\Documents\NetBeansProjects\WMJSweet
+> node server.js
+
+The Window of Our Memories [0.8.4-beta-jswt]
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 46 records...
+Initializing twdc dataset completed. Total record fetched = 291
+TWDC added
+IdeaSQL added
+Query string = 文化局
+TWDC:71
+Server listening to port: 80
+2017/11/24 14:49:49.716 Sc447n9uG8sGMW9uAAAA_umbra_connection
+2017/11/24 14:49:52.495 Sc447n9uG8sGMW9uAAAA disconnect
+2017/11/24 14:49:54.251 9YZxmaZBp5Y_obbLAAAB_umbra_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+2017/11/24 14:51:30.690 9YZxmaZBp5Y_obbLAAAB disconnect
+2017/11/24 15:00:25.142 Bd-8k0IlMp6sVGWHAAAC_umbra_connection
+2017/11/24 15:00:27.109 Bd-8k0IlMp6sVGWHAAAC disconnect
+2017/11/24 15:00:28.598 JXmMdmrAOVAaBdptAAAD_umbra_connection
+Query string = 台中
+TWDC:6
+IdeaSQL:13
+台中 取得19筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 台中
+TWDC:6
+IdeaSQL:13
+台中 取得19筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 台中
+TWDC:6
+IdeaSQL:13
+台中 取得19筆內容。
+Query string = 豐原
+TWDC:20
+豐原 取得20筆內容。
+Query string = 清水
+TWDC:16
+IdeaSQL:4
+清水 取得20筆內容。
+2017/11/24 15:01:49.289 9uZkjlc8QdWf3jPmAAAE_umbra_connection
+Query string = 神岡
+TWDC:10
+IdeaSQL:2
+神岡 取得12筆內容。
+Query string = 和平
+TWDC:6
+IdeaSQL:5
+和平 取得11筆內容。
+2017/11/24 15:02:26.424 9uZkjlc8QdWf3jPmAAAE disconnect
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 豐原
+TWDC:20
+豐原 取得20筆內容。
+2017/11/24 15:03:06.164 JXmMdmrAOVAaBdptAAAD disconnect
+2017/11/24 16:15:52.794 WzxnIbE5dQzS_ktQAAAF_luna_connection
+2017/11/24 16:20:04.880 WzxnIbE5dQzS_ktQAAAF disconnect
+2017/11/24 18:33:13.470 S9IMFC71mOzCPC-PAAAG_umbra_connection
+2017/11/24 18:35:50.433 S9IMFC71mOzCPC-PAAAG disconnect
+2017/11/25 01:52:16.415 VmP7rh66fjwqTZvnAAAH_luna_connection
+2017/11/25 03:19:51.602 NtBx0BVfFpAkfUdqAAAI_umbra_connection
+2017/11/25 03:20:03.685 VuATf44hw4pxJFbYAAAJ_umbra_connection
+2017/11/25 03:20:10.424 jl5BJjwTx7zITI-gAAAK_umbra_connection
+Query string = 漆藝館
+TWDC:0
+IdeaSQL:0
+抱歉，漆藝館 沒有找到任何內容。
+2017/11/25 03:20:30.840 ruM-LZxIlIdx0p_8AAAL_umbra_connection
+2017/11/25 03:20:32.298 08_dmoOpwXoFaU_7AAAM_umbra_connection
+2017/11/25 03:20:32.942 zJoLKmzbcgQLRctjAAAN_umbra_connection
+Query string = 漆藝
+TWDC:0
+IdeaSQL:0
+抱歉，漆藝 沒有找到任何內容。
+Query string = 圳水漫漫
+TWDC:1
+IdeaSQL:0
+圳水漫漫 取得1筆內容。
+Query string = 翁子
+TWDC:0
+IdeaSQL:0
+抱歉，翁子 沒有找到任何內容。
+2017/11/25 03:21:01.540 UwHs1xJWzokHNxkvAAAO_umbra_connection
+2017/11/25 03:21:07.513 hUCQ0OHRBpvXR93CAAAP_umbra_connection
+2017/11/25 03:21:10.339 UwHs1xJWzokHNxkvAAAO disconnect
+Query string = 豐原
+TWDC:20
+豐原 取得20筆內容。
+Query string = 葫蘆墩圳
+TWDC:20
+葫蘆墩圳 取得20筆內容。
+Query string = 后豐大學報
+TWDC:0
+IdeaSQL:0
+抱歉，后豐大學報 沒有找到任何內容。
+Query string = 葫蘆墩圳
+TWDC:20
+葫蘆墩圳 取得20筆內容。
+Query string = 豐原
+TWDC:20
+豐原 取得20筆內容。
+Query string = 豐原
+TWDC:20
+豐原 取得20筆內容。
+Query string = 葫蘆墩
+TWDC:20
+葫蘆墩 取得20筆內容。
+2017/11/25 03:21:52.617 5kAMmd6nomy4RbTzAAAQ_umbra_connection
+2017/11/25 03:21:53.990 VuATf44hw4pxJFbYAAAJ disconnect
+Query string = 豐原漆藝
+TWDC:0
+IdeaSQL:0
+抱歉，豐原漆藝 沒有找到任何內容。
+2017/11/25 03:22:10.142 5kAMmd6nomy4RbTzAAAQ disconnect
+Query string = 后豐
+TWDC:1
+IdeaSQL:19
+后豐 取得20筆內容。
+Query string = 豐原漆藝館
+TWDC:0
+IdeaSQL:0
+抱歉，豐原漆藝館 沒有找到任何內容。
+Query string = 糕餅
+TWDC:7
+IdeaSQL:1
+糕餅 取得8筆內容。
+2017/11/25 03:22:48.273 08_dmoOpwXoFaU_7AAAM disconnect
+Query string = 漆
+TWDC:4
+IdeaSQL:13
+漆 取得17筆內容。
+Query string = 水岸花都
+TWDC:9
+IdeaSQL:0
+水岸花都 取得9筆內容。
+Query string = 后豐社區大學
+TWDC:1
+IdeaSQL:0
+后豐社區大學 取得1筆內容。
+Query string = 豐原木材
+TWDC:0
+IdeaSQL:0
+抱歉，豐原木材 沒有找到任何內容。
+Query string = 漆
+TWDC:4
+IdeaSQL:13
+漆 取得17筆內容。
+2017/11/25 03:24:34.345 jl5BJjwTx7zITI-gAAAK disconnect
+Query string = 綠川
+TWDC:10
+IdeaSQL:2
+綠川 取得12筆內容。
+2017/11/25 03:25:20.084 zJoLKmzbcgQLRctjAAAN disconnect
+2017/11/25 03:25:37.703 hUCQ0OHRBpvXR93CAAAP disconnect
+2017/11/25 03:25:45.476 NtBx0BVfFpAkfUdqAAAI disconnect
+2017/11/25 03:26:12.804 ruM-LZxIlIdx0p_8AAAL disconnect
+2017/11/25 03:47:32.974 VmP7rh66fjwqTZvnAAAH disconnect
+2017/11/25 05:05:35.410 ox6p7uT9KExOIa-OAAAR_umbra_connection
+2017/11/25 05:07:02.108 ox6p7uT9KExOIa-OAAAR disconnect
+2017/11/25 05:14:57.088 1xaDbJ4CjpiK056bAAAS_umbra_connection
+2017/11/25 05:15:07.710 1xaDbJ4CjpiK056bAAAS disconnect
+2017/11/25 05:42:56.465 XSAZagm72s9bZ58IAAAT_umbra_connection
+2017/11/25 05:43:00.269 XSAZagm72s9bZ58IAAAT disconnect
+2017/11/25 05:43:01.381 XlJyCMSefORkv0A_AAAU_luna_connection
+2017/11/25 05:58:02.960 XlJyCMSefORkv0A_AAAU disconnect
+2017/11/25 05:58:34.837 X2M1QxouVxOA5nPmAAAV_luna_connection
+2017/11/25 06:05:02.959 ApKQLZ8dUhSgsNkRAAAW_umbra_connection
+2017/11/25 06:05:03.070 5qqleRXhcqo7LI1ZAAAX_umbra_connection
+2017/11/25 06:05:08.725 WXsykP99ogIzKImcAAAY_umbra_connection
+2017/11/25 06:05:12.072 GHdchujZ48mL0u8-AAAZ_umbra_connection
+Query string = 貓
+TWDC:5
+IdeaSQL:15
+貓 取得20筆內容。
+Query string = 臺中市
+TWDC:20
+臺中市 取得20筆內容。
+Query string = 武德
+TWDC:0
+IdeaSQL:0
+抱歉，武德 沒有找到任何內容。
+2017/11/25 06:05:34.128 W56jjbUW5XO8zvGHAAAa_umbra_connection
+2017/11/25 06:05:36.624 ObNlZEzIi7bpwVJtAAAb_umbra_connection
+2017/11/25 06:05:36.922 W56jjbUW5XO8zvGHAAAa disconnect
+2017/11/25 06:05:38.127 v28QAJogdNWzB9BIAAAc_umbra_connection
+2017/11/25 06:05:44.305 2GQqfT0Q1wyOdsipAAAd_umbra_connection
+Query string = 原鄉
+TWDC:0
+IdeaSQL:0
+抱歉，原鄉 沒有找到任何內容。
+2017/11/25 06:05:52.550 26OEhyivpxHJGvxgAAAe_umbra_connection
+2017/11/25 06:05:55.294 HI30fPXWyAzti-23AAAf_umbra_connection
+2017/11/25 06:05:59.610 vM3K6FYvvLnR8XF6AAAg_umbra_connection
+Query string = 血肉
+TWDC:1
+IdeaSQL:0
+血肉 取得1筆內容。
+Query string = 大象
+TWDC:2
+IdeaSQL:0
+大象 取得2筆內容。
+Query string = 素食
+TWDC:0
+IdeaSQL:4
+素食 取得4筆內容。
+Query string = 籃球
+TWDC:0
+IdeaSQL:4
+籃球 取得4筆內容。
+Query string = Paporla
+TWDC:0
+IdeaSQL:0
+抱歉，Paporla 沒有找到任何內容。
+Query string = 臭豆腐
+TWDC:0
+IdeaSQL:13
+臭豆腐 取得13筆內容。
+Query string = 台中公園
+TWDC:0
+IdeaSQL:18
+台中公園 取得18筆內容。
+Query string = 麻芛
+TWDC:3
+IdeaSQL:0
+麻芛 取得3筆內容。
+2017/11/25 06:06:52.965 ObNlZEzIi7bpwVJtAAAb disconnect
+Query string = 狗
+TWDC:20
+狗 取得20筆內容。
+2017/11/25 06:06:52.981 WXsykP99ogIzKImcAAAY disconnect
+2017/11/25 06:06:56.073 0zD1XRyR_G_BZcRAAAAh_umbra_connection
+2017/11/25 06:06:57.242 VM7f14WJ8uX_fDTuAAAi_umbra_connection
+Query string = 外勞
+TWDC:0
+IdeaSQL:3
+外勞 取得3筆內容。
+2017/11/25 06:07:07.776 oVnMH3w01WKAx2slAAAj_umbra_connection
+2017/11/25 06:07:16.716 v28QAJogdNWzB9BIAAAc disconnect
+2017/11/25 06:07:18.320 DXSF6Aj0Z3CdwkMuAAAk_umbra_connection
+Query string = 移工
+TWDC:0
+IdeaSQL:0
+抱歉，移工 沒有找到任何內容。
+Query string = 水圳
+TWDC:20
+水圳 取得20筆內容。
+2017/11/25 06:07:34.719 DXSF6Aj0Z3CdwkMuAAAk disconnect
+Query string = 林獻堂
+TWDC:1
+IdeaSQL:0
+林獻堂 取得1筆內容。
+Query string = 我愛你
+TWDC:0
+IdeaSQL:3
+我愛你 取得3筆內容。
+Query string = 豬
+TWDC:6
+IdeaSQL:14
+豬 取得20筆內容。
+2017/11/25 06:07:50.819 WDYGg2k8MbPgtDpdAAAl_umbra_connection
+Query string = 貓霧拺
+TWDC:0
+IdeaSQL:0
+抱歉，貓霧拺 沒有找到任何內容。
+2017/11/25 06:07:56.066 ApKQLZ8dUhSgsNkRAAAW disconnect
+2017/11/25 06:08:01.841 -Z-dsoKBDXIwrFBEAAAm_umbra_connection
+Query string = 叮噹
+TWDC:0
+IdeaSQL:1
+叮噹 取得1筆內容。
+2017/11/25 06:08:05.645 26OEhyivpxHJGvxgAAAe disconnect
+Query string = 柳川
+TWDC:15
+IdeaSQL:5
+柳川 取得20筆內容。
+2017/11/25 06:08:19.779 dP0PI2lk_p2LPNGHAAAn_umbra_connection
+2017/11/25 06:08:19.842 Cq5BB_c_AtWbCTFqAAAo_umbra_connection
+2017/11/25 06:08:21.079 0zD1XRyR_G_BZcRAAAAh disconnect
+Query string = 臭豆腐
+TWDC:0
+IdeaSQL:13
+臭豆腐 取得13筆內容。
+Query string = 麥當勞
+TWDC:0
+IdeaSQL:2
+麥當勞 取得2筆內容。
+Query string = 頑石
+TWDC:0
+IdeaSQL:0
+抱歉，頑石 沒有找到任何內容。
+2017/11/25 06:08:38.874 dP0PI2lk_p2LPNGHAAAn disconnect
+2017/11/25 06:08:39.540 34Cm8BfaEfvzkLkDAAAp_umbra_connection
+2017/11/25 06:08:42.822 5qqleRXhcqo7LI1ZAAAX disconnect
+Query string = 貓
+TWDC:5
+IdeaSQL:15
+貓 取得20筆內容。
+Query string = 樹啊腳
+TWDC:0
+IdeaSQL:0
+抱歉，樹啊腳 沒有找到任何內容。
+2017/11/25 06:08:48.273 GHdchujZ48mL0u8-AAAZ disconnect
+2017/11/25 06:08:58.375 oVnMH3w01WKAx2slAAAj disconnect
+Query string = 樹仔腳
+TWDC:0
+IdeaSQL:0
+抱歉，樹仔腳 沒有找到任何內容。
+2017/11/25 06:09:05.820 LRN57_j6wAYuZKKcAAAq_luna_connection
+Query string = 香蕉
+TWDC:0
+IdeaSQL:12
+香蕉 取得12筆內容。
+2017/11/25 06:09:26.132 VM7f14WJ8uX_fDTuAAAi disconnect
+2017/11/25 06:09:26.132 34Cm8BfaEfvzkLkDAAAp disconnect
+2017/11/25 06:09:28.554 vM3K6FYvvLnR8XF6AAAg disconnect
+Query string = 珍珠奶茶
+TWDC:3
+IdeaSQL:17
+珍珠奶茶 取得20筆內容。
+2017/11/25 06:09:45.916 WDYGg2k8MbPgtDpdAAAl disconnect
+2017/11/25 06:09:45.916 q_j1tt2hQjZpBAgtAAAr_umbra_connection
+2017/11/25 06:10:15.663 2GQqfT0Q1wyOdsipAAAd disconnect
+2017/11/25 06:11:07.971 4dvwurmKRWhJXIzFAAAs_umbra_connection
+Query string = 馬桶
+TWDC:0
+IdeaSQL:0
+抱歉，馬桶 沒有找到任何內容。
+Query string = 榕樹
+TWDC:0
+IdeaSQL:6
+榕樹 取得6筆內容。
+2017/11/25 06:12:52.403 HI30fPXWyAzti-23AAAf disconnect
+Query string = 大麵粳
+TWDC:0
+IdeaSQL:0
+抱歉，大麵粳 沒有找到任何內容。
+2017/11/25 06:13:06.608 -Z-dsoKBDXIwrFBEAAAm disconnect
+2017/11/25 06:13:23.797 nCXBrIVup08JFI-xAAAt_umbra_connection
+2017/11/25 06:13:30.235 nCXBrIVup08JFI-xAAAt disconnect
+2017/11/25 06:13:30.791 4dvwurmKRWhJXIzFAAAs disconnect
+2017/11/25 06:13:56.376 FeIjCrf4cHirUyabAAAu_umbra_connection
+Query string = 橋
+TWDC:20
+橋 取得20筆內容。
+2017/11/25 06:14:04.026 FeIjCrf4cHirUyabAAAu disconnect
+2017/11/25 06:14:53.627 w9m5ybFU5Ut-VyHzAAAv_umbra_connection
+Query string = 喵
+TWDC:0
+IdeaSQL:19
+喵 取得19筆內容。
+2017/11/25 06:15:52.358 NBW8bR3vDdP7XADNAAAw_umbra_connection
+2017/11/25 06:15:52.401 h_8QZNMu1aWlNNO6AAAx_umbra_connection
+Query string = 空污
+TWDC:0
+IdeaSQL:0
+抱歉，空污 沒有找到任何內容。
+Query string = 空氣
+TWDC:0
+IdeaSQL:17
+空氣 取得17筆內容。
+2017/11/25 06:16:48.921 r2J7IC9LmQyycZ-DAAAy_umbra_connection
+2017/11/25 06:16:49.217 v4wKZ1TWeGuSDJpBAAAz_umbra_connection
+2017/11/25 06:16:49.500 4095LOkB29ZyHCeDAAA0_umbra_connection
+2017/11/25 06:17:12.988 Cq5BB_c_AtWbCTFqAAAo disconnect
+2017/11/25 06:17:17.392 NBW8bR3vDdP7XADNAAAw disconnect
+2017/11/25 06:17:29.986 LRN57_j6wAYuZKKcAAAq disconnect
+2017/11/25 06:18:13.934 r2J7IC9LmQyycZ-DAAAy disconnect
+2017/11/25 06:18:14.228 v4wKZ1TWeGuSDJpBAAAz disconnect
+2017/11/25 06:18:14.773 q_j1tt2hQjZpBAgtAAAr disconnect
+2017/11/25 06:18:16.487 X2M1QxouVxOA5nPmAAAV disconnect
+2017/11/25 06:18:51.070 4095LOkB29ZyHCeDAAA0 disconnect
+2017/11/25 06:18:52.962 _6UuwhcGq7FhRF6yAAA1_umbra_connection
+2017/11/25 06:19:32.430 h_8QZNMu1aWlNNO6AAAx disconnect
+2017/11/25 06:20:19.506 _6UuwhcGq7FhRF6yAAA1 disconnect
+2017/11/25 06:20:58.754 LDg8vJ7fgEQXtJtdAAA2_umbra_connection
+2017/11/25 06:22:06.169 -RNme7uFPF2vzMWHAAA3_umbra_connection
+2017/11/25 06:22:25.578 LDg8vJ7fgEQXtJtdAAA2 disconnect
+2017/11/25 06:22:34.816 w9m5ybFU5Ut-VyHzAAAv disconnect
+2017/11/25 06:22:48.319 dzoNxar-krpamimLAAA4_umbra_connection
+2017/11/25 06:23:22.876 qwUfGCyi2JQUUNlnAAA5_umbra_connection
+2017/11/25 06:23:41.168 -RNme7uFPF2vzMWHAAA3 disconnect
+2017/11/25 06:25:54.511 dzoNxar-krpamimLAAA4 disconnect
+2017/11/25 06:26:09.899 qwUfGCyi2JQUUNlnAAA5 disconnect
+2017/11/25 06:26:21.748 3fNWEAJPoZZ_4uFYAAA6_umbra_connection
+2017/11/25 06:26:22.178 Lvn5nZ0HI9tsjInEAAA7_umbra_connection
+2017/11/25 06:27:52.487 Lvn5nZ0HI9tsjInEAAA7 disconnect
+2017/11/25 06:30:25.864 VZvRYkPz29mPny_0AAA8_umbra_connection
+2017/11/25 06:30:59.985 87goYJrITGZvMolyAAA9_umbra_connection
+2017/11/25 06:32:32.796 VZvRYkPz29mPny_0AAA8 disconnect
+2017/11/25 06:36:12.512 3fNWEAJPoZZ_4uFYAAA6 disconnect
+2017/11/25 06:36:52.845 vvS1t9Wizc6PVS8dAAA-_umbra_connection
+2017/11/25 06:37:27.923 j5rECeXHT_eA4w2zAAA__umbra_connection
+2017/11/25 06:37:49.749 87goYJrITGZvMolyAAA9 disconnect
+2017/11/25 06:38:17.856 vvS1t9Wizc6PVS8dAAA- disconnect
+2017/11/25 06:41:28.456 kChfoOqxm8bGXg-0AABA_umbra_connection
+2017/11/25 06:41:29.019 T4nH8__TW1GvSt2-AABB_umbra_connection
+2017/11/25 06:42:17.032 ZnixXCeH2fL55SlMAABC_umbra_connection
+2017/11/25 06:42:18.138 j5rECeXHT_eA4w2zAAA_ disconnect
+2017/11/25 06:42:53.473 kChfoOqxm8bGXg-0AABA disconnect
+2017/11/25 06:43:42.048 ZnixXCeH2fL55SlMAABC disconnect
+2017/11/25 06:44:37.491 T4nH8__TW1GvSt2-AABB disconnect
+2017/11/25 06:45:10.092 4vbxFRz1-6Ltu6ANAABD_umbra_connection
+2017/11/25 06:47:45.351 4vbxFRz1-6Ltu6ANAABD disconnect
+2017/11/25 06:49:15.831 UNV1ZlqbB8laLq24AABE_umbra_connection
+2017/11/25 06:50:42.179 UNV1ZlqbB8laLq24AABE disconnect
+2017/11/25 06:50:46.580 xOmQ3Vu5rDl9dl1JAABF_umbra_connection
+2017/11/25 06:52:15.333 xOmQ3Vu5rDl9dl1JAABF disconnect
+2017/11/25 06:57:06.929 Gxk-tbH2E_VPPI6lAABG_umbra_connection
+2017/11/25 06:58:57.474 Gxk-tbH2E_VPPI6lAABG disconnect
+2017/11/25 07:10:16.313 VtbCIOM6tBYVfz0pAABH_umbra_connection
+2017/11/25 07:10:21.704 VtbCIOM6tBYVfz0pAABH disconnect
+2017/11/25 08:58:15.086 KQXB6RMYKJjrV9KXAABI_umbra_connection
+2017/11/25 08:58:21.022 KQXB6RMYKJjrV9KXAABI disconnect
+2017/11/25 09:08:56.415 QGNRWYbyAoixbNfaAABJ_umbra_connection
+2017/11/25 09:09:33.183 150r2Ccjf-PqObWDAABK_umbra_connection
+2017/11/25 09:10:50.883 QGNRWYbyAoixbNfaAABJ disconnect
+2017/11/25 09:11:00.032 150r2Ccjf-PqObWDAABK disconnect
+2017/11/25 09:21:58.255 FWH73cyi-DpCoZ-5AABL_umbra_connection
+2017/11/25 09:22:38.721 FWH73cyi-DpCoZ-5AABL disconnect
+2017/11/26 01:49:59.993 S3gVCTgoAuj0Qa_UAABM_luna_connection
+2017/11/26 01:50:33.667 S3gVCTgoAuj0Qa_UAABM disconnect
+2017/11/26 18:32:43.190 eRs7tJlQFjGl_4A5AABN_umbra_connection
+2017/11/26 18:39:18.716 eRs7tJlQFjGl_4A5AABN disconnect

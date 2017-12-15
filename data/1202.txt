@@ -1,0 +1,142 @@
+﻿"C:\Program Files\nodejs\npm.cmd" "run-script" "start"
+
+> WindowOfOurMemories@0.8.5-beta-jswt start C:\Users\winmem\Documents\NetBeansProjects\WMJSweet
+> node server.js
+
+The Window of Our Memories [0.8.5-beta-jswt]
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 46 records...
+Initializing twdc dataset completed. Total record fetched = 291
+TWDC added
+IdeaSQL added
+Query string = 文化局
+TWDC:71
+Server listening to port: 80
+2017/11/28 05:23:07.404 8wh158-vrEp7CY-_AAAA_luna_connection
+2017/11/28 05:23:08.474 KwW0HqU4-eeO2JsSAAAB_umbra_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+2017/11/28 05:26:05.097 KwW0HqU4-eeO2JsSAAAB disconnect
+2017/11/28 05:26:05.552 8wh158-vrEp7CY-_AAAA disconnect
+2017/11/28 07:36:38.848 yYNjhbx55DbllLrdAAAC_umbra_connection
+2017/11/28 07:36:48.727 qmk5dKvogprXXlKeAAAD_luna_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 萊特幣
+TWDC:0
+IdeaSQL:0
+抱歉，萊特幣 沒有找到任何內容。
+2017/11/28 09:36:08.740 yYNjhbx55DbllLrdAAAC disconnect
+2017/11/28 09:36:09.169 qmk5dKvogprXXlKeAAAD disconnect
+2017/11/28 09:44:49.010 yNjfjTY8ebJBSsJfAAAE_umbra_connection
+2017/11/28 09:44:50.908 yNjfjTY8ebJBSsJfAAAE disconnect
+2017/11/28 12:12:40.308 8o9F3YxzerCGmhDfAAAF_umbra_connection
+2017/11/28 12:12:45.494 8o9F3YxzerCGmhDfAAAF disconnect
+2017/11/28 15:55:48.212 sqZTKuc77I-MesFmAAAG_umbra_connection
+2017/11/28 15:55:52.496 xTgZ-72CC87Xv9pAAAAH_luna_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 美麗
+TWDC:17
+IdeaSQL:3
+美麗 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+2017/11/28 16:13:00.263 xTgZ-72CC87Xv9pAAAAH disconnect
+2017/11/28 16:13:03.576 3PnpOVjK_A9ftX7JAAAI_luna_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 網路
+TWDC:0
+IdeaSQL:19
+網路 取得19筆內容。
+2017/11/28 16:24:34.164 3PnpOVjK_A9ftX7JAAAI disconnect
+2017/11/28 16:24:35.079 sqZTKuc77I-MesFmAAAG disconnect
+2017/11/29 01:41:21.860 h3RazUC2S51pnhlcAAAJ_umbra_connection
+Query string = 柳川
+TWDC:15
+IdeaSQL:5
+柳川 取得20筆內容。
+2017/11/29 01:43:37.520 h3RazUC2S51pnhlcAAAJ disconnect
+2017/11/29 09:25:06.510 5TwPXrqXeNFpzLIBAAAK_umbra_connection
+2017/11/29 09:25:12.560 5TwPXrqXeNFpzLIBAAAK disconnect
+2017/11/29 12:30:17.421 Iz6jyVuj_8vs98v5AAAL_luna_connection
+2017/11/29 12:36:37.064 Iz6jyVuj_8vs98v5AAAL disconnect
+2017/11/29 14:25:13.517 Z9_SU3Uz-_buTfpLAAAM_umbra_connection
+Query string = 記憶
+TWDC:17
+IdeaSQL:3
+記憶 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+2017/11/29 14:25:50.726 Z9_SU3Uz-_buTfpLAAAM disconnect
+2017/11/29 16:19:21.292 Zf7W3KcHwQ40mSGjAAAN_umbra_connection
+Query string = 后豐
+TWDC:1
+IdeaSQL:19
+后豐 取得20筆內容。
+Query string = 媽祖
+TWDC:20
+媽祖 取得20筆內容。
+2017/11/29 16:20:51.166 Zf7W3KcHwQ40mSGjAAAN disconnect
+2017/11/29 16:20:54.672 _MNcuVlxEjIj4lZ-AAAO_umbra_connection
+Query string = 媽祖
+TWDC:20
+媽祖 取得20筆內容。
+2017/11/29 16:21:08.859 o1SCR2QIt6LllZjpAAAP_umbra_connection
+Query string = 媽祖
+TWDC:20
+媽祖 取得20筆內容。
+2017/11/29 16:21:34.440 _MNcuVlxEjIj4lZ-AAAO disconnect
+2017/11/29 16:22:59.538 o1SCR2QIt6LllZjpAAAP disconnect
+2017/11/29 16:39:24.759 VudqMXQYZKrrtxHTAAAQ_luna_connection
+2017/11/29 16:39:28.901 z624CAA2k0gJjjLeAAAR_umbra_connection
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+2017/11/29 17:31:59.142 VudqMXQYZKrrtxHTAAAQ disconnect
+2017/11/29 17:31:59.142 z624CAA2k0gJjjLeAAAR disconnect
+2017/11/29 19:46:09.223 1lLiwyAEXtwD0xxxAAAS_umbra_connection
+2017/11/29 19:46:12.396 1lLiwyAEXtwD0xxxAAAS disconnect
+2017/11/29 19:46:15.500 AYcxROSxlIhsInJ5AAAT_umbra_connection
+Query string = 臺大
+TWDC:0
+IdeaSQL:0
+抱歉，臺大 沒有找到任何內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+2017/11/29 19:49:35.410 AYcxROSxlIhsInJ5AAAT disconnect
+2017/12/01 22:41:34.869 qCfZOqETz9yQjjThAAAU_umbra_connection
+2017/12/01 22:48:11.489 qCfZOqETz9yQjjThAAAU disconnect
+2017/12/02 01:44:19.438 EhR5HsKVEVTZZfGvAAAV_umbra_connection
+2017/12/02 01:44:33.281 ZFgadSAYlpZBn2fMAAAW_umbra_connection
+2017/12/02 01:45:45.511 EhR5HsKVEVTZZfGvAAAV disconnect
+2017/12/02 01:45:59.755 ZFgadSAYlpZBn2fMAAAW disconnect
+2017/12/02 05:04:15.842 ua5zcnHuY5LFXgcDAAAX_luna_connection
+2017/12/02 09:35:53.547 ua5zcnHuY5LFXgcDAAAX disconnect
+2017/12/02 09:36:04.426 4IE2uXNRE5RcOp2zAAAY_luna_connection
+2017/12/02 09:38:04.781 4IE2uXNRE5RcOp2zAAAY disconnect
+2017/12/02 10:05:57.865 WtVs4n-AA-bF5Sw9AAAZ_luna_connection
+2017/12/02 10:07:33.483 WtVs4n-AA-bF5Sw9AAAZ disconnect
+2017/12/02 10:08:24.075 fdpbeZ17SKGP21KZAAAa_luna_connection
+2017/12/02 10:09:02.061 jmJsUrJlFw6ZbXMzAAAb_luna_connection
+2017/12/02 10:09:49.095 fdpbeZ17SKGP21KZAAAa disconnect
+2017/12/02 10:30:20.703 jmJsUrJlFw6ZbXMzAAAb disconnect
+2017/12/02 10:30:21.826 HLQvaMDZvrTLKU7QAAAc_luna_connection
+2017/12/02 11:34:01.949 HLQvaMDZvrTLKU7QAAAc disconnect
+Done.

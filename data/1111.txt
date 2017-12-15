@@ -1,0 +1,160 @@
+﻿"C:\Program Files\nodejs\npm.cmd" "run-script" "start"
+
+> WindowOfOurMemories@0.7.2-beta-jswt start C:\Users\winmem\Documents\NetBeansProjects\WMJSweet
+> node server.js
+
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 10 records...
+Initializing twdc dataset completed. Total record fetched = 280
+TWDC added
+IdeaSQL added
+Query string = 文化局
+TWDC:69
+Server listening to port: 80
+fi8pg4aHfFEKATT9AAAA_umbra_connection
+zv_dXGkN4O6lPAbNAAAB_luna_connection
+Query string = 熊
+TWDC:0
+http://designav.io/api/image/search/熊?limit=20
+IdeaSQL:20
+熊 取得20筆內容。
+Query string = 東海
+TWDC:15
+http://designav.io/api/image/search/東海?limit=5
+IdeaSQL:5
+東海 取得20筆內容。
+Query string = 東海
+TWDC:15
+http://designav.io/api/image/search/東海?limit=5
+IdeaSQL:5
+東海 取得20筆內容。
+disconnect
+disconnect
+42uC_yrw92-bMXgYAAAC_luna_connection
+disconnect
+gRpr2tTbQXJ31X39AAAD_umbra_connection
+Pmd-ld5uhRQevE0XAAAE_luna_connection
+6bDiwU3k7-WKsa-lAAAF_admin_connection
+Query string = 比賽
+TWDC:153
+Query string = 美食
+TWDC:4
+http://designav.io/api/image/search/美食?limit=16
+IdeaSQL:14
+美食 取得18筆內容。
+Query string = 文化局
+TWDC:69
+Query string = 文化局
+TWDC:69
+Query string = 文化局
+TWDC:69
+Query string = 文化局
+TWDC:69
+Query string = 文化局
+TWDC:69
+Query string = 文化局
+TWDC:69
+Query string = 文化局
+TWDC:69
+Query string = 后豐
+TWDC:0
+** Keyword unchanged due to empty query result.
+Query string = 后豐
+TWDC:0
+** Keyword unchanged due to empty query result.
+disconnect
+disconnect
+disconnect
+ZLDdd5qbtUjpwnRXAAAG_umbra_connection
+f0wOwg02nRf0fa6rAAAH_luna_connection
+disconnect
+disconnect
+v-mD2Eb5rUyw7qSiAAAI_luna_connection
+Gg3-zCiKEeTNfk1NAAAJ_umbra_connection
+disconnect
+f5FjT5pZd6VLdT5WAAAK_umbra_connection
+Query string = ㄉㄨ東海
+TWDC:0
+http://designav.io/api/image/search/ㄉㄨ東海?limit=20
+pvIX82yirBKfRMlSAAAL_umbra_connection
+JIZXwqcsk89RlTZVAAAM_umbra_connection
+disconnect
+Query string = 東海
+TWDC:15
+http://designav.io/api/image/search/東海?limit=5
+IdeaSQL:5
+東海 取得20筆內容。
+Query string = 大度山
+TWDC:0
+http://designav.io/api/image/search/大度山?limit=20
+disconnect
+92O57sILD8eI2pjrAAAN_umbra_connection
+Query string = 臺中公園
+TWDC:5
+http://designav.io/api/image/search/臺中公園?limit=15
+IdeaSQL:7
+臺中公園 取得12筆內容。
+Query string = 台中公園
+TWDC:0
+http://designav.io/api/image/search/台中公園?limit=20
+IdeaSQL:18
+台中公園 取得18筆內容。
+Query string = 國美館
+TWDC:0
+http://designav.io/api/image/search/國美館?limit=20
+IdeaSQL:19
+國美館 取得19筆內容。
+disconnect
+disconnect
+disconnect
+KKsGnooJYc460K-hAAAO_luna_connection
+disconnect
+9qjk8PDqRF-U-YBWAAAP_luna_connection
+disconnect
+Ow_T6UWEzc3wQwfJAAAQ_luna_connection
+disconnect
+Lk-NcXKLE4tHJGn9AAAR_umbra_connection
+disconnect
+6TmireN9e4URrrBoAAAS_luna_connection
+jA45MctcKpZikKZRAAAT_luna_connection
+F8NQeWpHDoZQNwkNAAAU_luna_connection
+2yYvQId2RGnR2ZzBAAAV_umbra_connection
+Query string = 柳川
+TWDC:15
+http://designav.io/api/image/search/柳川?limit=5
+IdeaSQL:5
+柳川 取得20筆內容。
+disconnect
+oesPswRRhCEaMbDBAAAW_umbra_connection
+Query string = 花都
+TWDC:20
+花都 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+disconnect
+disconnect
+disconnect
+disconnect
+eD-AP-c-doZRgorxAAAX_luna_connection
+pIn-bYIx8vReHQoLAAAY_umbra_connection
+Query string = 東
+TWDC:20
+東 取得20筆內容。
+Query string = 西
+TWDC:20
+西 取得20筆內容。
+Query string = 臺中
+TWDC:20
+臺中 取得20筆內容。
+disconnect
+disconnect
+Y06eCtdSjpy6Qj98AAAZ_umbra_connection
+yNcP4UNGEzq_hiUuAAAa_luna_connection
+disconnect
+disconnect

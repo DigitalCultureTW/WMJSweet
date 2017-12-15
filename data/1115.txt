@@ -1,0 +1,681 @@
+﻿"C:\Program Files\nodejs\npm.cmd" "run-script" "start"
+
+> WindowOfOurMemories@0.7.2-beta-jswt start C:\Users\winmem\Documents\NetBeansProjects\WMJSweet
+> node server.js
+
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 50 records...
+processing 37 records...
+Initializing twdc dataset completed. Total record fetched = 287
+TWDC added
+IdeaSQL added
+Query string = 文化局
+TWDC:71
+Server listening to port: 80
+XEM7mtp4DejQmeDcAAAA_luna_connection
+disconnect
+C35stuK3AV50ocWLAAAB_umbra_connection
+ifn29SBFsiofbrllAAAC_umbra_connection
+disconnect
+92v8aFb0Rg65sQpYAAAD_luna_connection
+T1rxiqiVvN3ww-EwAAAE_umbra_connection
+disconnect
+disconnect
+6MG33z1NGj1JcVwzAAAF_luna_connection
+disconnect
+disconnect
+HJ53G_WXLPjV65_BAAAG_umbra_connection
+disconnect
+jX8c35xrWMikph0GAAAH_umbra_connection
+disconnect
+FVMeoASCaTwuEVYjAAAI_umbra_connection
+disconnect
+BKSVbuPsghLTz4KSAAAJ_luna_connection
+disconnect
+lfB083rANgS03nlCAAAK_luna_connection
+disconnect
+JHHPFacoH1qDxtXnAAAL_luna_connection
+disconnect
+HnLfehvwSl5rq-01AAAM_umbra_connection
+2mpH1S4y3gMQof1XAAAN_luna_connection
+nd4ZWt_udJ4rB3N5AAAO_umbra_connection
+q0bz7CEG2QWeSdWTAAAP_umbra_connection
+disconnect
+Query string = 柳川
+TWDC:15
+http://designav.io/api/image/search/柳川?limit=5
+IdeaSQL:5
+柳川 取得20筆內容。
+Query string = 台中公園
+TWDC:0
+http://designav.io/api/image/search/台中公園?limit=20
+IdeaSQL:18
+台中公園 取得18筆內容。
+S9rUpsVTYUWMwFwKAAAQ_umbra_connection
+disconnect
+vECBdKEvzv69iPSgAAAR_umbra_connection
+disconnect
+Query string = 東海
+TWDC:15
+http://designav.io/api/image/search/東海?limit=5
+IdeaSQL:5
+東海 取得20筆內容。
+bwKmQ5RJoANDkRSfAAAS_umbra_connection
+Query string = 台中火車站
+TWDC:0
+http://designav.io/api/image/search/台中火車站?limit=20
+IdeaSQL:19
+台中火車站 取得19筆內容。
+disconnect
+disconnect
+disconnect
+disconnect
+ZWXHHtmzeavnVgtrAAAT_luna_connection
+4MmaNhfFBVh5-vbcAAAU_umbra_connection
+disconnect
+HvhnlaLGggbT7U9eAAAV_umbra_connection
+5Utm21zDSLPCCJC0AAAW_umbra_connection
+5RD3CVxLh1f7N7zXAAAX_umbra_connection
+tUPvGk0HusAbM5wVAAAY_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+Is5FwNkhXtUqerbCAAAZ_umbra_connection
+disconnect
+0tw7a822yRlexVKQAAAa_umbra_connection
+disconnect
+-3J2PCR48YhxTyo5AAAb_umbra_connection
+wel3YBaIGBAxcah5AAAc_umbra_connection
+disconnect
+Lbdw1xjtkAtGtBGgAAAd_umbra_connection
+6JBpgQaFW0h2MeLjAAAe_umbra_connection
+disconnect
+Query string = 台中
+TWDC:6
+http://designav.io/api/image/search/台中?limit=14
+IdeaSQL:13
+台中 取得19筆內容。
+Query string = 台中公園
+TWDC:0
+http://designav.io/api/image/search/台中公園?limit=20
+IdeaSQL:18
+台中公園 取得18筆內容。
+disconnect
+wpXk1MT3eEI5SOghAAAf_umbra_connection
+NjO4z3-5fRKVrjw_AAAg_umbra_connection
+G_l3ODCpatoqn4QOAAAh_umbra_connection
+R4ayXacBEMdZ27-_AAAi_umbra_connection
+-nq5RiHSMqMh98fXAAAj_umbra_connection
+7nQvPp1gjZ4G4CZ5AAAk_umbra_connection
+BA82e1GTuqgkA8kcAAAl_umbra_connection
+w4r5o5ETrXK6399zAAAm_umbra_connection
+OPbvJYEa5lqEzR9PAAAn_umbra_connection
+FOTLoG0uo8m2DHjmAAAo_umbra_connection
+zd4XZ0FLqFJumVFzAAAp_umbra_connection
+eQKiS4yLTvO8ZLukAAAq_umbra_connection
+tFQJHhnk0UMnBeVCAAAr_umbra_connection
+Query string = 柳川
+TWDC:15
+http://designav.io/api/image/search/柳川?limit=5
+IdeaSQL:5
+柳川 取得20筆內容。
+Query string = 東海大學
+TWDC:15
+http://designav.io/api/image/search/東海大學?limit=5
+IdeaSQL:4
+東海大學 取得19筆內容。
+Query string = 東海
+TWDC:15
+http://designav.io/api/image/search/東海?limit=5
+IdeaSQL:5
+東海 取得20筆內容。
+Query string = 一中
+TWDC:3
+http://designav.io/api/image/search/一中?limit=17
+IdeaSQL:17
+一中 取得20筆內容。
+Query string = 歌劇院
+TWDC:2
+http://designav.io/api/image/search/歌劇院?limit=18
+IdeaSQL:17
+歌劇院 取得19筆內容。
+disconnect
+Query string = 歌劇院
+TWDC:2
+http://designav.io/api/image/search/歌劇院?limit=18
+IdeaSQL:17
+歌劇院 取得19筆內容。
+Query string = 靜宜大學
+TWDC:0
+http://designav.io/api/image/search/靜宜大學?limit=20
+IdeaSQL:10
+靜宜大學 取得10筆內容。
+Query string = 高美濕地
+TWDC:1
+http://designav.io/api/image/search/高美濕地?limit=19
+IdeaSQL:16
+高美濕地 取得17筆內容。
+Query string = 夜市
+TWDC:1
+http://designav.io/api/image/search/夜市?limit=19
+IdeaSQL:16
+夜市 取得17筆內容。
+disconnect
+disconnect
+disconnect
+Query string = 棒球
+TWDC:0
+http://designav.io/api/image/search/棒球?limit=20
+IdeaSQL:11
+棒球 取得11筆內容。
+Query string = 文化局
+TWDC:20
+文化局 取得20筆內容。
+disconnect
+Query string = 南屯
+TWDC:20
+南屯 取得20筆內容。
+disconnect
+disconnect
+P0SBPv0PR0_ygTe2AAAs_umbra_connection
+A0c-oDKupAVP-C-dAAAt_umbra_connection
+wGKGpg1auEal32qDAAAu_umbra_connection
+Query string = 東海大學
+TWDC:15
+http://designav.io/api/image/search/東海大學?limit=5
+IdeaSQL:4
+東海大學 取得19筆內容。
+R1igL7Pk2fpTtvXRAAAv_umbra_connection
+disconnect
+disconnect
+disconnect
+OdWVNE8UJxBjAMzuAAAw_umbra_connection
+Xz-mLraw4uDCVzNWAAAx_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+Query string = 東勢
+TWDC:1
+http://designav.io/api/image/search/東勢?limit=19
+IdeaSQL:16
+東勢 取得17筆內容。
+Query string = 中央書局
+TWDC:0
+http://designav.io/api/image/search/中央書局?limit=20
+45rn9--55X4w4sX7AAAy_umbra_connection
+YxKKCVUQz2nSI8-LAAAz_umbra_connection
+fpstrS6Npvv82TYAAAA0_umbra_connection
+disconnect
+ywsyQmZuh9aFT948AAA1_umbra_connection
+Query string = 大甲媽
+TWDC:12
+http://designav.io/api/image/search/大甲媽?limit=8
+IdeaSQL:8
+大甲媽 取得20筆內容。
+disconnect
+Query string = 國家歌劇院
+TWDC:1
+http://designav.io/api/image/search/國家歌劇院?limit=19
+IdeaSQL:18
+國家歌劇院 取得19筆內容。
+disconnect
+disconnect
+Query string = 金龍少棒隊
+TWDC:0
+http://designav.io/api/image/search/金龍少棒隊?limit=20
+jjJniGuF7SNj50s2AAA2_umbra_connection
+disconnect
+Fz5DJvgn7-krS8z2AAA3_umbra_connection
+Query string = 視覺
+TWDC:1
+http://designav.io/api/image/search/視覺?limit=19
+IdeaSQL:13
+視覺 取得14筆內容。
+disconnect
+disconnect
+tb5TJewj_mAqVSM9AAA4_umbra_connection
+disconnect
+disconnect
+bfVWZr6BEEnCWQzYAAA5_umbra_connection
+disconnect
+UG1fPzcmXgxjI087AAA6_umbra_connection
+disconnect
+disconnect
+qW58_bXmpiMR4iSVAAA7_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+disconnect
+DwViOAs1e0vgwqpJAAA8_umbra_connection
+pphNXjX5xBC3koSoAAA9_umbra_connection
+disconnect
+disconnect
+A-F34QfUXSGqPuX-AAA-_umbra_connection
+disconnect
+ix4PoqJ9Hmd8CnejAAA__umbra_connection
+disconnect
+C8sEH4a24nMjpwpxAABA_umbra_connection
+ktc0F5-FCjkZ9O-iAABB_umbra_connection
+M52hDjrtCOEL9oYpAABC_umbra_connection
+toSYBfgwpgN3NO0-AABD_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+Zlmw97wowTYsGJWsAABE_umbra_connection
+VeFxRpyAfr-LR2CQAABF_umbra_connection
+ATneeo3QHptXHWkHAABG_umbra_connection
+disconnect
+disconnect
+disconnect
+7thwiRMJ9mpdx0F_AABH_umbra_connection
+disconnect
+BahiubMl2al2x_RKAABI_umbra_connection
+disconnect
+jMJcotQZaWOqvFb_AABJ_umbra_connection
+zrrBwGEUSlRFoarzAABK_umbra_connection
+disconnect
+disconnect
+IjE8fy8CMdbSExSpAABL_umbra_connection
+disconnect
+eQx7dYmRX82X_D-dAABM_umbra_connection
+Query string = 文化
+TWDC:20
+文化 取得20筆內容。
+Sae9H3eBcg2QPDPoAABN_umbra_connection
+disconnect
+es50x7OaGqnkiGi3AABO_umbra_connection
+disconnect
+bA7ML49bOOlhbXtEAABP_umbra_connection
+wIbIdJc_tNrhBmDjAABQ_umbra_connection
+Query string = 新住民
+TWDC:0
+http://designav.io/api/image/search/新住民?limit=20
+disconnect
+pcomhwbnXUOII62aAABR_umbra_connection
+Query string = 戶政
+TWDC:0
+http://designav.io/api/image/search/戶政?limit=20
+cX3aXjR0d79rOo7cAABS_umbra_connection
+disconnect
+disconnect
+disconnect
+IIJ35N54PZKoBVVyAABT_umbra_connection
+disconnect
+no4qdV-MXc5syvcCAABU_umbra_connection
+Query string = 台中公園
+TWDC:0
+http://designav.io/api/image/search/台中公園?limit=20
+IdeaSQL:18
+台中公園 取得18筆內容。
+disconnect
+disconnect
+wpbXbi4x9qM6axsgAABV_umbra_connection
+aXhXZxUV2cmQMaPCAABW_umbra_connection
+disconnect
+disconnect
+X95piq1HHzC0AecfAABX_umbra_connection
+disconnect
+6x_UlxAGPeUi6OfFAABY_umbra_connection
+disconnect
+1WmO6erAebZ77dA8AABZ_umbra_connection
+disconnect
+OwaYh0ObdlHtcCJ0AABa_umbra_connection
+disconnect
+bJ73pvvxzPO4WZ40AABb_umbra_connection
+disconnect
+zMjm57uecR99DEtcAABc_umbra_connection
+9UOB6NKqHc65uEmvAABd_umbra_connection
+disconnect
+lBoml16lgXU_JbWBAABe_umbra_connection
+disconnect
+disconnect
+2NwwXAT2CryxCLPrAABf_umbra_connection
+disconnect
+0XRUJAcPzCSm_TA5AABg_umbra_connection
+disconnect
+rvYX3yDROmiuKm_NAABh_umbra_connection
+disconnect
+_X400CdKX5nD3rwcAABi_umbra_connection
+disconnect
+MSIrixgJ6PyB02jyAABj_umbra_connection
+disconnect
+qOk_b7pStChUhBojAABk_umbra_connection
+Y9XUEYkb9VEmTEbGAABl_umbra_connection
+disconnect
+disconnect
+XcerZPxFLwEAhFkFAABm_umbra_connection
+P3zIcXmrhCAAJbjbAABn_umbra_connection
+disconnect
+disconnect
+vqL14zi6B4qy2BjqAABo_umbra_connection
+xJmg43Ekddq4gOAlAABp_umbra_connection
+disconnect
+NkInRlbVsNOgoqhBAABq_umbra_connection
+disconnect
+guwt_dAxaFwS9c8nAABr_umbra_connection
+disconnect
+PLe18HjIky90vrFGAABs_umbra_connection
+disconnect
+disconnect
+ofn2hc6hmaeyU2PfAABt_umbra_connection
+disconnect
+opAbb-EL3p4BmQHnAABu_umbra_connection
+eDKYXbvooZsIl3slAABv_umbra_connection
+disconnect
+eEygVm3WZp3r6DB2AABw_umbra_connection
+disconnect
+yjw7miKZd4yZzwUPAABx_umbra_connection
+disconnect
+disconnect
+78JhlYi85uutt3ndAABy_umbra_connection
+disconnect
+rUkIVDxr9yCwy-E0AABz_umbra_connection
+disconnect
+b2-TWe8Fsv-EvV15AAB0_umbra_connection
+rY_J3TSh5reLvZ0KAAB1_umbra_connection
+disconnect
+disconnect
+N4XSbGRS8HsDSpROAAB2_umbra_connection
+s1yH0aR92eoOdkIIAAB3_umbra_connection
+disconnect
+1yi2o8r-TBCj7iAoAAB4_umbra_connection
+disconnect
+disconnect
+dEnVQKmNX8eC_ejaAAB5_umbra_connection
+disconnect
+uY7DCZ5zK_ObSa98AAB6_umbra_connection
+disconnect
+YrQ7NjFpvnr3o8f_AAB7_umbra_connection
+disconnect
+cGh0ORNR43RXfc3RAAB8_umbra_connection
+disconnect
+uQXYM1-D6XeyRKFBAAB9_umbra_connection
+disconnect
+qSvFgg-XUjSN8g4KAAB-_umbra_connection
+disconnect
+gRw1SElHLWXIVo7-AAB__umbra_connection
+disconnect
+sZt4TxhiINGsD124AACA_umbra_connection
+disconnect
+ttaTwrF-Ni_1X7xbAACB_umbra_connection
+disconnect
+h4V449VeyrP_aTTqAACC_umbra_connection
+disconnect
+ZaqgLnWzEzVj267OAACD_umbra_connection
+IDNCz85NsHHG-P3PAACE_umbra_connection
+disconnect
+disconnect
+qLxYZVIdiHobRWyVAACF_umbra_connection
+disconnect
+ZfwzDromyVaqFlR_AACG_umbra_connection
+disconnect
+FJhTmRjxoX1dMDxGAACH_umbra_connection
+disconnect
+5up1aRxUMDDf8J0uAACI_umbra_connection
+disconnect
+Dm6loqMBqny9lMxEAACJ_umbra_connection
+disconnect
+i1Jng0GUi85IEaNgAACK_umbra_connection
+disconnect
+iUS41ZWDU7UvV0uVAACL_umbra_connection
+Os_vpocgaZ4zuL_IAACM_umbra_connection
+disconnect
+disconnect
+1vS9Mrw3jKp-h8T9AACN_umbra_connection
+_pkqkrdhhEgcrT_yAACO_umbra_connection
+disconnect
+disconnect
+Qp04oKNN5DskPUQxAACP_umbra_connection
+disconnect
+xkHNFv1wE3l7zdBZAACQ_umbra_connection
+0VRpPsV29qtTFx7rAACR_umbra_connection
+P5r2kJTquR4_nYAsAACS_umbra_connection
+disconnect
+disconnect
+disconnect
+nDEDdJlqfxsjFnamAACT_umbra_connection
+r29uOZci2Mz2pjqVAACU_umbra_connection
+LgsqviLYRP2NyMSnAACV_umbra_connection
+disconnect
+disconnect
+disconnect
+THqsDpWiwFpdIo7TAACW_umbra_connection
+disconnect
+FulUcPVKm2eUFY86AACX_umbra_connection
+disconnect
+12wMiBNRVSH8I9emAACY_umbra_connection
+disconnect
+0R24REQbo2nijMihAACZ_umbra_connection
+disconnect
+EBS-dcCN9ZmZ-V6jAACa_umbra_connection
+disconnect
+2WPq6SbjohjIkPJAAACb_umbra_connection
+Gx_2UUvAbIed01yLAACc_umbra_connection
+disconnect
+disconnect
+nrJ7e2vAKC8-FW0mAACd_umbra_connection
+_Lrj7c9eCYxo2x4XAACe_umbra_connection
+disconnect
+G4gP2zGbusRXXSaiAACf_umbra_connection
+disconnect
+disconnect
+ighFdnMHF6qbLbQqAACg_umbra_connection
+disconnect
+QUqPT9dmiRacDGAxAACh_umbra_connection
+disconnect
+RLmJQubp9EMgMfJRAACi_umbra_connection
+disconnect
+7Cl930tARbFjEEvnAACj_umbra_connection
+disconnect
+Q-XjdCa-Ot0KTA7MAACk_umbra_connection
+MG37Di6yiAvHSfCGAACl_umbra_connection
+85GZMyUb7xlu93lRAACm_umbra_connection
+_cWYZI3Ab8ORHLFdAACn_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+3nv2T-okfSf-bLhyAACo_umbra_connection
+L86gmruW_CkP-M36AACp_umbra_connection
+ZWwMLY-3HRVnUfDoAACq_umbra_connection
+disconnect
+disconnect
+disconnect
+48uuzMDegXlqc2V1AACr_umbra_connection
+disconnect
+003T8TlFGvJEmgQjAACs_umbra_connection
+jxjXlGnk-7N813F4AACt_umbra_connection
+disconnect
+disconnect
+v0ps4M8SBwlqxyXKAACu_umbra_connection
+7iqbyIg2tNV27jNdAACv_umbra_connection
+mtV7YP4kBILuycYwAACw_umbra_connection
+aZOv9C6fiY70pAZnAACx_umbra_connection
+CNjwPw8FmF0vxef7AACy_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+disconnect
+bBOzzVG0v_3WtZWOAACz_umbra_connection
+dOEiod5yMneXu82LAAC0_umbra_connection
+3E38EaWvvwSVGKKgAAC1_umbra_connection
+disconnect
+disconnect
+disconnect
+R9Wph3LWWjaTZkNgAAC2_umbra_connection
+disconnect
+9pdvQY5dpRje8lUVAAC3_umbra_connection
+disconnect
+2z0v855O-TkJB4rCAAC4_umbra_connection
+disconnect
+A0XNnd-s6klQf0ppAAC5_umbra_connection
+disconnect
+vruMTwiXgYagaU4cAAC6_umbra_connection
+disconnect
+qz1_f7nADemf6wpCAAC7_umbra_connection
+disconnect
+WSe2XE3I1wL0jhv7AAC8_umbra_connection
+disconnect
+ZQfHFlkxWC-yjiuAAAC9_umbra_connection
+disconnect
+sAo7JcIE0GLq9Q1ZAAC-_umbra_connection
+disconnect
+PhtCrCQgXlkQ1SFfAAC__umbra_connection
+disconnect
+ADoSrXUUPFRalkFoAADA_umbra_connection
+disconnect
+wwh8MKAI3wPc3i2ZAADB_umbra_connection
+disconnect
+AydU2oojtm4cJYmnAADC_umbra_connection
+disconnect
+ijNGI6dnmLjm277VAADD_umbra_connection
+disconnect
+2S1ccLg6fxncqQSvAADE_umbra_connection
+disconnect
+sy0AzLn6vXSd-ccBAADF_umbra_connection
+disconnect
+f2qFh8-4QipR8RxaAADG_umbra_connection
+disconnect
+Bhv78W4bgqWf7hF-AADH_umbra_connection
+Jy7DVaS0gnmiVor2AADI_umbra_connection
+pesmRaNDbkmla6Y3AADJ_umbra_connection
+disconnect
+disconnect
+disconnect
+YHaFP4wiPQhUjCH7AADK_umbra_connection
+disconnect
+5H6gzMFpMJIN7vgsAADL_umbra_connection
+disconnect
+3SzWaVkzAJ40HSqmAADM_umbra_connection
+disconnect
+C9pUvV6muniOxbLrAADN_umbra_connection
+disconnect
+_L7iDS2-zEpuUSxbAADO_umbra_connection
+disconnect
+Y6VzPwAbyeJQrLquAADP_umbra_connection
+RDOIe0Iaj3xhQN9wAADQ_umbra_connection
+V0FgkFafafvJtYWvAADR_umbra_connection
+disconnect
+disconnect
+disconnect
+z1GqDPWb9AUJ3mpSAADS_umbra_connection
+aG7dEf_RRTFOpA7_AADT_umbra_connection
+SCJ3pdcV3ct_jTkbAADU_umbra_connection
+a35vfXNL98RwudafAADV_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+PepSCxiwGHwtrYHGAADW_umbra_connection
+hlkYtkTuRC3wyQZUAADX_umbra_connection
+disconnect
+disconnect
+QmbS6kRt2tiqbpFbAADY_umbra_connection
+q9B3Dz9ZvSO2ZxRpAADZ_umbra_connection
+disconnect
+disconnect
+J0uq-V1c-05aEzqrAADa_umbra_connection
+yMxus4G5mbcMjPzbAADb_umbra_connection
+6SIa_l2oSi-TQSw1AADc_umbra_connection
+disconnect
+disconnect
+disconnect
+GtqC5MviJQF1mvrlAADd_umbra_connection
+disconnect
+1n5NytfL9IxYEOTEAADe_umbra_connection
+disconnect
+WIB8g8pQZWBAO9dvAADf_umbra_connection
+disconnect
+szZpCFfJ98BKH8gjAADg_umbra_connection
+3jNhixTfQOJcsRioAADh_umbra_connection
+disconnect
+disconnect
+mIt3sKrmV4lllMXAAADi_umbra_connection
+disconnect
+cTRCb6LHDrnbyxYwAADj_umbra_connection
+disconnect
+P-S9-2nbTPgMX09AAADk_umbra_connection
+disconnect
+TGxmQLihVUtWSSzQAADl_umbra_connection
+disconnect
+HYoUNHzuZyvWZ_A3AADm_umbra_connection
+disconnect
+Ntya1U-HbqhTdt6dAADn_umbra_connection
+aeB3yrUTTwC_N8A8AADo_umbra_connection
+HG0DMLY9K0dD8LkRAADp_umbra_connection
+wqRsfBACvDd9hn48AADq_umbra_connection
+disconnect
+disconnect
+disconnect
+disconnect
+fCEO4zQA9DkzQQWNAADr_umbra_connection
+vCubRbKOCgfVvMNHAADs_umbra_connection
+disconnect
+disconnect
+KmWiby79y7FvbIIaAADt_admin_connection
+disconnect
+Pfi5UIXwZeLrVOqPAADu_umbra_connection
+disconnect
+PQS0aAIP2zND7bXZAADv_umbra_connection
+disconnect
+onFaj2nKkHBal7L9AADw_umbra_connection
+disconnect
+NaFyyFgtMFcmP37UAADx_umbra_connection
+disconnect
+qtIPQPq4Epbl2M6uAADy_umbra_connection
+00aznf-td9a8AIBtAADz_umbra_connection
+disconnect
+disconnect
+WNnqeSgnaA33cxvaAAD0_umbra_connection
+disconnect
+krm6BJhWGUltqCfcAAD1_umbra_connection
+disconnect
+pcQoN5-xTpEKccgPAAD2_umbra_connection
+disconnect
+bo1tI3w8zTKKrRSdAAD3_umbra_connection
+disconnect
+3-wTlRI05pwB9c2wAAD4_umbra_connection
+disconnect
+WWLZIZ-HkIbo0ymOAAD5_umbra_connection
+disconnect
+RMH3BMid0xmVVZErAAD6_umbra_connection
+LhZszRXDdYo9Dej0AAD7_umbra_connection
+disconnect
+disconnect
+2q88cTzE0RLTICu8AAD8_umbra_connection
+disconnect
+3yO9n5SQ5K0WfdchAAD9_umbra_connection
+disconnect
+2c5IA3QQrE-frU16AAD-_umbra_connection
+4_LDLJGmGJOXnCgeAAD__umbra_connection
+disconnect
+disconnect
+eUMDg98yyyluGYanAAEA_umbra_connection
+disconnect
+cC3KuEmw_KEgIAq6AAEB_umbra_connection
+disconnect
+v3VLgg2_RRr3pkh8AAEC_umbra_connection
+disconnect
+xl1jVQNUnU2f93ITAAED_umbra_connection
+disconnect
+_5X-rNA_eNwO-z3LAAEE_umbra_connection
+disconnect
+wzqQWsfCJ9V5p0mqAAEF_umbra_connection
+disconnect
+VLTyi17siZby7gZKAAEG_umbra_connection
+disconnect
+cOGvpl2OkEhOEPHcAAEH_umbra_connection
+disconnect
+Ax4NgpqXFUm3kfoGAAEI_umbra_connection
+disconnect
+5Tzmaxj2K0AY1Ot2AAEJ_umbra_connection
+disconnect
